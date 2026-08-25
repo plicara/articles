@@ -529,3 +529,86 @@ figs, tables = validate(page)
 OUT_HTML.write_text(page)
 print(f"wrote {OUT_MD}  ({len(md):,} bytes)")
 print(f"wrote {OUT_HTML}  ({len(page):,} bytes, {figs} figures, {tables} tables, validated)")
+
+
+# ---------------------------------------------------------------- site copy
+# The site renders markdown with the same extension set and passes raw HTML
+# through, so the charts can ship inline rather than as flat images. They are
+# restyled against the site's own tokens, including --pl-series-1 and
+# --pl-series-2, which exist for exactly this and carry their own light and
+# dark values, so the figures theme with the page instead of fighting it.
+SITE_STYLE = """<style>
+.pl-fig { margin: 2.4rem 0; }
+.pl-fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+.pl-fig .figlabel { font-family: var(--pl-font-mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--pl-text-muted);
+  display: block; margin-bottom: .9rem; }
+.pl-fig figcaption { font-family: var(--pl-font-mono); font-size: .74rem;
+  line-height: 1.55; color: var(--pl-text-muted); margin-top: .9rem; }
+.pl-fig .lbl { font-size: 18px; fill: var(--pl-text); }
+.pl-fig .lbl .native { fill: var(--pl-text-muted); }
+.pl-fig .val { font-size: 18px; fill: var(--pl-text-muted); font-weight: 500;
+  font-variant-numeric: tabular-nums; }
+.pl-fig .axis { font-size: 15.5px; fill: var(--pl-text-muted);
+  font-variant-numeric: tabular-nums; }
+.pl-fig .grid { stroke: var(--pl-rule); stroke-width: 1; }
+.pl-fig .ci { fill: var(--pl-series-1); opacity: .18; }
+.pl-fig .trendline { fill: none; stroke: var(--pl-series-2); stroke-width: 2.4;
+  stroke-linejoin: round; }
+.pl-fig .dot { fill: var(--pl-series-2); }
+.pl-fig .dot.partial { fill: var(--pl-bg); stroke: var(--pl-series-2); stroke-width: 2; }
+.pl-fig .censored { fill: var(--pl-rule); opacity: .35; }
+.pl-fig .copybar { fill: var(--pl-series-2); }
+.pl-fig .wedge { fill: var(--pl-series-2); opacity: .85; }
+.pl-fig .wedge.night { fill: var(--pl-series-1); opacity: .9; }
+.pl-fig .dialring { fill: none; stroke: var(--pl-rule); }
+.pl-fig .dialpct { font-family: var(--pl-font-mono); font-size: 26px;
+  font-weight: 600; fill: var(--pl-text); text-anchor: middle;
+  font-variant-numeric: tabular-nums; }
+.pl-dials { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; }
+.pl-dial-label { text-align: center; margin-top: .35rem; display: grid; gap: .05rem;
+  font-family: var(--pl-font-mono); font-size: .58rem; color: var(--pl-text-muted);
+  line-height: 1.3; overflow-wrap: anywhere; }
+.pl-dial-label strong { color: var(--pl-text); font-size: .66rem; font-weight: 500; }
+.pl-panels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem 1.2rem; }
+.pl-panels .axis { font-size: 11px; }
+.pl-panel-label { display: flex; justify-content: space-between; align-items: baseline;
+  gap: .5rem; margin-top: .2rem; font-family: var(--pl-font-mono); }
+.pl-panel-label strong { color: var(--pl-text); font-size: .86rem; font-weight: 600; }
+.pl-panel-label .delta { font-size: .7rem; font-weight: 600;
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pl-panel-label .dwin { font-weight: 400; color: var(--pl-text-muted); font-size: .66rem; }
+</style>"""
+
+
+def site_markdown(md_text):
+    """article.md with the figure markers replaced by inline, themed SVG."""
+    out = md_text
+    for n, chart in CHARTS.items():
+        svg = chart()
+        # site classes, and the two series colours the site already defines
+        svg = (svg.replace('class="dials"', 'class="pl-dials"')
+                  .replace('class="dial"', 'class="pl-dial"')
+                  .replace('class="dial-label"', 'class="pl-dial-label"')
+                  .replace('class="panels"', 'class="pl-panels"')
+                  .replace('class="panel"', 'class="pl-panel"')
+                  .replace('class="panel-label"', 'class="pl-panel-label"')
+                  .replace("var(--c-other)", "var(--pl-series-2)")
+                  .replace("var(--c-en)", "var(--pl-series-1)")
+                  .replace("var(--ground)", "var(--pl-bg)"))
+        marker = re.search(rf"`\[FIG-{n}:(.*?)\]`", out, re.S)
+        label = marker.group(1).strip() if marker else ""
+        block = (f'<figure class="pl-fig">\n<span class="figlabel">{esc(label)}</span>\n'
+                 f'{svg}\n<figcaption>{CAPTIONS[n]}</figcaption>\n</figure>')
+        out = re.sub(rf"`\[FIG-{n}:.*?\]`", lambda _: block, out, count=1, flags=re.S)
+    left = re.findall(r"\[FIG-\d+", out)
+    if left:
+        raise SystemExit(f"site copy still has markers: {left}")
+    # style block goes after the front matter so the site parses metadata first
+    end = out.index("\n---\n", 3) + 5
+    return out[:end] + "\n" + SITE_STYLE + "\n" + out[end:]
+
+
+SITE_OUT = ART / "article.site.md"
+SITE_OUT.write_text(site_markdown(md))
+print(f"wrote {SITE_OUT}  ({len(SITE_OUT.read_text()):,} bytes, site tokens)")
