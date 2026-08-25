@@ -30,11 +30,14 @@ duplicate them. Scripts are grouped by article inside `scripts/`.
 
 ## What's here
 
-Nothing yet. The first project lands when its article publishes.
+| Project | Articles |
+|---|---|
+| [`gitskills-analysis/`](gitskills-analysis) | The GitSkills series, on 3.8M `SKILL.md` agent-skill files from GitHub. Article 01: what natural language are agent skills written in? |
 
-Code arrives here only once the piece that uses it is out. Until then it
-lives in the workbench alongside the draft, so there is one copy of the work
-rather than two that drift apart.
+Code arrives here only once the piece that uses it is out, so a folder may
+cover fewer articles than its series eventually runs to. Until then it lives
+in the workbench alongside the draft, so there is one copy of the work
+instead of two that drift apart.
 
 ## Running anything here
 

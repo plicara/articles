@@ -1,0 +1,9 @@
+{
+  "documents": 29596,
+  "agreement_pct": 97.6,
+  "ours_english_pct": 85.3,
+  "theirs_english_pct": 86.6,
+  "delta_points": 1.2,
+  "ours_tool": "py3langid",
+  "theirs_tool": "fast-langdetect"
+}
