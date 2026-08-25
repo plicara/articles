@@ -9,7 +9,6 @@ numbers is published here once the piece is out.
 ## Layout
 
 ```
-shared/       what every project needs
 <project>/    one folder per project, self-contained
 ```
 
