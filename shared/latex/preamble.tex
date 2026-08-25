@@ -3,6 +3,9 @@
 % Brand values below are vendored copies from plicara-brand
 % (tokens/print.json). One direction only: change a colour upstream, then
 % update the copy here, never the reverse.
+%
+% A byte-identical twin of this file lives in plicara/articles-workbench
+% (shared/latex/preamble.tex); change them together or not at all.
 
 \usepackage[a4paper, margin=2.8cm]{geometry}
 \usepackage[T1]{fontenc}
@@ -11,11 +14,11 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{xcolor}
-\usepackage[colorlinks=true, allcolors=fhorange]{hyperref}
+\usepackage[colorlinks=true, allcolors=plorange]{hyperref}
 
 % plicara-brand tokens/print.json: "orange", the one hot colour.
 % Print: CMYK 3/55/93/0 (SWOP separation, delta E 0.55).
-\definecolor{fhorange}{HTML}{EE8B33}
+\definecolor{plorange}{HTML}{EE8B33}
 
 % Brand faces (Fraunces, Newsreader) exist only as woff2 in the site repo,
 % which LaTeX cannot load, so papers set Palatino until installable fonts

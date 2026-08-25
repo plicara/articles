@@ -251,6 +251,25 @@ wheels = [
 ]
 
 [[package]]
+name = "gitskills-analysis"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "duckdb" },
+    { name = "fast-langdetect" },
+    { name = "markdown" },
+    { name = "py3langid" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "duckdb", specifier = ">=1.5" },
+    { name = "fast-langdetect", specifier = ">=1.0.1" },
+    { name = "markdown", specifier = ">=3.5" },
+    { name = "py3langid", specifier = ">=0.3" },
+]
+
+[[package]]
 name = "idna"
 version = "3.19"
 source = { registry = "https://pypi.org/simple" }
@@ -380,25 +399,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/63/20/8d28efa080f58fa06f6378875ac482ee511c076369e5293a2e65128cf9a0/robust-downloader-0.0.2.tar.gz", hash = "sha256:08c938b96e317abe6b037e34230a91bda9b5d613f009bca4a47664997c61de90", size = 15785, upload-time = "2023-11-13T03:00:20.637Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/56/a1/779e9d0ebbdc704411ce30915a1105eb01aeaa9e402d7e446613ff8fb121/robust_downloader-0.0.2-py3-none-any.whl", hash = "sha256:8fe08bfb64d714fd1a048a7df6eb7b413eb4e624309a49db2c16fbb80a62869d", size = 15534, upload-time = "2023-11-13T03:00:18.957Z" },
-]
-
-[[package]]
-name = "skills-analysis"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "duckdb" },
-    { name = "fast-langdetect" },
-    { name = "markdown" },
-    { name = "py3langid" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "duckdb", specifier = ">=1.5" },
-    { name = "fast-langdetect", specifier = ">=1.0.1" },
-    { name = "markdown", specifier = ">=3.5" },
-    { name = "py3langid", specifier = ">=0.3" },
 ]
 
 [[package]]

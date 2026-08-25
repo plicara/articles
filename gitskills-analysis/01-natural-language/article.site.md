@@ -1,0 +1,382 @@
+---
+title: What language are agent skills written in?
+date: 2026-08-24
+summary: 3.8 million AI agent instruction files on GitHub, read by a model that speaks every language. So why are 85.3% of them in English, and what is changing?
+authors: Plicara Research
+slug: agent-skill-languages
+---
+
+<style>
+.pl-fig { margin: 2.4rem 0; }
+.pl-fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+.pl-fig .figlabel { font-family: var(--pl-font-mono); font-size: .68rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--pl-text-muted);
+  display: block; margin-bottom: .9rem; }
+.pl-fig figcaption { font-family: var(--pl-font-mono); font-size: .74rem;
+  line-height: 1.55; color: var(--pl-text-muted); margin-top: .9rem; }
+.pl-fig .lbl { font-size: 18px; fill: var(--pl-text); }
+.pl-fig .lbl .native { fill: var(--pl-text-muted); }
+.pl-fig .val { font-size: 18px; fill: var(--pl-text-muted); font-weight: 500;
+  font-variant-numeric: tabular-nums; }
+.pl-fig .axis { font-size: 15.5px; fill: var(--pl-text-muted);
+  font-variant-numeric: tabular-nums; }
+.pl-fig .grid { stroke: var(--pl-rule); stroke-width: 1; }
+.pl-fig .ci { fill: var(--pl-series-1); opacity: .18; }
+.pl-fig .trendline { fill: none; stroke: var(--pl-series-2); stroke-width: 2.4;
+  stroke-linejoin: round; }
+.pl-fig .dot { fill: var(--pl-series-2); }
+.pl-fig .dot.partial { fill: var(--pl-bg); stroke: var(--pl-series-2); stroke-width: 2; }
+.pl-fig .censored { fill: var(--pl-rule); opacity: .35; }
+.pl-fig .copybar { fill: var(--pl-series-2); }
+.pl-fig .wedge { fill: var(--pl-series-2); opacity: .85; }
+.pl-fig .wedge.night { fill: var(--pl-series-1); opacity: .9; }
+.pl-fig .dialring { fill: none; stroke: var(--pl-rule); }
+.pl-fig .dialpct { font-family: var(--pl-font-mono); font-size: 26px;
+  font-weight: 600; fill: var(--pl-text); text-anchor: middle;
+  font-variant-numeric: tabular-nums; }
+.pl-dials { display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem; }
+.pl-dial-label { text-align: center; margin-top: .35rem; display: grid; gap: .05rem;
+  font-family: var(--pl-font-mono); font-size: .58rem; color: var(--pl-text-muted);
+  line-height: 1.3; overflow-wrap: anywhere; }
+.pl-dial-label strong { color: var(--pl-text); font-size: .66rem; font-weight: 500; }
+.pl-panels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.6rem 1.2rem; }
+.pl-panels .axis { font-size: 11px; }
+.pl-panel-label { display: flex; justify-content: space-between; align-items: baseline;
+  gap: .5rem; margin-top: .2rem; font-family: var(--pl-font-mono); }
+.pl-panel-label strong { color: var(--pl-text); font-size: .86rem; font-weight: 600; }
+.pl-panel-label .delta { font-size: .7rem; font-weight: 600;
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pl-panel-label .dwin { font-weight: 400; color: var(--pl-text-muted); font-size: .66rem; }
+</style>
+
+In the first quarter of 2026, 13.0% of newly written agent skills were in a language other than English, and one quarter later it was 16.3%. That is three points in three months across 255,068 skills, with confidence intervals nowhere near touching. For comparison, GitHub-wide non-English documentation took ten years to travel from 3.7% to 13.0%, so whatever is happening here is happening at a different speed entirely, and the most plausible explanation is that AI development has arrived somewhere other than San Francisco.
+
+Reviewing the data, it turns out that the claim is stronger than the obvious version of it, because **English is not a proxy for American**. GitHub's fastest-growing developer population by a wide margin is India, which writes in English, as do Nigeria and Singapore, so a language count cannot see any of them. The non-English share is therefore not a measure of how much of this ecosystem sits outside the United States. It is a floor beneath it, and everything below should be read that way.
+
+For context, a skill is a `SKILL.md` file in a folder, holding instructions for an AI agent in plain prose, loaded when the agent judges the task relevant. Anthropic published the specification in October 2025, and it spreads the way a recipe spreads: somebody copies it. Nine months later there were 3.8 million of them across 282,200 public repositories, which is what the [GitSkills dataset](https://arxiv.org/abs/2608.10906) collects. Skills are strange as software, by which we mean the traditional kind, because this is one of the things AI has upended. They are written in human language and the runtime is a multilingual model, so there is no technical reason to write one in English: a developer in Shenzhen or São Paulo can state a procedure more precisely in their own language, and the agent will follow it. Whether it follows it as *well* is a better question, and much harder to answer than anything a file crawl can settle.
+
+## the distribution
+
+We ran language identification over the prose body of every distinct skill, after stripping front matter and fenced code.
+
+<figure class="pl-fig">
+<span class="figlabel">horizontal bar chart, language distribution</span>
+<svg viewBox="0 0 900 288" role="img"
+     aria-label="Language distribution of agent skills">
+    <text x="330" y="17" class="lbl" text-anchor="end">English</text>
+    <rect x="348" y="3" width="430.0" height="20" rx="1.5" fill="var(--pl-series-1)"/>
+    <text x="790.0" y="17" class="val">85.3%</text>
+    <text x="330" y="53" class="lbl" text-anchor="end">Chinese <tspan class="native">中文</tspan></text>
+    <rect x="348" y="39" width="31.3" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="391.3" y="53" class="val">6.2%</text>
+    <text x="330" y="89" class="lbl" text-anchor="end">Japanese <tspan class="native">日本語</tspan></text>
+    <rect x="348" y="75" width="8.6" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="368.6" y="89" class="val">1.7%</text>
+    <text x="330" y="125" class="lbl" text-anchor="end">German <tspan class="native">Deutsch</tspan></text>
+    <rect x="348" y="111" width="8.1" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="368.1" y="125" class="val">1.6%</text>
+    <text x="330" y="161" class="lbl" text-anchor="end">Korean <tspan class="native">한국어</tspan></text>
+    <rect x="348" y="147" width="6.0" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="366.0" y="161" class="val">1.2%</text>
+    <text x="330" y="197" class="lbl" text-anchor="end">Portuguese <tspan class="native">Português</tspan></text>
+    <rect x="348" y="183" width="5.5" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="365.5" y="197" class="val">1.1%</text>
+    <text x="330" y="233" class="lbl" text-anchor="end">Spanish <tspan class="native">Español</tspan></text>
+    <rect x="348" y="219" width="4.5" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="364.5" y="233" class="val">0.9%</text>
+    <text x="330" y="269" class="lbl" text-anchor="end">French <tspan class="native">Français</tspan></text>
+    <rect x="348" y="255" width="2.0" height="20" rx="1.5" fill="var(--pl-series-2)"/>
+    <text x="362.0" y="269" class="val">0.4%</text>
+</svg>
+<figcaption>1,870,299 distinct skill contents. The 14.3% that are not English are led by Chinese.</figcaption>
+</figure>
+
+| Language | Share of distinct skills |
+|---|---|
+| English | 85.3% |
+| Chinese | 6.2% |
+| Japanese | 1.7% |
+| German | 1.6% |
+| Korean | 1.2% |
+| Portuguese | 1.1% |
+| Spanish | 0.9% |
+| French | 0.4% |
+
+So 14.3% of skills are not in English, and split by script the Chinese ones run 104,985 simplified against 9,112 traditional. The rows above do not quite sum to that, because 6,810 skills came back below our confidence floor and are counted as neither. The comparison worth making is against GitHub's own documentation instead of its issues or pull requests, and a [2026 ICSE study](https://arxiv.org/abs/2602.19446) put repository documentation at 13.0% non-English, with Chinese at 3.3% of repositories. In aggregate that makes skills unremarkable, 14.3% against 13.0% being a dead heat. They are markedly more Chinese, though, 6.2% against 3.3%.
+
+## why every published number disagrees
+
+Ours is not the only published figure, and the published figures do not agree with each other.
+
+| Reported English share | Corpus | Method |
+|---|---|---|
+| 65.0% | 557 healthcare skills, ClawHub ([2605.02709](https://arxiv.org/abs/2605.02709)) | not stated |
+| 81.8% | 26,502 skills, ClawHub ([2604.13064](https://arxiv.org/abs/2604.13064)) | not stated |
+| **85.3%** | **1,870,299 distinct, GitHub (ours)** | py3langid, conf >= 0.80 |
+| 92.6% | 133,149 skills, skills.sh ([2607.01456](https://arxiv.org/abs/2607.01456)) | fast-langdetect |
+| 99.7% | English-seeded crawl ([2606.03565](https://arxiv.org/abs/2606.03565)) | seeded |
+
+These are not contradictions, they are five different populations: curated marketplaces skew English, domain slices skew toward wherever that domain happens to be active, and a crawl seeded with English queries will find English. The first candidate to rule out is us, because if our identifier simply saw less English than everyone else's then the whole comparison would be an artifact of tooling. So we ran both over the same documents, py3langid which we use and fast-langdetect which the 92.6% study used. They agree on 97.6% of documents, and their English shares sit +1.2 points apart against a gap of around seven. Quality screening looks like the next good candidate and leads nowhere either: if corpora that filter for valid front matter were quietly discarding non-English skills that would explain some of the spread, but non-English skills have slightly *better* front-matter validity, 88.1% against 86.6%, and filtering moves the English share only from 85.6% to 85.4%. What is left is where you looked. That generalises well past this dataset, so when someone tells you what "the AI ecosystem" looks like, the registry they scraped may hold more of the answer than anything else they say.
+
+## skills are getting less English
+
+Skills carry commit history, so each one has a creation date, and that turns a static pie chart into a trend.
+
+<figure class="pl-fig">
+<span class="figlabel">non-English share by month, with confidence band</span>
+<svg viewBox="0 0 900 300" role="img"
+     aria-label="Non-English share of newly created skills by month">
+  <line x1="46" y1="266.0" x2="882" y2="266.0" class="grid"/><text x="36" y="270.0" class="axis" text-anchor="end">0%</text><line x1="46" y1="182.0" x2="882" y2="182.0" class="grid"/><text x="36" y="186.0" class="axis" text-anchor="end">8%</text><line x1="46" y1="98.0" x2="882" y2="98.0" class="grid"/><text x="36" y="102.0" class="axis" text-anchor="end">16%</text><line x1="46" y1="14.0" x2="882" y2="14.0" class="grid"/><text x="36" y="18.0" class="axis" text-anchor="end">24%</text><rect x="868.0" y="14" width="14.0" height="252" class="censored"/>
+  <polygon points="46.0,159.9 138.9,177.8 231.8,130.6 324.7,123.2 417.6,148.4 510.4,114.8 603.3,101.1 696.2,98.0 789.1,79.1 882.0,93.8 882.0,101.1 789.1,84.4 696.2,103.2 603.3,106.4 510.4,119.0 417.6,153.7 324.7,133.7 231.8,147.3 138.9,195.7 46.0,192.5" class="ci"/>
+  <polyline points="46.0,177.8 138.9,187.2 231.8,138.9 324.7,128.5 417.6,151.6 510.4,116.9 603.3,104.3 696.2,101.1 789.1,81.2 882.0,96.9" class="trendline"/>
+  <circle cx="46.0" cy="177.8" r="4" class="dot"/><circle cx="138.9" cy="187.2" r="4" class="dot"/><circle cx="231.8" cy="138.9" r="4" class="dot"/><circle cx="324.7" cy="128.5" r="4" class="dot"/><circle cx="417.6" cy="151.6" r="4" class="dot"/><circle cx="510.4" cy="116.9" r="4" class="dot"/><circle cx="603.3" cy="104.3" r="4" class="dot"/><circle cx="696.2" cy="101.1" r="4" class="dot"/><circle cx="789.1" cy="81.2" r="4" class="dot"/><circle cx="882.0" cy="96.9" r="3" class="dot partial"/><text x="46.0" y="288" class="axis" text-anchor="start">25·10</text><text x="138.9" y="288" class="axis" text-anchor="middle">25·11</text><text x="231.8" y="288" class="axis" text-anchor="middle">25·12</text><text x="324.7" y="288" class="axis" text-anchor="middle">26·01</text><text x="417.6" y="288" class="axis" text-anchor="middle">26·02</text><text x="510.4" y="288" class="axis" text-anchor="middle">26·03</text><text x="603.3" y="288" class="axis" text-anchor="middle">26·04</text><text x="696.2" y="288" class="axis" text-anchor="middle">26·05</text><text x="789.1" y="288" class="axis" text-anchor="middle">26·06</text><text x="882.0" y="288" class="axis" text-anchor="end">26·07</text>
+</svg>
+<figcaption>Band is the 95% Wilson interval. July 2026 is shaded: collection ran mid-month, so that cohort is censored and excluded from comparisons.</figcaption>
+</figure>
+
+| Quarter | Non-English share |
+|---|---|
+| 2026 Q1 | 13.0% [12.8, 13.1] |
+| 2026 Q2 | **16.3%** [16.1, 16.4] |
+
+Month by month the climb is not smooth, since February dips to 10.9% before March resumes at 14.2%, but the direction across the window is not in doubt: 13.1% in January against 17.6% in June. That is roughly what you would expect of a format eighteen months old, since new artifact types acquire their demographics much faster than mature ones when there is no incumbency to overcome. But "non-English" is not one thing, and broken out, the rise turns out to be carried by two of the four groups rather than by all of them.
+
+<figure class="pl-fig">
+<span class="figlabel">small multiples, share by quarter per language, with confidence bands</span>
+<div class="pl-panels">
+  <div class="pl-panel">
+    <svg viewBox="0 0 232 168" role="img"
+         aria-label="Chinese share of new skills by quarter">
+      <line x1="34" y1="138.0" x2="220" y2="138.0" class="grid"/><line x1="34" y1="77.0" x2="220" y2="77.0" class="grid"/><line x1="34" y1="16.0" x2="220" y2="16.0" class="grid"/><text x="27" y="142.0" class="axis" text-anchor="end">0%</text><text x="27" y="81.0" class="axis" text-anchor="end">4%</text><text x="27" y="20.0" class="axis" text-anchor="end">8%</text>
+      <polygon points="34.0,16.0 80.5,83.1 127.0,70.9 173.5,55.6 220.0,69.4 220.0,75.5 173.5,58.7 127.0,75.5 80.5,93.8 34.0,116.6" fill="var(--pl-series-2)" opacity=".15"/>
+      <polyline points="34.0,60.2 80.5,89.2 127.0,73.9 173.5,57.2 220.0,72.4" fill="none" stroke="var(--pl-series-2)"
+                stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="34.0" cy="60.2" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="80.5" cy="89.2" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="127.0" cy="73.9" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="173.5" cy="57.2" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="220.0" cy="72.4" r="2.6" fill="var(--pl-bg)" stroke="var(--pl-series-2)" stroke-width="2"/><text x="34.0" y="154" class="axis" text-anchor="start">25-Q3</text><text x="220.0" y="154" class="axis" text-anchor="end">26-Q3</text>
+    </svg>
+    <div class="pl-panel-label"><strong>Chinese</strong>
+      <span class="delta" style="color:var(--pl-series-2)">+2.1 pts
+      <span class="dwin">25-Q4&thinsp;&rarr;&thinsp;26-Q2</span>
+      </span></div>
+  </div>
+  <div class="pl-panel">
+    <svg viewBox="0 0 232 168" role="img"
+         aria-label="Japanese share of new skills by quarter">
+      <line x1="34" y1="138.0" x2="220" y2="138.0" class="grid"/><line x1="34" y1="77.0" x2="220" y2="77.0" class="grid"/><line x1="34" y1="16.0" x2="220" y2="16.0" class="grid"/><text x="27" y="142.0" class="axis" text-anchor="end">0%</text><text x="27" y="81.0" class="axis" text-anchor="end">4%</text><text x="27" y="20.0" class="axis" text-anchor="end">8%</text>
+      <polygon points="34.0,16.0 80.5,80.0 127.0,87.7 173.5,99.9 220.0,83.1 220.0,89.2 173.5,101.4 127.0,90.7 80.5,90.7 34.0,138.0" fill="var(--pl-series-1)" opacity=".15"/>
+      <polyline points="34.0,138.0 80.5,84.6 127.0,89.2 173.5,99.9 220.0,86.1" fill="none" stroke="var(--pl-series-1)"
+                stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="34.0" cy="138.0" r="3.4" fill="var(--pl-series-1)" stroke="var(--pl-series-1)" stroke-width="0"/><circle cx="80.5" cy="84.6" r="3.4" fill="var(--pl-series-1)" stroke="var(--pl-series-1)" stroke-width="0"/><circle cx="127.0" cy="89.2" r="3.4" fill="var(--pl-series-1)" stroke="var(--pl-series-1)" stroke-width="0"/><circle cx="173.5" cy="99.9" r="3.4" fill="var(--pl-series-1)" stroke="var(--pl-series-1)" stroke-width="0"/><circle cx="220.0" cy="86.1" r="2.6" fill="var(--pl-bg)" stroke="var(--pl-series-1)" stroke-width="2"/><text x="34.0" y="154" class="axis" text-anchor="start">25-Q3</text><text x="220.0" y="154" class="axis" text-anchor="end">26-Q3</text>
+    </svg>
+    <div class="pl-panel-label"><strong>Japanese</strong>
+      <span class="delta" style="color:var(--pl-series-1)">-1.0 pts
+      <span class="dwin">25-Q4&thinsp;&rarr;&thinsp;26-Q2</span>
+      </span></div>
+  </div>
+  <div class="pl-panel">
+    <svg viewBox="0 0 232 168" role="img"
+         aria-label="Korean share of new skills by quarter">
+      <line x1="34" y1="138.0" x2="220" y2="138.0" class="grid"/><line x1="34" y1="77.0" x2="220" y2="77.0" class="grid"/><line x1="34" y1="16.0" x2="220" y2="16.0" class="grid"/><text x="27" y="142.0" class="axis" text-anchor="end">0%</text><text x="27" y="81.0" class="axis" text-anchor="end">4%</text><text x="27" y="20.0" class="axis" text-anchor="end">8%</text>
+      <polygon points="34.0,16.0 80.5,107.5 127.0,102.9 173.5,107.5 220.0,99.9 220.0,104.5 173.5,109.0 127.0,106.0 80.5,115.1 34.0,138.0" fill="var(--pl-series-2)" opacity=".15"/>
+      <polyline points="34.0,138.0 80.5,112.1 127.0,104.5 173.5,107.5 220.0,102.9" fill="none" stroke="var(--pl-series-2)"
+                stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="34.0" cy="138.0" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="80.5" cy="112.1" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="127.0" cy="104.5" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="173.5" cy="107.5" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="220.0" cy="102.9" r="2.6" fill="var(--pl-bg)" stroke="var(--pl-series-2)" stroke-width="2"/><text x="34.0" y="154" class="axis" text-anchor="start">25-Q3</text><text x="220.0" y="154" class="axis" text-anchor="end">26-Q3</text>
+    </svg>
+    <div class="pl-panel-label"><strong>Korean</strong>
+      <span class="delta" style="color:var(--pl-series-2)">+0.3 pts
+      <span class="dwin">25-Q4&thinsp;&rarr;&thinsp;26-Q2</span>
+      </span></div>
+  </div>
+  <div class="pl-panel">
+    <svg viewBox="0 0 232 168" role="img"
+         aria-label="European share of new skills by quarter">
+      <line x1="34" y1="138.0" x2="220" y2="138.0" class="grid"/><line x1="34" y1="77.0" x2="220" y2="77.0" class="grid"/><line x1="34" y1="16.0" x2="220" y2="16.0" class="grid"/><text x="27" y="142.0" class="axis" text-anchor="end">0%</text><text x="27" y="81.0" class="axis" text-anchor="end">4%</text><text x="27" y="20.0" class="axis" text-anchor="end">8%</text>
+      <polygon points="34.0,16.0 80.5,115.1 127.0,95.3 173.5,52.6 220.0,63.3 220.0,69.4 173.5,55.6 127.0,98.4 80.5,121.2 34.0,130.4" fill="var(--pl-series-2)" opacity=".15"/>
+      <polyline points="34.0,98.4 80.5,118.2 127.0,96.8 173.5,54.1 220.0,66.3" fill="none" stroke="var(--pl-series-2)"
+                stroke-width="2.2" stroke-linejoin="round"/>
+      <circle cx="34.0" cy="98.4" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="80.5" cy="118.2" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="127.0" cy="96.8" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="173.5" cy="54.1" r="3.4" fill="var(--pl-series-2)" stroke="var(--pl-series-2)" stroke-width="0"/><circle cx="220.0" cy="66.3" r="2.6" fill="var(--pl-bg)" stroke="var(--pl-series-2)" stroke-width="2"/><text x="34.0" y="154" class="axis" text-anchor="start">25-Q3</text><text x="220.0" y="154" class="axis" text-anchor="end">26-Q3</text>
+    </svg>
+    <div class="pl-panel-label"><strong>European</strong>
+      <span class="delta" style="color:var(--pl-series-2)">+4.2 pts
+      <span class="dwin">25-Q4&thinsp;&rarr;&thinsp;26-Q2</span>
+      </span></div>
+  </div></div>
+<figcaption>Shaded band is the 95% Wilson interval; the hollow final point is the censored July cohort, plotted but never compared. European groups German, French, Spanish, Portuguese, Italian, Russian and Dutch.</figcaption>
+</figure>
+
+|  | 2026 Q1 | 2026 Q2 | Change |
+|---|---|---|---|
+| Chinese | 4.2% [4.1, 4.4] | 5.3% [5.2, 5.4] | +1.1 |
+| European | 2.7% [2.6, 2.8] | 5.5% [5.4, 5.6] | +2.8 |
+| Korean | 2.2% [2.1, 2.3] | 2.0% [1.9, 2.0] | -0.2 |
+| Japanese | 3.2% [3.1, 3.3] | 2.5% [2.4, 2.5] | -0.7 |
+
+European languages, by which we mean German, French, Spanish, Portuguese, Italian, Russian and Dutch grouped together, more than double across the window while Chinese climbs steadily, and Japanese and Korean do neither: Japanese was the most common non-English language at the end of 2025 and slipped through the first half of 2026 as everyone else arrived, while Korean stays flat throughout. The censored July cohort hints that Japanese is recovering, and we are not counting it. Changes are measured between the two complete quarters, 2026 Q1 and Q2, since the final column is the July collection month and is censored, so it appears in the chart but never in a comparison.
+
+### why we believe it
+
+A trend like this is exactly the kind of thing that turns out to be an artifact, so we spent longer trying to break it than we did finding it. Commit history exists for only 24% of skills, and that subsample leans toward heavily copied ones, which matters because copying turns out to be strongly related to language. The worry, in other words, is that we are watching a selection effect and not a change in what people write. Holding copies fixed at one, the rise is larger than the headline, 14.7% to 18.1%; counting each repository only once, so that no bulk uploader can swing it, the rise survives at 14.5% to 16.8%.
+
+## the clock
+
+Commit timestamps are stored in UTC, so an author's local timezone is gone before we ever see the file. But people mostly commit while they are awake, and if a group of skills is written by people in one part of the world, their commits should vanish during that region's night.
+
+<figure class="pl-fig">
+<span class="figlabel">24-hour dials, one per language</span>
+<div class="pl-dials">
+  <div class="pl-dial">
+    <svg viewBox="0 0 190 190" role="img" aria-label="Commit hours for English">
+      <circle cx="95.0" cy="95.0" r="80" class="dialring"/>
+      <path d="M95.0,69.0 A26,26 0 0 1 101.7,69.9 L110.5,37.3 A59.7,59.7 0 0 0 95.0,35.3 Z" class="wedge"/><path d="M101.7,69.9 A26,26 0 0 1 108.0,72.5 L122.6,47.3 A55.1,55.1 0 0 0 109.3,41.8 Z" class="wedge"/><path d="M108.0,72.5 A26,26 0 0 1 113.4,76.6 L137.8,52.2 A60.5,60.5 0 0 0 125.2,42.6 Z" class="wedge"/><path d="M113.4,76.6 A26,26 0 0 1 117.5,82.0 L152.9,61.6 A66.8,66.8 0 0 0 142.3,47.7 Z" class="wedge"/><path d="M117.5,82.0 A26,26 0 0 1 120.1,88.3 L152.3,79.7 A59.3,59.3 0 0 0 146.4,65.4 Z" class="wedge"/><path d="M120.1,88.3 A26,26 0 0 1 121.0,95.0 L151.2,95.0 A56.2,56.2 0 0 0 149.3,80.4 Z" class="wedge"/><path d="M121.0,95.0 A26,26 0 0 1 120.1,101.7 L165.1,113.8 A72.6,72.6 0 0 0 167.6,95.0 Z" class="wedge"/><path d="M120.1,101.7 A26,26 0 0 1 117.5,108.0 L149.5,126.5 A63.0,63.0 0 0 0 155.8,111.3 Z" class="wedge"/><path d="M117.5,108.0 A26,26 0 0 1 113.4,113.4 L137.1,137.1 A59.5,59.5 0 0 0 146.6,124.8 Z" class="wedge"/><path d="M113.4,113.4 A26,26 0 0 1 108.0,117.5 L128.3,152.7 A66.6,66.6 0 0 0 142.1,142.1 Z" class="wedge"/><path d="M108.0,117.5 A26,26 0 0 1 101.7,120.1 L112.1,158.7 A66.0,66.0 0 0 0 128.0,152.1 Z" class="wedge"/><path d="M101.7,120.1 A26,26 0 0 1 95.0,121.0 L95.0,153.1 A58.1,58.1 0 0 0 110.0,151.1 Z" class="wedge"/><path d="M95.0,121.0 A26,26 0 0 1 88.3,120.1 L78.4,157.1 A64.3,64.3 0 0 0 95.0,159.3 Z" class="wedge"/><path d="M88.3,120.1 A26,26 0 0 1 82.0,117.5 L58.8,157.8 A72.5,72.5 0 0 0 76.2,165.0 Z" class="wedge"/><path d="M82.0,117.5 A26,26 0 0 1 76.6,113.4 L45.8,144.2 A69.6,69.6 0 0 0 60.2,155.2 Z" class="wedge"/><path d="M76.6,113.4 A26,26 0 0 1 72.5,108.0 L34.1,130.2 A70.3,70.3 0 0 0 45.3,144.7 Z" class="wedge"/><path d="M72.5,108.0 A26,26 0 0 1 69.9,101.7 L23.5,114.2 A74.0,74.0 0 0 0 30.9,132.0 Z" class="wedge night"/><path d="M69.9,101.7 A26,26 0 0 1 69.0,95.0 L26.6,95.0 A68.4,68.4 0 0 0 28.9,112.7 Z" class="wedge night"/><path d="M69.0,95.0 A26,26 0 0 1 69.9,88.3 L27.0,76.8 A70.4,70.4 0 0 0 24.6,95.0 Z" class="wedge night"/><path d="M69.9,88.3 A26,26 0 0 1 72.5,82.0 L34.8,60.2 A69.5,69.5 0 0 0 27.8,77.0 Z" class="wedge night"/><path d="M72.5,82.0 A26,26 0 0 1 76.6,76.6 L49.6,49.6 A64.2,64.2 0 0 0 39.4,62.9 Z" class="wedge night"/><path d="M76.6,76.6 A26,26 0 0 1 82.0,72.5 L59.8,34.0 A70.5,70.5 0 0 0 45.2,45.2 Z" class="wedge night"/><path d="M82.0,72.5 A26,26 0 0 1 88.3,69.9 L78.3,32.5 A64.7,64.7 0 0 0 62.7,39.0 Z" class="wedge night"/><path d="M88.3,69.9 A26,26 0 0 1 95.0,69.0 L95.0,33.8 A61.2,61.2 0 0 0 79.2,35.9 Z" class="wedge night"/>
+      <text x="95.0" y="99.0" class="dialpct">35.7%</text>
+    </svg>
+    <div class="pl-dial-label"><strong>English</strong><span>n=384,979</span></div>
+  </div>
+  <div class="pl-dial">
+    <svg viewBox="0 0 190 190" role="img" aria-label="Commit hours for Chinese">
+      <circle cx="95.0" cy="95.0" r="80" class="dialring"/>
+      <path d="M95.0,69.0 A26,26 0 0 1 101.7,69.9 L106.6,51.7 A44.8,44.8 0 0 0 95.0,50.2 Z" class="wedge"/><path d="M101.7,69.9 A26,26 0 0 1 108.0,72.5 L115.7,59.2 A41.3,41.3 0 0 0 105.7,55.1 Z" class="wedge"/><path d="M108.0,72.5 A26,26 0 0 1 113.4,76.6 L136.2,53.8 A58.3,58.3 0 0 0 124.2,44.5 Z" class="wedge"/><path d="M113.4,76.6 A26,26 0 0 1 117.5,82.0 L145.1,66.0 A57.9,57.9 0 0 0 135.9,54.1 Z" class="wedge"/><path d="M117.5,82.0 A26,26 0 0 1 120.1,88.3 L145.2,81.6 A52.0,52.0 0 0 0 140.0,69.0 Z" class="wedge"/><path d="M120.1,88.3 A26,26 0 0 1 121.0,95.0 L152.0,95.0 A57.0,57.0 0 0 0 150.1,80.2 Z" class="wedge"/><path d="M121.0,95.0 A26,26 0 0 1 120.1,101.7 L149.0,109.5 A55.9,55.9 0 0 0 150.9,95.0 Z" class="wedge"/><path d="M120.1,101.7 A26,26 0 0 1 117.5,108.0 L150.4,127.0 A63.9,63.9 0 0 0 156.7,111.5 Z" class="wedge"/><path d="M117.5,108.0 A26,26 0 0 1 113.4,113.4 L139.6,139.6 A63.1,63.1 0 0 0 149.6,126.5 Z" class="wedge"/><path d="M113.4,113.4 A26,26 0 0 1 108.0,117.5 L132.0,159.1 A74.0,74.0 0 0 0 147.3,147.3 Z" class="wedge"/><path d="M108.0,117.5 A26,26 0 0 1 101.7,120.1 L109.1,147.5 A54.3,54.3 0 0 0 122.2,142.0 Z" class="wedge"/><path d="M101.7,120.1 A26,26 0 0 1 95.0,121.0 L95.0,144.1 A49.1,49.1 0 0 0 107.7,142.5 Z" class="wedge"/><path d="M95.0,121.0 A26,26 0 0 1 88.3,120.1 L82.0,143.7 A50.4,50.4 0 0 0 95.0,145.4 Z" class="wedge"/><path d="M88.3,120.1 A26,26 0 0 1 82.0,117.5 L67.8,142.0 A54.3,54.3 0 0 0 80.9,147.5 Z" class="wedge"/><path d="M82.0,117.5 A26,26 0 0 1 76.6,113.4 L55.6,134.4 A55.8,55.8 0 0 0 67.1,143.3 Z" class="wedge"/><path d="M76.6,113.4 A26,26 0 0 1 72.5,108.0 L47.7,122.3 A54.6,54.6 0 0 0 56.4,133.6 Z" class="wedge"/><path d="M72.5,108.0 A26,26 0 0 1 69.9,101.7 L47.4,107.8 A49.3,49.3 0 0 0 52.3,119.6 Z" class="wedge night"/><path d="M69.9,101.7 A26,26 0 0 1 69.0,95.0 L55.7,95.0 A39.3,39.3 0 0 0 57.1,105.2 Z" class="wedge night"/><path d="M69.0,95.0 A26,26 0 0 1 69.9,88.3 L56.0,84.5 A40.4,40.4 0 0 0 54.6,95.0 Z" class="wedge night"/><path d="M69.9,88.3 A26,26 0 0 1 72.5,82.0 L65.7,78.1 A33.8,33.8 0 0 0 62.3,86.3 Z" class="wedge night"/><path d="M72.5,82.0 A26,26 0 0 1 76.6,76.6 L73.1,73.1 A30.9,30.9 0 0 0 68.2,79.5 Z" class="wedge night"/><path d="M76.6,76.6 A26,26 0 0 1 82.0,72.5 L75.4,61.0 A39.2,39.2 0 0 0 67.3,67.3 Z" class="wedge night"/><path d="M82.0,72.5 A26,26 0 0 1 88.3,69.9 L87.5,67.0 A29.0,29.0 0 0 0 80.5,69.9 Z" class="wedge night"/><path d="M88.3,69.9 A26,26 0 0 1 95.0,69.0 L95.0,63.6 A31.4,31.4 0 0 0 86.9,64.6 Z" class="wedge night"/>
+      <text x="95.0" y="99.0" class="dialpct">15.3%</text>
+    </svg>
+    <div class="pl-dial-label"><strong>Chinese</strong><span>n=21,939</span></div>
+  </div>
+  <div class="pl-dial">
+    <svg viewBox="0 0 190 190" role="img" aria-label="Commit hours for Japanese">
+      <circle cx="95.0" cy="95.0" r="80" class="dialring"/>
+      <path d="M95.0,69.0 A26,26 0 0 1 101.7,69.9 L110.6,36.7 A60.4,60.4 0 0 0 95.0,34.6 Z" class="wedge"/><path d="M101.7,69.9 A26,26 0 0 1 108.0,72.5 L128.4,37.2 A66.7,66.7 0 0 0 112.3,30.5 Z" class="wedge"/><path d="M108.0,72.5 A26,26 0 0 1 113.4,76.6 L142.8,47.2 A67.7,67.7 0 0 0 128.8,36.4 Z" class="wedge"/><path d="M113.4,76.6 A26,26 0 0 1 117.5,82.0 L151.7,62.3 A65.5,65.5 0 0 0 141.3,48.7 Z" class="wedge"/><path d="M117.5,82.0 A26,26 0 0 1 120.1,88.3 L157.2,78.3 A64.4,64.4 0 0 0 150.7,62.8 Z" class="wedge"/><path d="M120.1,88.3 A26,26 0 0 1 121.0,95.0 L165.9,95.0 A70.9,70.9 0 0 0 163.5,76.7 Z" class="wedge"/><path d="M121.0,95.0 A26,26 0 0 1 120.1,101.7 L161.2,112.7 A68.5,68.5 0 0 0 163.5,95.0 Z" class="wedge"/><path d="M120.1,101.7 A26,26 0 0 1 117.5,108.0 L157.8,131.2 A72.5,72.5 0 0 0 165.0,113.8 Z" class="wedge"/><path d="M117.5,108.0 A26,26 0 0 1 113.4,113.4 L147.3,147.3 A74.0,74.0 0 0 0 159.1,132.0 Z" class="wedge"/><path d="M113.4,113.4 A26,26 0 0 1 108.0,117.5 L129.6,155.0 A69.2,69.2 0 0 0 144.0,144.0 Z" class="wedge"/><path d="M108.0,117.5 A26,26 0 0 1 101.7,120.1 L110.5,152.8 A59.8,59.8 0 0 0 124.9,146.8 Z" class="wedge"/><path d="M101.7,120.1 A26,26 0 0 1 95.0,121.0 L95.0,158.1 A63.1,63.1 0 0 0 111.3,156.0 Z" class="wedge"/><path d="M95.0,121.0 A26,26 0 0 1 88.3,120.1 L78.3,157.3 A64.5,64.5 0 0 0 95.0,159.5 Z" class="wedge"/><path d="M88.3,120.1 A26,26 0 0 1 82.0,117.5 L59.4,156.6 A71.1,71.1 0 0 0 76.6,163.7 Z" class="wedge"/><path d="M82.0,117.5 A26,26 0 0 1 76.6,113.4 L43.1,146.9 A73.4,73.4 0 0 0 58.3,158.6 Z" class="wedge"/><path d="M76.6,113.4 A26,26 0 0 1 72.5,108.0 L37.3,128.3 A66.6,66.6 0 0 0 47.9,142.1 Z" class="wedge"/><path d="M72.5,108.0 A26,26 0 0 1 69.9,101.7 L44.3,108.6 A52.5,52.5 0 0 0 49.5,121.3 Z" class="wedge night"/><path d="M69.9,101.7 A26,26 0 0 1 69.0,95.0 L52.0,95.0 A43.0,43.0 0 0 0 53.5,106.1 Z" class="wedge night"/><path d="M69.0,95.0 A26,26 0 0 1 69.9,88.3 L56.6,84.7 A39.8,39.8 0 0 0 55.2,95.0 Z" class="wedge night"/><path d="M69.9,88.3 A26,26 0 0 1 72.5,82.0 L63.9,77.0 A35.9,35.9 0 0 0 60.3,85.7 Z" class="wedge night"/><path d="M72.5,82.0 A26,26 0 0 1 76.6,76.6 L71.2,71.2 A33.6,33.6 0 0 0 65.9,78.2 Z" class="wedge night"/><path d="M76.6,76.6 A26,26 0 0 1 82.0,72.5 L77.1,63.9 A35.9,35.9 0 0 0 69.6,69.6 Z" class="wedge night"/><path d="M82.0,72.5 A26,26 0 0 1 88.3,69.9 L84.7,56.6 A39.7,39.7 0 0 0 75.1,60.6 Z" class="wedge night"/><path d="M88.3,69.9 A26,26 0 0 1 95.0,69.0 L95.0,42.5 A52.5,52.5 0 0 0 81.4,44.3 Z" class="wedge night"/>
+      <text x="95.0" y="99.0" class="dialpct">15.9%</text>
+    </svg>
+    <div class="pl-dial-label"><strong>Japanese</strong><span>n=12,908</span></div>
+  </div>
+  <div class="pl-dial">
+    <svg viewBox="0 0 190 190" role="img" aria-label="Commit hours for Korean">
+      <circle cx="95.0" cy="95.0" r="80" class="dialring"/>
+      <path d="M95.0,69.0 A26,26 0 0 1 101.7,69.9 L106.5,52.1 A44.4,44.4 0 0 0 95.0,50.6 Z" class="wedge"/><path d="M101.7,69.9 A26,26 0 0 1 108.0,72.5 L124.4,44.0 A58.8,58.8 0 0 0 110.2,38.2 Z" class="wedge"/><path d="M108.0,72.5 A26,26 0 0 1 113.4,76.6 L134.2,55.8 A55.5,55.5 0 0 0 122.7,46.9 Z" class="wedge"/><path d="M113.4,76.6 A26,26 0 0 1 117.5,82.0 L139.5,69.3 A51.4,51.4 0 0 0 131.3,58.7 Z" class="wedge"/><path d="M117.5,82.0 A26,26 0 0 1 120.1,88.3 L146.5,81.2 A53.3,53.3 0 0 0 141.1,68.4 Z" class="wedge"/><path d="M120.1,88.3 A26,26 0 0 1 121.0,95.0 L155.7,95.0 A60.7,60.7 0 0 0 153.7,79.3 Z" class="wedge"/><path d="M121.0,95.0 A26,26 0 0 1 120.1,101.7 L166.5,114.2 A74.0,74.0 0 0 0 169.0,95.0 Z" class="wedge"/><path d="M120.1,101.7 A26,26 0 0 1 117.5,108.0 L148.1,125.7 A61.3,61.3 0 0 0 154.2,110.9 Z" class="wedge"/><path d="M117.5,108.0 A26,26 0 0 1 113.4,113.4 L140.7,140.7 A64.6,64.6 0 0 0 150.9,127.3 Z" class="wedge"/><path d="M113.4,113.4 A26,26 0 0 1 108.0,117.5 L120.0,138.3 A50.0,50.0 0 0 0 130.4,130.4 Z" class="wedge"/><path d="M108.0,117.5 A26,26 0 0 1 101.7,120.1 L108.9,146.9 A53.7,53.7 0 0 0 121.9,141.5 Z" class="wedge"/><path d="M101.7,120.1 A26,26 0 0 1 95.0,121.0 L95.0,145.2 A50.2,50.2 0 0 0 108.0,143.5 Z" class="wedge"/><path d="M95.0,121.0 A26,26 0 0 1 88.3,120.1 L80.1,150.7 A57.6,57.6 0 0 0 95.0,152.6 Z" class="wedge"/><path d="M88.3,120.1 A26,26 0 0 1 82.0,117.5 L67.8,142.1 A54.4,54.4 0 0 0 80.9,147.6 Z" class="wedge"/><path d="M82.0,117.5 A26,26 0 0 1 76.6,113.4 L54.9,135.1 A56.8,56.8 0 0 0 66.6,144.2 Z" class="wedge"/><path d="M76.6,113.4 A26,26 0 0 1 72.5,108.0 L50.4,120.7 A51.5,51.5 0 0 0 58.6,131.4 Z" class="wedge"/><path d="M72.5,108.0 A26,26 0 0 1 69.9,101.7 L36.8,110.6 A60.3,60.3 0 0 0 42.8,125.1 Z" class="wedge night"/><path d="M69.9,101.7 A26,26 0 0 1 69.0,95.0 L56.2,95.0 A38.8,38.8 0 0 0 57.6,105.0 Z" class="wedge night"/><path d="M69.0,95.0 A26,26 0 0 1 69.9,88.3 L59.6,85.5 A36.7,36.7 0 0 0 58.3,95.0 Z" class="wedge night"/><path d="M69.9,88.3 A26,26 0 0 1 72.5,82.0 L67.1,78.9 A32.3,32.3 0 0 0 63.8,86.7 Z" class="wedge night"/><path d="M72.5,82.0 A26,26 0 0 1 76.6,76.6 L73.4,73.4 A30.5,30.5 0 0 0 68.6,79.8 Z" class="wedge night"/><path d="M76.6,76.6 A26,26 0 0 1 82.0,72.5 L80.3,69.5 A29.5,29.5 0 0 0 74.2,74.2 Z" class="wedge night"/><path d="M82.0,72.5 A26,26 0 0 1 88.3,69.9 L81.6,45.1 A51.6,51.6 0 0 0 69.2,50.3 Z" class="wedge night"/><path d="M88.3,69.9 A26,26 0 0 1 95.0,69.0 L95.0,55.9 A39.1,39.1 0 0 0 84.9,57.2 Z" class="wedge night"/>
+      <text x="95.0" y="99.0" class="dialpct">18.7%</text>
+    </svg>
+    <div class="pl-dial-label"><strong>Korean</strong><span>n=9,388</span></div>
+  </div>
+  <div class="pl-dial">
+    <svg viewBox="0 0 190 190" role="img" aria-label="Commit hours for Spanish/Portuguese">
+      <circle cx="95.0" cy="95.0" r="80" class="dialring"/>
+      <path d="M95.0,69.0 A26,26 0 0 1 101.7,69.9 L108.7,44.0 A52.7,52.7 0 0 0 95.0,42.3 Z" class="wedge"/><path d="M101.7,69.9 A26,26 0 0 1 108.0,72.5 L121.8,48.6 A53.6,53.6 0 0 0 108.9,43.2 Z" class="wedge"/><path d="M108.0,72.5 A26,26 0 0 1 113.4,76.6 L130.2,59.8 A49.8,49.8 0 0 0 119.9,51.8 Z" class="wedge"/><path d="M113.4,76.6 A26,26 0 0 1 117.5,82.0 L134.6,72.1 A45.8,45.8 0 0 0 127.4,62.6 Z" class="wedge"/><path d="M117.5,82.0 A26,26 0 0 1 120.1,88.3 L138.4,83.4 A44.9,44.9 0 0 0 133.9,72.5 Z" class="wedge"/><path d="M120.1,88.3 A26,26 0 0 1 121.0,95.0 L133.7,95.0 A38.7,38.7 0 0 0 132.4,85.0 Z" class="wedge"/><path d="M121.0,95.0 A26,26 0 0 1 120.1,101.7 L131.2,104.7 A37.5,37.5 0 0 0 132.5,95.0 Z" class="wedge"/><path d="M120.1,101.7 A26,26 0 0 1 117.5,108.0 L124.2,111.8 A33.7,33.7 0 0 0 127.5,103.7 Z" class="wedge"/><path d="M117.5,108.0 A26,26 0 0 1 113.4,113.4 L118.5,118.5 A33.2,33.2 0 0 0 123.8,111.6 Z" class="wedge"/><path d="M113.4,113.4 A26,26 0 0 1 108.0,117.5 L112.8,125.8 A35.6,35.6 0 0 0 120.1,120.1 Z" class="wedge"/><path d="M108.0,117.5 A26,26 0 0 1 101.7,120.1 L104.5,130.3 A36.6,36.6 0 0 0 113.3,126.7 Z" class="wedge"/><path d="M101.7,120.1 A26,26 0 0 1 95.0,121.0 L95.0,136.4 A41.4,41.4 0 0 0 105.7,135.0 Z" class="wedge"/><path d="M95.0,121.0 A26,26 0 0 1 88.3,120.1 L83.3,138.8 A45.4,45.4 0 0 0 95.0,140.4 Z" class="wedge"/><path d="M88.3,120.1 A26,26 0 0 1 82.0,117.5 L66.7,144.1 A56.6,56.6 0 0 0 80.3,149.7 Z" class="wedge"/><path d="M82.0,117.5 A26,26 0 0 1 76.6,113.4 L60.4,129.6 A48.9,48.9 0 0 0 70.5,137.4 Z" class="wedge"/><path d="M76.6,113.4 A26,26 0 0 1 72.5,108.0 L37.6,128.1 A66.3,66.3 0 0 0 48.1,141.9 Z" class="wedge"/><path d="M72.5,108.0 A26,26 0 0 1 69.9,101.7 L43.8,108.7 A53.0,53.0 0 0 0 49.1,121.5 Z" class="wedge night"/><path d="M69.9,101.7 A26,26 0 0 1 69.0,95.0 L39.0,95.0 A56.0,56.0 0 0 0 40.9,109.5 Z" class="wedge night"/><path d="M69.0,95.0 A26,26 0 0 1 69.9,88.3 L37.5,79.6 A59.5,59.5 0 0 0 35.5,95.0 Z" class="wedge night"/><path d="M69.9,88.3 A26,26 0 0 1 72.5,82.0 L30.9,58.0 A74.0,74.0 0 0 0 23.5,75.8 Z" class="wedge night"/><path d="M72.5,82.0 A26,26 0 0 1 76.6,76.6 L55.8,55.8 A55.5,55.5 0 0 0 46.9,67.3 Z" class="wedge night"/><path d="M76.6,76.6 A26,26 0 0 1 82.0,72.5 L66.8,46.2 A56.3,56.3 0 0 0 55.2,55.2 Z" class="wedge night"/><path d="M82.0,72.5 A26,26 0 0 1 88.3,69.9 L80.0,39.0 A58.0,58.0 0 0 0 66.0,44.8 Z" class="wedge night"/><path d="M88.3,69.9 A26,26 0 0 1 95.0,69.0 L95.0,34.8 A60.2,60.2 0 0 0 79.4,36.9 Z" class="wedge night"/>
+      <text x="95.0" y="99.0" class="dialpct">46.5%</text>
+    </svg>
+    <div class="pl-dial-label"><strong>Spanish/Portuguese</strong><span>n=9,936</span></div>
+  </div></div>
+<figcaption>Centre figure is the share of first commits in that window. The non-English groups are small, so read the contrast, not the decimals.</figcaption>
+</figure>
+
+| Language | Commits during East Asian night | n |
+|---|---|---|
+| English | 35.7% | 384,979 |
+| Chinese | **15.3%** | 21,939 |
+| Japanese | 15.9% | 12,908 |
+| Korean | 18.7% | 9,388 |
+| Spanish/Portuguese | **46.5%** | 9,936 |
+
+Chinese-language skills fall to less than half the English rate in that window, while English itself stays flat across all twenty-four hours, which is the signature of a globally distributed population with no single night. Spanish and Portuguese run the opposite way and peak at 19:00 UTC, mid-afternoon in Brazil and late evening in Iberia, which places those authors in the Americas. Nothing in the language identifier knows what time a file was committed, so the two signals are independent, and they agree.
+
+**Honest limits.** This is a population-level phase estimate, good to a couple of hours at best; it cannot separate UTC+8 from UTC+9, a language is not a country, and it says nothing whatsoever about any individual author. We found no published validation of hour-of-day inference at this granularity, so treat it as corroboration and not as geolocation. A raw git commit does record the author's UTC offset, and this dataset normalised it away, which is the fix for anyone building on this.
+
+## the same story from outside
+
+We are reading one artifact type on one platform, so the question that matters is whether anyone measuring something else sees the same movement, and they do, at a larger scale than we can.
+
+GitHub's own [Octoverse 2025](https://github.blog/news-insights/octoverse/) reports that India added 5.2 million developers in a single year, about 14% of the 36 million accounts opened worldwide, which takes it to 21.9 million and second place globally. That is 4.9 times its 2020 population. Brazil grew 4.1 times over the same period, Indonesia 4.8 and Japan tripled, and new signups now run at roughly 25 a minute across APAC against 12 across Europe. India, Brazil and Indonesia together account for about half of all new accounts. Stanford's [2026 AI Index](https://hai.stanford.edu/ai-index/2026-ai-index-report) puts generative-AI adoption at 64% in the United Arab Emirates and 61% in Singapore, against 28.3% in the United States, which ranks twenty-fourth. Its policy chapter records open-source contributions "from the rest of the world now outpacing Europe and approaching the United States on GitHub", and its education chapter finds AI engineering skills accelerating fastest in the UAE, Chile and South Africa.
+
+None of that is about agent skills, which is exactly what makes it useful: three independent measurements of where AI development is happening, none of them looking at `SKILL.md` files, all of them pointing the same way. Our number is the same phenomenon surfacing in a corpus eighteen months old. Our number also cannot see most of it. India writes in English, so the largest single engine of GitHub's growth is invisible to a language count, and so are Nigeria and Singapore, which is why 14.3% should be read as the floor beneath whatever share of this ecosystem now sits outside the United States.
+
+## copied, or tended?
+
+<figure class="pl-fig">
+<span class="figlabel">non-English share by copy count</span>
+<svg viewBox="0 0 900 210" role="img"
+     aria-label="Non-English share falls as skills are copied more">
+    <rect x="70" y="37.4" width="132" height="132.6" rx="2" class="copybar"/>
+    <text x="136.0" y="28.4" class="val" text-anchor="middle">15.7%</text>
+    <text x="136.0" y="190" class="axis" text-anchor="middle">1 copy</text>
+    <text x="136.0" y="204" class="axis dim" text-anchor="middle">n=1,483,575</text>
+    <rect x="246" y="78.8" width="132" height="91.2" rx="2" class="copybar"/>
+    <text x="312.0" y="69.8" class="val" text-anchor="middle">10.8%</text>
+    <text x="312.0" y="190" class="axis" text-anchor="middle">2 copies</text>
+    <text x="312.0" y="204" class="axis dim" text-anchor="middle">n=179,102</text>
+    <rect x="422" y="93.2" width="132" height="76.8" rx="2" class="copybar"/>
+    <text x="488.0" y="84.2" class="val" text-anchor="middle">9.1%</text>
+    <text x="488.0" y="190" class="axis" text-anchor="middle">3-5 copies</text>
+    <text x="488.0" y="204" class="axis dim" text-anchor="middle">n=135,271</text>
+    <rect x="598" y="121.0" width="132" height="49.0" rx="2" class="copybar"/>
+    <text x="664.0" y="112.0" class="val" text-anchor="middle">5.8%</text>
+    <text x="664.0" y="190" class="axis" text-anchor="middle">6+ copies</text>
+    <text x="664.0" y="204" class="axis dim" text-anchor="middle">n=72,351</text>
+</svg>
+<figcaption>Across all 1,870,299 distinct contents. Removing the ten aggregator repositories, or counting distinct owners, widens the gap.</figcaption>
+</figure>
+
+**English skills get copied more.** The non-English share falls steadily the more a skill is reused, from 15.7% among skills nobody has ever copied down to 5.8% among those copied six or more times. That one needed defending, because a great deal of what looks like copying on GitHub is really archiving. Ten repositories hold 14.5% of every skill file here, and they are registries and mirrors rather than authors, so 282,200 repositories behave, by concentration, like about 250. Those aggregators turn out to lean non-English, 20.5% against 13.7% elsewhere, so whatever they are doing to the numbers works against this pattern instead of producing it. Excluding them leaves the gap where it was, 15.1% down to 5.3%, and counting distinct owners, so that one actor vendoring a skill into ten of their own repositories counts once, widens it slightly to 15.1% against 4.6%.
+
+**But non-English skills get revised more.** That needs an age correction, since non-English skills are younger on average and have had less time to be touched, so the comparison below holds age fixed and asks what share of skills at least N days old were revised within their first N days.
+
+<figure class="pl-fig">
+<span class="figlabel">revision rate at 7, 30 and 90 day windows</span>
+<svg viewBox="0 0 900 230" role="img"
+     aria-label="Revision rate by language at fixed ages">
+    <rect x="78" y="132.7" width="88" height="51.3" rx="2" fill="var(--pl-series-1)"/>
+    <text x="122.0" y="123.7" class="val" text-anchor="middle">14.4%</text>
+    <rect x="180" y="128.0" width="88" height="56.0" rx="2" fill="var(--pl-series-2)"/>
+    <text x="224.0" y="119.0" class="val" text-anchor="middle">15.7%</text><text x="173.0" y="206" class="axis" text-anchor="middle">within 7 days</text>
+    <rect x="308" y="106.6" width="88" height="77.4" rx="2" fill="var(--pl-series-1)"/>
+    <text x="352.0" y="97.6" class="val" text-anchor="middle">21.7%</text>
+    <rect x="410" y="88.1" width="88" height="95.9" rx="2" fill="var(--pl-series-2)"/>
+    <text x="454.0" y="79.1" class="val" text-anchor="middle">26.9%</text><text x="403.0" y="206" class="axis" text-anchor="middle">within 30 days</text>
+    <rect x="538" y="81.7" width="88" height="102.3" rx="2" fill="var(--pl-series-1)"/>
+    <text x="582.0" y="72.7" class="val" text-anchor="middle">28.7%</text>
+    <rect x="640" y="63.1" width="88" height="120.9" rx="2" fill="var(--pl-series-2)"/>
+    <text x="684.0" y="54.1" class="val" text-anchor="middle">33.9%</text><text x="633.0" y="206" class="axis" text-anchor="middle">within 90 days</text>
+</svg>
+<figcaption>Compared at equal age: among skills at least N days old, the share revised within their first N days.</figcaption>
+</figure>
+
+| Window | English | Non-English |
+|---|---|---|
+| 7 days | 14.4% | 15.7% |
+| 30 days | 21.7% | 26.9% |
+| 90 days | 28.7% | 33.9% |
+
+The gap opens over the first month and then holds, +1.3 points at a week, +5.2 at a month and +5.2 at three, which leaves two populations behaving quite differently: English skills propagate, written once and copied widely and rarely touched again, while non-English skills are tended, copied less and revised more. The likely reason for the copying half is search. Discovery is lexical, and a developer searching in English will not surface a skill written in Chinese even where a multilingual model could execute it perfectly, so what stands between a Shenzhen developer's skill and the person who needs it is a text match. If that is right, the ecosystem globalises in what gets written well before it globalises in what gets reused, and the lag between the two is a tooling problem somebody could fix.
+
+## who is actually writing these?
+
+The [GitSkills authors](https://arxiv.org/abs/2608.10906) asked one more thing worth answering: how many skills do agents write themselves? The obvious way to check fails immediately, because GitHub's own bot flag catches almost nothing: agent-written code is committed under the human's account. The signal that does work is the trailer, the `Co-Authored-By` line a coding agent appends to commits it authored, which is the tool claiming authorship instead of us inferring it from prose.
+
+| Measure | Value |
+|---|---|
+| Name an AI agent in a commit trailer | **30.4%** [30.3, 30.6] |
+| Flagged as a bot by the platform | 1.0% |
+| Japanese skills, agent-authored | 43.4% |
+| Chinese skills, agent-authored | 23.2% |
+
+Nearly a third of skills carry an agent's fingerprint and the platform sees almost none of it, with Claude accounting for the overwhelming majority of those trailers while Cursor, Copilot and Codex trail far behind, and the trailers even carry model versions. Read it as a floor, since a skill whose author stripped the trailer, or squashed it away, or used a tool that never emits one, counts as human here.
+
+## what this does not show
+
+Language identification keys on script and function words, so a German skill thick with English technical vocabulary gets pulled toward English, which is another reason the non-English share is a lower bound. Dates cover only part of the corpus and only deduplication representatives, so "created" means the first commit touching *that copy* and not the first appearance of that content anywhere. And a crawl sees only survivors, so any skill created and deleted before July 2026 is invisible to us, which inflates every maintenance figure here by an amount we cannot estimate.
+
+## what we would want to know next
+
+The number we cannot get from this data is whether any of it costs anything. A skill written in Chinese and never copied might be worse, or might be identical work that nobody found, and those two worlds look the same from a file crawl while implying opposite things. Separating them needs execution traces, and if somebody has those we would like to see them. The larger question is what the floor actually rests on. 14.3% of skills are not in English and the share is climbing three points a quarter, while the fastest-growing developer population on the platform writes in English and never appears in that count at all. Whatever the real number is, everything we can measure says it is moving in one direction, and faster than anything comparable has moved before.
+
+Article 02 stays on this corpus and asks which *programming* languages skills talk about. Our first pass had Shell/Bash leading every language at 37.5%, which turned out to be an artifact of counting pasted commands, and measured by what a skill actually ships Python leads at 7.6% while Shell drops to 3.1%.
+
+## credit
+
+None of this exists without the dataset, which was built and released by someone else, and all credit for collecting, deduplicating and documenting 3.8 million skill files belongs to its authors:
+
+> Giuseppe Destefanis, Daniel Graziotin, Matteo Vaccargiu, and Marco Ortu. 2027. [GitSkills: A Dataset of Agent Skills on GitHub](https://arxiv.org/abs/2608.10906). In *Proceedings of the 24th International Conference on Mining Software Repositories (MSR '27)*.
+
+Preprint [arXiv:2608.10906](https://arxiv.org/abs/2608.10906), archive [10.5281/zenodo.21875637](https://doi.org/10.5281/zenodo.21875637), Parquet mirror [`mvaccargiu/gitskills`](https://huggingface.co/datasets/mvaccargiu/gitskills), sample [`giuseppedestefanis/gitskills-sample`](https://github.com/giuseppedestefanis/gitskills-sample), licence [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+[GitSkills](https://arxiv.org/abs/2608.10906) is the dataset for the MSR '27 Mining Challenge, and we are not affiliated with its authors, with MSR, or with the challenge, so nothing here should be read as endorsed by them: the dataset is theirs, and the analysis and any error in it is ours. Several of the research questions we take up, including which natural languages skills are written in, are ones the [GitSkills authors](https://arxiv.org/abs/2608.10906) posed and left open.
+
+Analysis code lives at [github.com/plicara/articles](https://github.com/plicara/articles) under `gitskills-analysis/`, where every figure is generated from a single machine-readable export and never typed by hand, so the whole thing can be regenerated and checked.
+
+Found something wrong? We would genuinely like to know.
