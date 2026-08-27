@@ -70,22 +70,26 @@ article cites.
 
 ## One trap, before you compare numbers
 
-`score_treatments.py` scores a candidate regex by running it against the
-instance's examples under a two second wall-clock timeout, and a pattern
-that times out is scored as not passing. Thirty-six of the 513 scorable
-instances are slow enough to be near that boundary, so a faster or idler
-machine resolves a couple of them that the published run did not, and the
-three scores move by about 0.4 points.
+Both scorers pin one piece of regex dialect on purpose, and it is worth
+knowing why before you compare a rerun against the published numbers.
 
-The published run scored 316 of 513; a 2026-era laptop scores 318. What that
-moves is only the absolute scores. The ranks (3rd, 10th and 4th of 11), the
-seven-place spread the article is named for, and the 8.7 point gap between
-the best and worst handling are all differences between treatments over the
-same instances, so they are unaffected and reproduce exactly. So does
-`blocked_subset_bias.json`, which has no timeout in it.
+Python 3.14 added `\z` as an alias for `\Z`. Every earlier version rejects it
+as a bad escape, and the parent study's own StructuredRegex scorer ran on
+that earlier reading: `runner/dialect.py` there lists `\z` -> `\Z` among the
+rewrites it knows how to make, and the scorer deliberately does not apply
+them, so a pattern using `\z` failed to compile and was scored wrong.
 
-If your rerun prints 62.0 rather than 61.6, this is why, and it is not a
-discrepancy worth an issue.
+Three of the 6,842 predictions across the eleven models use `\z`, two of them
+claude-opus-5's. Left to the interpreter, those two compile on 3.14 and not
+on earlier versions, which moves claude-opus-5's score by 0.4 points and
+every treatment with it. A number in a published article should not change because the
+machine running it was upgraded, so `full_match` rejects `\z` itself rather
+than asking the interpreter.
+
+Verified: `blocked_subset_bias.json` and `score_treatments.json` are
+byte-identical on Python 3.9.6 and 3.14.7, and both match what the article
+cites. If your rerun disagrees with the published numbers, it is a real
+finding and worth an issue.
 
 ## What is not here
 

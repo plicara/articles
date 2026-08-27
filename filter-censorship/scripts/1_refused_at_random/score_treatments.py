@@ -33,7 +33,23 @@ def _alarm(signum, frame):
     raise _Timeout()
 
 
+# Python 3.14 added `\z` as an alias for `\Z`. Every earlier version rejects
+# it as a bad escape, and the study's own StructuredRegex scorer ran on that
+# behaviour: runner/dialect.py lists `\z` -> `\Z` among the rewrites it knows
+# how to make, and runner/score_structuredregex.py deliberately does not
+# apply them, so a `\z` pattern failed to compile and was scored wrong.
+#
+# Left to the interpreter, that makes the benchmark score depend on which
+# Python ran it. Three predictions across the eleven models use `\z`, two of
+# them claude-opus-5's, which is enough to move its score 0.4 points. We
+# freeze the pre-3.14 reading rather than let the scorer drift: a number in
+# a published article should not change because the machine was upgraded.
+_PCRE_END_ANCHOR = re.compile(r"(?<!\\)\\(?:\\\\)*z")
+
+
 def full_match(pattern, text):
+    if _PCRE_END_ANCHOR.search(pattern):
+        return None
     signal.signal(signal.SIGALRM, _alarm)
     signal.setitimer(signal.ITIMER_REAL, 2)
     try:

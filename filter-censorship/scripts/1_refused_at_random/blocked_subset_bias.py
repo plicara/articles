@@ -29,6 +29,7 @@ import argparse
 import itertools
 import json
 import random
+import re
 import signal
 import sys
 from pathlib import Path
@@ -42,11 +43,20 @@ def _alarm(signum, frame):
     raise _Timeout()
 
 
+# See the note in score_treatments.py: Python 3.14 accepts `\z`, every
+# earlier version rejects it, and the study's scorer ran on the earlier
+# reading. No pattern in the blocked subset uses it today, so this changes
+# nothing here; it is present so that the two scorers cannot disagree, and
+# so that a future interpreter cannot move this number either.
+_PCRE_END_ANCHOR = re.compile(r"(?<!\\)\\(?:\\\\)*z")
+
+
 def full_match(pattern, text):
+    if _PCRE_END_ANCHOR.search(pattern):
+        return None
     signal.signal(signal.SIGALRM, _alarm)
     signal.setitimer(signal.ITIMER_REAL, 2)
     try:
-        import re
         return re.fullmatch(pattern, text) is not None
     except (_Timeout, re.error, RecursionError, OverflowError):
         return None
