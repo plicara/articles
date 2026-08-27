@@ -1,0 +1,354 @@
+{
+ "arms": [
+  {
+   "name": "upstream_anthropic",
+   "model": "anthropic/claude-opus-5",
+   "resends": 3,
+   "provider_order": [
+    "Anthropic"
+   ],
+   "prompts": [
+    {
+     "id": "146",
+     "prompt": "This one matches all strings that do not contain the single quotation mark (').\nMatch examples:\n- \"asljas\"\n- \"%/&amp;89uhuhadjkh\"\n- \"&quot;hi there!&quot;\"\nNon-match examples:\n- \"'hi there!'\"\n- \"It's 9 o'clock\""
+    },
+    {
+     "id": "251",
+     "prompt": "Matches a six character &quot;password&quot; that has to consist of numbers and letters with at least one letter in it.\nMatch examples:\n- \"123a12\"\n- \"a12345\"\n- \"aaaaaa\"\nNon-match examples:\n- \"111111\"\n- \"123456\""
+    },
+    {
+     "id": "660",
+     "prompt": "Expression validating a series of hex codes (byte values) separated by spaces.\nMatch examples:\n- \"1b 2e\"\n- \"1B 70 00 90 F0\"\n- \"0A\"\nNon-match examples:\n- \"gh 4b\"\n- \"1G 70 00 UU\""
+    },
+    {
+     "id": "693",
+     "prompt": "Matches a .txt file extension.\nMatch examples:\n- \"testfile.txt\"\n- \".txt\"\n- \"this is a file.txt\"\nNon-match examples:\n- \"this is not a file.trt\"\n- \".tst\""
+    },
+    {
+     "id": "742",
+     "prompt": "Match date patterns in the format of \"dd.mm.yyyy\" or \"dd.mm/yyyy.\" It accounts for different variations in days, months, and leap years.\nMatch examples:\n- \"01.01.2004\"\n- \"30.12.2005\"\n- \"24.02.1980\"\nNon-match examples:\n- \"01/01/2004\"\n- \"1.1.2004\""
+    },
+    {
+     "id": "827",
+     "prompt": "IPv4 ip:port checker, I hope it will help you. $1 - IP, $2 - port.\nMatch examples:\n- \"127.0.0.1:80\"\n- \"255.255.255.0:21\"\n- \"1.0.0.0:1\"\nNon-match examples:\n- \"0.0.0.0:1\"\n- \"256.1.1.1:20\""
+    },
+    {
+     "id": "954",
+     "prompt": "Simple Microsoft product key check.\nMatch examples:\n- \"12345-12345-12345-12345-12345\"\n- \"ABCDE-ABCDE-ABCDE-ABCDE-ABCDE\"\n- \"AB5DE-AB5DE-AB5DE-AB5DE-AB5DE\"\nNon-match examples:\n- \"12345-123-123456-12345\"\n- \"ABC-ABCDEF-ABCDE-ABCDE\""
+    },
+    {
+     "id": "977",
+     "prompt": "Matches /* style comments */.\r\nMatches whitespace (so can detect tabs, etc.)\nMatch examples:\n- \"/* CSS comments */\"\n- \"/* multi-line SQL/CSS/Etc comments */\"\n- \"/*2fsdffd*/\"\nNon-match examples:\n- \"&lt;!-- doesn't match --&gt;\"\n- \"-- won't match and //won't match\""
+    },
+    {
+     "id": "1625",
+     "prompt": "Matches strings without any special characters, except periods and apostrophes.\nMatch examples:\n- \"Sir. Isaac Newton\"\n- \"Tom O'Leary\"\n- \"hello\"\nNon-match examples:\n- \"Mar!y Ann\"\n- \"Bob_1\""
+    },
+    {
+     "id": "1835",
+     "prompt": "This expression stops the characters <>/?&{};# from a string of any length. Meaning, strings without those characters.\nMatch examples:\n- \"any word\"\n- \"a\"\n- \"a number 4382\"\nNon-match examples:\n- \"<\"\n- \">\""
+    },
+    {
+     "id": "1873",
+     "prompt": "Match the style attribute inner text contained inside \" or ' caracters with the \"style=\" prefix.\nMatch examples:\n- \"style=\"width: 10px;border:0\" , style='width: 10px;border:0'\"\n- \"'gRH\"#'\"\n- \"'y#5GiMSY].1y$nDz.nr,0vsla2WcTN0#b2Xj_`5z<a~e3}6.?M)L:q.r)bb-kq'\"\nNon-match examples:\n- \"style = \"width:10px\"\"\n- \"ddcs\""
+    },
+    {
+     "id": "1914",
+     "prompt": "Match <td ***>***</td> in html\nMatch examples:\n- \"<td>hello kitty</td>\"\n- \"<TD WIDTH='20></TD>\"\n- \"<TD >&NBSP;</td>\"\nNon-match examples:\n- \"<td>< /td>\"\n- \"<TD HELLO</td>\""
+    },
+    {
+     "id": "2008",
+     "prompt": "Matches everything except lines that begin with SEP.\nMatch examples:\n- \"SEk001\"\n- \"TAK002\"\n- \"SE7ge+f9FQ7x ]]9ZEl]Pg\"@}j DTw%oyyAz\"\nNon-match examples:\n- \"SEP001\"\n- \"SEP002\""
+    },
+    {
+     "id": "2123",
+     "prompt": "Matches against dumps of Cisco MAC address tables on newer versions of Cisco IOS.\nMatch examples:\n- \"001e.1324.683f\"\n- \"1234.abcd.1234\"\n- \"ffff.ffff.ffff\"\nNon-match examples:\n- \"001E.1324.683f\"\n- \"001234.abcd.abcd\""
+    },
+    {
+     "id": "2297",
+     "prompt": "Matches numbers in two sets of curly brackets.\nMatch examples:\n- \"{100}{150}subtitle\"\n- \"{1234}{1234}subtitle\"\n- \"{1}{2}subtitle\"\nNon-match examples:\n- \"{0100}{1000}subtitle\"\n- \"{}{100}subtitle\""
+    }
+   ]
+  },
+  {
+   "name": "upstream_claude_platform_on_aws",
+   "model": "anthropic/claude-opus-5",
+   "resends": 3,
+   "provider_order": [
+    "Claude Platform on AWS"
+   ],
+   "prompts": [
+    {
+     "id": "146",
+     "prompt": "This one matches all strings that do not contain the single quotation mark (').\nMatch examples:\n- \"asljas\"\n- \"%/&amp;89uhuhadjkh\"\n- \"&quot;hi there!&quot;\"\nNon-match examples:\n- \"'hi there!'\"\n- \"It's 9 o'clock\""
+    },
+    {
+     "id": "251",
+     "prompt": "Matches a six character &quot;password&quot; that has to consist of numbers and letters with at least one letter in it.\nMatch examples:\n- \"123a12\"\n- \"a12345\"\n- \"aaaaaa\"\nNon-match examples:\n- \"111111\"\n- \"123456\""
+    },
+    {
+     "id": "660",
+     "prompt": "Expression validating a series of hex codes (byte values) separated by spaces.\nMatch examples:\n- \"1b 2e\"\n- \"1B 70 00 90 F0\"\n- \"0A\"\nNon-match examples:\n- \"gh 4b\"\n- \"1G 70 00 UU\""
+    },
+    {
+     "id": "693",
+     "prompt": "Matches a .txt file extension.\nMatch examples:\n- \"testfile.txt\"\n- \".txt\"\n- \"this is a file.txt\"\nNon-match examples:\n- \"this is not a file.trt\"\n- \".tst\""
+    },
+    {
+     "id": "742",
+     "prompt": "Match date patterns in the format of \"dd.mm.yyyy\" or \"dd.mm/yyyy.\" It accounts for different variations in days, months, and leap years.\nMatch examples:\n- \"01.01.2004\"\n- \"30.12.2005\"\n- \"24.02.1980\"\nNon-match examples:\n- \"01/01/2004\"\n- \"1.1.2004\""
+    },
+    {
+     "id": "827",
+     "prompt": "IPv4 ip:port checker, I hope it will help you. $1 - IP, $2 - port.\nMatch examples:\n- \"127.0.0.1:80\"\n- \"255.255.255.0:21\"\n- \"1.0.0.0:1\"\nNon-match examples:\n- \"0.0.0.0:1\"\n- \"256.1.1.1:20\""
+    },
+    {
+     "id": "954",
+     "prompt": "Simple Microsoft product key check.\nMatch examples:\n- \"12345-12345-12345-12345-12345\"\n- \"ABCDE-ABCDE-ABCDE-ABCDE-ABCDE\"\n- \"AB5DE-AB5DE-AB5DE-AB5DE-AB5DE\"\nNon-match examples:\n- \"12345-123-123456-12345\"\n- \"ABC-ABCDEF-ABCDE-ABCDE\""
+    },
+    {
+     "id": "977",
+     "prompt": "Matches /* style comments */.\r\nMatches whitespace (so can detect tabs, etc.)\nMatch examples:\n- \"/* CSS comments */\"\n- \"/* multi-line SQL/CSS/Etc comments */\"\n- \"/*2fsdffd*/\"\nNon-match examples:\n- \"&lt;!-- doesn't match --&gt;\"\n- \"-- won't match and //won't match\""
+    },
+    {
+     "id": "1625",
+     "prompt": "Matches strings without any special characters, except periods and apostrophes.\nMatch examples:\n- \"Sir. Isaac Newton\"\n- \"Tom O'Leary\"\n- \"hello\"\nNon-match examples:\n- \"Mar!y Ann\"\n- \"Bob_1\""
+    },
+    {
+     "id": "1835",
+     "prompt": "This expression stops the characters <>/?&{};# from a string of any length. Meaning, strings without those characters.\nMatch examples:\n- \"any word\"\n- \"a\"\n- \"a number 4382\"\nNon-match examples:\n- \"<\"\n- \">\""
+    },
+    {
+     "id": "1873",
+     "prompt": "Match the style attribute inner text contained inside \" or ' caracters with the \"style=\" prefix.\nMatch examples:\n- \"style=\"width: 10px;border:0\" , style='width: 10px;border:0'\"\n- \"'gRH\"#'\"\n- \"'y#5GiMSY].1y$nDz.nr,0vsla2WcTN0#b2Xj_`5z<a~e3}6.?M)L:q.r)bb-kq'\"\nNon-match examples:\n- \"style = \"width:10px\"\"\n- \"ddcs\""
+    },
+    {
+     "id": "1914",
+     "prompt": "Match <td ***>***</td> in html\nMatch examples:\n- \"<td>hello kitty</td>\"\n- \"<TD WIDTH='20></TD>\"\n- \"<TD >&NBSP;</td>\"\nNon-match examples:\n- \"<td>< /td>\"\n- \"<TD HELLO</td>\""
+    },
+    {
+     "id": "2008",
+     "prompt": "Matches everything except lines that begin with SEP.\nMatch examples:\n- \"SEk001\"\n- \"TAK002\"\n- \"SE7ge+f9FQ7x ]]9ZEl]Pg\"@}j DTw%oyyAz\"\nNon-match examples:\n- \"SEP001\"\n- \"SEP002\""
+    },
+    {
+     "id": "2123",
+     "prompt": "Matches against dumps of Cisco MAC address tables on newer versions of Cisco IOS.\nMatch examples:\n- \"001e.1324.683f\"\n- \"1234.abcd.1234\"\n- \"ffff.ffff.ffff\"\nNon-match examples:\n- \"001E.1324.683f\"\n- \"001234.abcd.abcd\""
+    },
+    {
+     "id": "2297",
+     "prompt": "Matches numbers in two sets of curly brackets.\nMatch examples:\n- \"{100}{150}subtitle\"\n- \"{1234}{1234}subtitle\"\n- \"{1}{2}subtitle\"\nNon-match examples:\n- \"{0100}{1000}subtitle\"\n- \"{}{100}subtitle\""
+    }
+   ]
+  },
+  {
+   "name": "upstream_azure",
+   "model": "anthropic/claude-opus-5",
+   "resends": 3,
+   "provider_order": [
+    "Azure"
+   ],
+   "prompts": [
+    {
+     "id": "146",
+     "prompt": "This one matches all strings that do not contain the single quotation mark (').\nMatch examples:\n- \"asljas\"\n- \"%/&amp;89uhuhadjkh\"\n- \"&quot;hi there!&quot;\"\nNon-match examples:\n- \"'hi there!'\"\n- \"It's 9 o'clock\""
+    },
+    {
+     "id": "251",
+     "prompt": "Matches a six character &quot;password&quot; that has to consist of numbers and letters with at least one letter in it.\nMatch examples:\n- \"123a12\"\n- \"a12345\"\n- \"aaaaaa\"\nNon-match examples:\n- \"111111\"\n- \"123456\""
+    },
+    {
+     "id": "660",
+     "prompt": "Expression validating a series of hex codes (byte values) separated by spaces.\nMatch examples:\n- \"1b 2e\"\n- \"1B 70 00 90 F0\"\n- \"0A\"\nNon-match examples:\n- \"gh 4b\"\n- \"1G 70 00 UU\""
+    },
+    {
+     "id": "693",
+     "prompt": "Matches a .txt file extension.\nMatch examples:\n- \"testfile.txt\"\n- \".txt\"\n- \"this is a file.txt\"\nNon-match examples:\n- \"this is not a file.trt\"\n- \".tst\""
+    },
+    {
+     "id": "742",
+     "prompt": "Match date patterns in the format of \"dd.mm.yyyy\" or \"dd.mm/yyyy.\" It accounts for different variations in days, months, and leap years.\nMatch examples:\n- \"01.01.2004\"\n- \"30.12.2005\"\n- \"24.02.1980\"\nNon-match examples:\n- \"01/01/2004\"\n- \"1.1.2004\""
+    },
+    {
+     "id": "827",
+     "prompt": "IPv4 ip:port checker, I hope it will help you. $1 - IP, $2 - port.\nMatch examples:\n- \"127.0.0.1:80\"\n- \"255.255.255.0:21\"\n- \"1.0.0.0:1\"\nNon-match examples:\n- \"0.0.0.0:1\"\n- \"256.1.1.1:20\""
+    },
+    {
+     "id": "954",
+     "prompt": "Simple Microsoft product key check.\nMatch examples:\n- \"12345-12345-12345-12345-12345\"\n- \"ABCDE-ABCDE-ABCDE-ABCDE-ABCDE\"\n- \"AB5DE-AB5DE-AB5DE-AB5DE-AB5DE\"\nNon-match examples:\n- \"12345-123-123456-12345\"\n- \"ABC-ABCDEF-ABCDE-ABCDE\""
+    },
+    {
+     "id": "977",
+     "prompt": "Matches /* style comments */.\r\nMatches whitespace (so can detect tabs, etc.)\nMatch examples:\n- \"/* CSS comments */\"\n- \"/* multi-line SQL/CSS/Etc comments */\"\n- \"/*2fsdffd*/\"\nNon-match examples:\n- \"&lt;!-- doesn't match --&gt;\"\n- \"-- won't match and //won't match\""
+    },
+    {
+     "id": "1625",
+     "prompt": "Matches strings without any special characters, except periods and apostrophes.\nMatch examples:\n- \"Sir. Isaac Newton\"\n- \"Tom O'Leary\"\n- \"hello\"\nNon-match examples:\n- \"Mar!y Ann\"\n- \"Bob_1\""
+    },
+    {
+     "id": "1835",
+     "prompt": "This expression stops the characters <>/?&{};# from a string of any length. Meaning, strings without those characters.\nMatch examples:\n- \"any word\"\n- \"a\"\n- \"a number 4382\"\nNon-match examples:\n- \"<\"\n- \">\""
+    },
+    {
+     "id": "1873",
+     "prompt": "Match the style attribute inner text contained inside \" or ' caracters with the \"style=\" prefix.\nMatch examples:\n- \"style=\"width: 10px;border:0\" , style='width: 10px;border:0'\"\n- \"'gRH\"#'\"\n- \"'y#5GiMSY].1y$nDz.nr,0vsla2WcTN0#b2Xj_`5z<a~e3}6.?M)L:q.r)bb-kq'\"\nNon-match examples:\n- \"style = \"width:10px\"\"\n- \"ddcs\""
+    },
+    {
+     "id": "1914",
+     "prompt": "Match <td ***>***</td> in html\nMatch examples:\n- \"<td>hello kitty</td>\"\n- \"<TD WIDTH='20></TD>\"\n- \"<TD >&NBSP;</td>\"\nNon-match examples:\n- \"<td>< /td>\"\n- \"<TD HELLO</td>\""
+    },
+    {
+     "id": "2008",
+     "prompt": "Matches everything except lines that begin with SEP.\nMatch examples:\n- \"SEk001\"\n- \"TAK002\"\n- \"SE7ge+f9FQ7x ]]9ZEl]Pg\"@}j DTw%oyyAz\"\nNon-match examples:\n- \"SEP001\"\n- \"SEP002\""
+    },
+    {
+     "id": "2123",
+     "prompt": "Matches against dumps of Cisco MAC address tables on newer versions of Cisco IOS.\nMatch examples:\n- \"001e.1324.683f\"\n- \"1234.abcd.1234\"\n- \"ffff.ffff.ffff\"\nNon-match examples:\n- \"001E.1324.683f\"\n- \"001234.abcd.abcd\""
+    },
+    {
+     "id": "2297",
+     "prompt": "Matches numbers in two sets of curly brackets.\nMatch examples:\n- \"{100}{150}subtitle\"\n- \"{1234}{1234}subtitle\"\n- \"{1}{2}subtitle\"\nNon-match examples:\n- \"{0100}{1000}subtitle\"\n- \"{}{100}subtitle\""
+    }
+   ]
+  },
+  {
+   "name": "upstream_google",
+   "model": "anthropic/claude-opus-5",
+   "resends": 3,
+   "provider_order": [
+    "Google"
+   ],
+   "prompts": [
+    {
+     "id": "146",
+     "prompt": "This one matches all strings that do not contain the single quotation mark (').\nMatch examples:\n- \"asljas\"\n- \"%/&amp;89uhuhadjkh\"\n- \"&quot;hi there!&quot;\"\nNon-match examples:\n- \"'hi there!'\"\n- \"It's 9 o'clock\""
+    },
+    {
+     "id": "251",
+     "prompt": "Matches a six character &quot;password&quot; that has to consist of numbers and letters with at least one letter in it.\nMatch examples:\n- \"123a12\"\n- \"a12345\"\n- \"aaaaaa\"\nNon-match examples:\n- \"111111\"\n- \"123456\""
+    },
+    {
+     "id": "660",
+     "prompt": "Expression validating a series of hex codes (byte values) separated by spaces.\nMatch examples:\n- \"1b 2e\"\n- \"1B 70 00 90 F0\"\n- \"0A\"\nNon-match examples:\n- \"gh 4b\"\n- \"1G 70 00 UU\""
+    },
+    {
+     "id": "693",
+     "prompt": "Matches a .txt file extension.\nMatch examples:\n- \"testfile.txt\"\n- \".txt\"\n- \"this is a file.txt\"\nNon-match examples:\n- \"this is not a file.trt\"\n- \".tst\""
+    },
+    {
+     "id": "742",
+     "prompt": "Match date patterns in the format of \"dd.mm.yyyy\" or \"dd.mm/yyyy.\" It accounts for different variations in days, months, and leap years.\nMatch examples:\n- \"01.01.2004\"\n- \"30.12.2005\"\n- \"24.02.1980\"\nNon-match examples:\n- \"01/01/2004\"\n- \"1.1.2004\""
+    },
+    {
+     "id": "827",
+     "prompt": "IPv4 ip:port checker, I hope it will help you. $1 - IP, $2 - port.\nMatch examples:\n- \"127.0.0.1:80\"\n- \"255.255.255.0:21\"\n- \"1.0.0.0:1\"\nNon-match examples:\n- \"0.0.0.0:1\"\n- \"256.1.1.1:20\""
+    },
+    {
+     "id": "954",
+     "prompt": "Simple Microsoft product key check.\nMatch examples:\n- \"12345-12345-12345-12345-12345\"\n- \"ABCDE-ABCDE-ABCDE-ABCDE-ABCDE\"\n- \"AB5DE-AB5DE-AB5DE-AB5DE-AB5DE\"\nNon-match examples:\n- \"12345-123-123456-12345\"\n- \"ABC-ABCDEF-ABCDE-ABCDE\""
+    },
+    {
+     "id": "977",
+     "prompt": "Matches /* style comments */.\r\nMatches whitespace (so can detect tabs, etc.)\nMatch examples:\n- \"/* CSS comments */\"\n- \"/* multi-line SQL/CSS/Etc comments */\"\n- \"/*2fsdffd*/\"\nNon-match examples:\n- \"&lt;!-- doesn't match --&gt;\"\n- \"-- won't match and //won't match\""
+    },
+    {
+     "id": "1625",
+     "prompt": "Matches strings without any special characters, except periods and apostrophes.\nMatch examples:\n- \"Sir. Isaac Newton\"\n- \"Tom O'Leary\"\n- \"hello\"\nNon-match examples:\n- \"Mar!y Ann\"\n- \"Bob_1\""
+    },
+    {
+     "id": "1835",
+     "prompt": "This expression stops the characters <>/?&{};# from a string of any length. Meaning, strings without those characters.\nMatch examples:\n- \"any word\"\n- \"a\"\n- \"a number 4382\"\nNon-match examples:\n- \"<\"\n- \">\""
+    },
+    {
+     "id": "1873",
+     "prompt": "Match the style attribute inner text contained inside \" or ' caracters with the \"style=\" prefix.\nMatch examples:\n- \"style=\"width: 10px;border:0\" , style='width: 10px;border:0'\"\n- \"'gRH\"#'\"\n- \"'y#5GiMSY].1y$nDz.nr,0vsla2WcTN0#b2Xj_`5z<a~e3}6.?M)L:q.r)bb-kq'\"\nNon-match examples:\n- \"style = \"width:10px\"\"\n- \"ddcs\""
+    },
+    {
+     "id": "1914",
+     "prompt": "Match <td ***>***</td> in html\nMatch examples:\n- \"<td>hello kitty</td>\"\n- \"<TD WIDTH='20></TD>\"\n- \"<TD >&NBSP;</td>\"\nNon-match examples:\n- \"<td>< /td>\"\n- \"<TD HELLO</td>\""
+    },
+    {
+     "id": "2008",
+     "prompt": "Matches everything except lines that begin with SEP.\nMatch examples:\n- \"SEk001\"\n- \"TAK002\"\n- \"SE7ge+f9FQ7x ]]9ZEl]Pg\"@}j DTw%oyyAz\"\nNon-match examples:\n- \"SEP001\"\n- \"SEP002\""
+    },
+    {
+     "id": "2123",
+     "prompt": "Matches against dumps of Cisco MAC address tables on newer versions of Cisco IOS.\nMatch examples:\n- \"001e.1324.683f\"\n- \"1234.abcd.1234\"\n- \"ffff.ffff.ffff\"\nNon-match examples:\n- \"001E.1324.683f\"\n- \"001234.abcd.abcd\""
+    },
+    {
+     "id": "2297",
+     "prompt": "Matches numbers in two sets of curly brackets.\nMatch examples:\n- \"{100}{150}subtitle\"\n- \"{1234}{1234}subtitle\"\n- \"{1}{2}subtitle\"\nNon-match examples:\n- \"{0100}{1000}subtitle\"\n- \"{}{100}subtitle\""
+    }
+   ]
+  },
+  {
+   "name": "upstream_amazon_bedrock",
+   "model": "anthropic/claude-opus-5",
+   "resends": 3,
+   "provider_order": [
+    "Amazon Bedrock"
+   ],
+   "prompts": [
+    {
+     "id": "146",
+     "prompt": "This one matches all strings that do not contain the single quotation mark (').\nMatch examples:\n- \"asljas\"\n- \"%/&amp;89uhuhadjkh\"\n- \"&quot;hi there!&quot;\"\nNon-match examples:\n- \"'hi there!'\"\n- \"It's 9 o'clock\""
+    },
+    {
+     "id": "251",
+     "prompt": "Matches a six character &quot;password&quot; that has to consist of numbers and letters with at least one letter in it.\nMatch examples:\n- \"123a12\"\n- \"a12345\"\n- \"aaaaaa\"\nNon-match examples:\n- \"111111\"\n- \"123456\""
+    },
+    {
+     "id": "660",
+     "prompt": "Expression validating a series of hex codes (byte values) separated by spaces.\nMatch examples:\n- \"1b 2e\"\n- \"1B 70 00 90 F0\"\n- \"0A\"\nNon-match examples:\n- \"gh 4b\"\n- \"1G 70 00 UU\""
+    },
+    {
+     "id": "693",
+     "prompt": "Matches a .txt file extension.\nMatch examples:\n- \"testfile.txt\"\n- \".txt\"\n- \"this is a file.txt\"\nNon-match examples:\n- \"this is not a file.trt\"\n- \".tst\""
+    },
+    {
+     "id": "742",
+     "prompt": "Match date patterns in the format of \"dd.mm.yyyy\" or \"dd.mm/yyyy.\" It accounts for different variations in days, months, and leap years.\nMatch examples:\n- \"01.01.2004\"\n- \"30.12.2005\"\n- \"24.02.1980\"\nNon-match examples:\n- \"01/01/2004\"\n- \"1.1.2004\""
+    },
+    {
+     "id": "827",
+     "prompt": "IPv4 ip:port checker, I hope it will help you. $1 - IP, $2 - port.\nMatch examples:\n- \"127.0.0.1:80\"\n- \"255.255.255.0:21\"\n- \"1.0.0.0:1\"\nNon-match examples:\n- \"0.0.0.0:1\"\n- \"256.1.1.1:20\""
+    },
+    {
+     "id": "954",
+     "prompt": "Simple Microsoft product key check.\nMatch examples:\n- \"12345-12345-12345-12345-12345\"\n- \"ABCDE-ABCDE-ABCDE-ABCDE-ABCDE\"\n- \"AB5DE-AB5DE-AB5DE-AB5DE-AB5DE\"\nNon-match examples:\n- \"12345-123-123456-12345\"\n- \"ABC-ABCDEF-ABCDE-ABCDE\""
+    },
+    {
+     "id": "977",
+     "prompt": "Matches /* style comments */.\r\nMatches whitespace (so can detect tabs, etc.)\nMatch examples:\n- \"/* CSS comments */\"\n- \"/* multi-line SQL/CSS/Etc comments */\"\n- \"/*2fsdffd*/\"\nNon-match examples:\n- \"&lt;!-- doesn't match --&gt;\"\n- \"-- won't match and //won't match\""
+    },
+    {
+     "id": "1625",
+     "prompt": "Matches strings without any special characters, except periods and apostrophes.\nMatch examples:\n- \"Sir. Isaac Newton\"\n- \"Tom O'Leary\"\n- \"hello\"\nNon-match examples:\n- \"Mar!y Ann\"\n- \"Bob_1\""
+    },
+    {
+     "id": "1835",
+     "prompt": "This expression stops the characters <>/?&{};# from a string of any length. Meaning, strings without those characters.\nMatch examples:\n- \"any word\"\n- \"a\"\n- \"a number 4382\"\nNon-match examples:\n- \"<\"\n- \">\""
+    },
+    {
+     "id": "1873",
+     "prompt": "Match the style attribute inner text contained inside \" or ' caracters with the \"style=\" prefix.\nMatch examples:\n- \"style=\"width: 10px;border:0\" , style='width: 10px;border:0'\"\n- \"'gRH\"#'\"\n- \"'y#5GiMSY].1y$nDz.nr,0vsla2WcTN0#b2Xj_`5z<a~e3}6.?M)L:q.r)bb-kq'\"\nNon-match examples:\n- \"style = \"width:10px\"\"\n- \"ddcs\""
+    },
+    {
+     "id": "1914",
+     "prompt": "Match <td ***>***</td> in html\nMatch examples:\n- \"<td>hello kitty</td>\"\n- \"<TD WIDTH='20></TD>\"\n- \"<TD >&NBSP;</td>\"\nNon-match examples:\n- \"<td>< /td>\"\n- \"<TD HELLO</td>\""
+    },
+    {
+     "id": "2008",
+     "prompt": "Matches everything except lines that begin with SEP.\nMatch examples:\n- \"SEk001\"\n- \"TAK002\"\n- \"SE7ge+f9FQ7x ]]9ZEl]Pg\"@}j DTw%oyyAz\"\nNon-match examples:\n- \"SEP001\"\n- \"SEP002\""
+    },
+    {
+     "id": "2123",
+     "prompt": "Matches against dumps of Cisco MAC address tables on newer versions of Cisco IOS.\nMatch examples:\n- \"001e.1324.683f\"\n- \"1234.abcd.1234\"\n- \"ffff.ffff.ffff\"\nNon-match examples:\n- \"001E.1324.683f\"\n- \"001234.abcd.abcd\""
+    },
+    {
+     "id": "2297",
+     "prompt": "Matches numbers in two sets of curly brackets.\nMatch examples:\n- \"{100}{150}subtitle\"\n- \"{1234}{1234}subtitle\"\n- \"{1}{2}subtitle\"\nNon-match examples:\n- \"{0100}{1000}subtitle\"\n- \"{}{100}subtitle\""
+    }
+   ]
+  }
+ ]
+}

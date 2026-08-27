@@ -32,6 +32,7 @@ duplicate them. Scripts are grouped by article inside `scripts/`.
 | Project | Articles |
 |---|---|
 | [`gitskills-analysis/`](gitskills-analysis) | The GitSkills series, on 3.8M `SKILL.md` agent-skill files from GitHub. Article 01: what natural language are agent skills written in? |
+| [`filter-censorship/`](filter-censorship) | How provider-side content filters corrupt benchmark results. Article 01: a safety filter moved our benchmark by seven places. |
 
 Code arrives here only once the piece that uses it is out, so a folder may
 cover fewer articles than its series eventually runs to. Until then it lives

@@ -1,0 +1,49 @@
+{
+ "generated": "2026-08-26",
+ "opus": {
+  "calls": 910,
+  "blankings": 16,
+  "blank_rate": 0.0176,
+  "finish_reasons": {
+   "stop": 674,
+   "length": 220,
+   "content_filter": 16
+  },
+  "native_finish_reason_on_blanks": {
+   "refusal": 16
+  },
+  "descriptions_touched": 4,
+  "descriptions_total": 91,
+  "fully_silenced": [
+   "b-2_t-sep_id-75"
+  ],
+  "per_description": {
+   "b-1_t-sep_id-3": [
+    10,
+    2
+   ],
+   "b-1_t-uns_id-83": [
+    10,
+    3
+   ],
+   "b-2_t-sep_id-75": [
+    10,
+    10
+   ],
+   "b-3_t-uns_id-74": [
+    10,
+    1
+   ]
+  }
+ },
+ "sonnet": {
+  "successful_calls": 398,
+  "attempted": 910,
+  "note": "512 attempts returned HTTP 403 after the account budget exhausted mid-arm",
+  "blankings": 0,
+  "finish_reasons": {
+   "stop": 292,
+   "length": 106
+  }
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "generated": "2026-08-25",
+ "arms": {
+  "freshness_opus": {
+   "calls": 150,
+   "finish_reasons": {
+    "'content_filter'": 2,
+    "'length'": 148
+   },
+   "native_finish_reasons": {
+    "'refusal'": 2,
+    "'max_tokens'": 148
+   },
+   "blankings": 2,
+   "blank_rate": 0.0133,
+   "prompts_touched": 2,
+   "prompts_total": 15,
+   "fully_silenced_prompts": [],
+   "per_prompt_failed_of_total": {
+    "146": [
+     10,
+     1
+    ],
+    "1873": [
+     10,
+     1
+    ]
+   },
+   "spend_usd": 1.5658,
+   "calls_with_cached_tokens": 0
+  },
+  "freshness_sonnet": {
+   "calls": 150,
+   "finish_reasons": {
+    "'length'": 149,
+    "'stop'": 1
+   },
+   "native_finish_reasons": {
+    "'max_tokens'": 149,
+    "'end_turn'": 1
+   },
+   "blankings": 0,
+   "blank_rate": 0.0,
+   "prompts_touched": 0,
+   "prompts_total": 15,
+   "fully_silenced_prompts": [],
+   "per_prompt_failed_of_total": {},
+   "spend_usd": 0.634,
+   "calls_with_cached_tokens": 0
+  }
+ },
+ "historical_baseline": {
+  "opus_refused_calls": 29,
+  "opus_total_calls": 45
+ }
+}

@@ -1,0 +1,746 @@
+{
+ "arms": [
+  {
+   "name": "blocked_resend_opus",
+   "model": "anthropic/claude-opus-5",
+   "resends": 10,
+   "prompts": [
+    {
+     "id": "b-1_t-cat_id-18",
+     "prompt": "a list of 2 strings . first string consist of 1 or more digit numeric . last string consist of const0 or const1 that is optional\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-19",
+     "prompt": "there are list of 4 strings . first string consist 1 + lowercase . second string consist digit or letter . third string consist 3 + letter . and last string consist 2 const0 numeric value .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-35",
+     "prompt": "there are 2 strings first is optional with 2 to 3 letters and the second 1 follows with 3 + +\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-65",
+     "prompt": "there are list of 4 strings first 1 contains three+ capital letters next string need 3 + digits third 1 contains const0 or const1 and the final string contains 2 - 4 letters\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-68",
+     "prompt": "a list of 5 strings . a first 1 consist 2 to 4 capital and the next string consists 3 to 4 const0 . the third string consists should be an optional . the fourth string consists 2 to 4 capital the last string contains 3 to 4 letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-71",
+     "prompt": "the string begins and ends with 1 to 4 lowercase letters . these parts are separated by any 2 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-85",
+     "prompt": "there are list of 4 strings . first string contains const0 or const1 . followed by a i are optional . next string contains const0 or const1 . last string contains 3 + digit that is optional .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-87",
+     "prompt": "this string starts with 4 characters that are not lowercase letters , followed by 1 - 3 digits . then there are 3 or 4 lowercase letters , followed by 3 more letters ( upper or lowercase ) .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-91",
+     "prompt": "a list of 3 strings . first string consist of const0 or const1 second string consist of 3 to 4 const2 that is optional . last string consist by 1 to 2 not capital latters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-3",
+     "prompt": "there are 5 strings . first and third strings consist by const0 or const1 . second and fourth string consist by semicolon symbols . last strings consist by allowed capital and lowercase , const2\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-41",
+     "prompt": "a string consists of 3 groups separated by dashed . the first group may only contain digits . each of the remaining groups is either the sequence const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-50",
+     "prompt": "a list of 3 dash separated strings . the first is only const0 . in the second , letters and numbers are allowed . and in the third only letters are allowed .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-78",
+     "prompt": "the list consists of 3 dot separated strings . the first string is a single lowercase const0 . the second begins with a number that is followed by 2 or more capital const1 . the third string consists of 2 to 4 numbers .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-97",
+     "prompt": "two strings separated by a comma with . allow : lowercase and the final string also consist of . allow : lowercase after a comma .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-18",
+     "prompt": "string must have const1 , must not end with a special character and must not contain lowercase + const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-2",
+     "prompt": "the string can contain any characters and can be any length , but it must not start with const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-22",
+     "prompt": "the first and last string consist of contain captial letter , if have special character must be before digit , no lowercase\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-25",
+     "prompt": "the string can not contain const1 and must start and end with a lowercase letter . in the end there can not be const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-29",
+     "prompt": "a string longer than 6 characters starting with a capital letter , followed by any combination of capital letters or special characters as long as the total number of capital letters is not 3 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-3",
+     "prompt": "the string must be 6 to 8 characters long . it can not contain the sequence const0 , and it must end with a lowercase letter followed by a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-34",
+     "prompt": "the string does not have special characters . the string ends with a letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-56",
+     "prompt": "this single string can be any length , but it has to start with a capital const0 or a lowercase const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-83",
+     "prompt": "the string can be any length and contain any characters . it has to end with a capital letter , but it can not end with const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-91",
+     "prompt": "the string can be any length , and it can use any characters , but it must start with either const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-124",
+     "prompt": "the sequence begins with 2 to 4 capital letters followed by 2 more letters . it then followed by 2 to 4 capital letters and 2 more letters . it ends const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-128",
+     "prompt": "the string consists of 2 to 3 letters optionally followed by 4 digits .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-132",
+     "prompt": "the string must begin with 1 or 2 letters followed by any of the following characters const0 or const1 then followed by 1 or 2 letters and ends with any of the following characters const0 or const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-141",
+     "prompt": "a list of 4 strings . first and third strings consist of 3 - 4 capital letters or lowercase . second string consist of 1 - 4 letters . final string consist of 3 const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-147",
+     "prompt": "this pattern starts with const0 , and is followed by 2 to 4 const1 , then 1 to 2 letters , const0 again , and it must end with either const2 or const3 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-149",
+     "prompt": "the sequence is 4 strings , not separated . the first and third is const0 or const1 . the second is 3 lowercase letters . the last is 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-15",
+     "prompt": "one to 3 of the letter const0 start the string , followed by 2 to 4 digits . then there are 3 or more capital letters and either const1 or const2\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-4",
+     "prompt": "the string is : 3 const0 , 3 - 4 lowercase letters or digits , 1 - 4 letters and 3 - 4 const1 . the end is 3 or more letters or 3 or more digits .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-46",
+     "prompt": "this string must start with at least 2 letters , followed by 2 characters that are not capital letters , followed by const0 . then there must be 1 to 3 digits , and it must end with 3 to 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-49",
+     "prompt": "this string starts with const3 , followed by const0 or const1 , then 3 - 4 capital letters , 1 to 2 const2 , and finished with 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-58",
+     "prompt": "the string starts with 6 letters . optionally , the 6 letters can be divided into groups of 3 by 2 to 4 additional lowercase letters . next there are 2 const0 . optionally , it can end with 3 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-78",
+     "prompt": "the string is 2 or more const0 , followed by a const1 . after that , a digit and ends with 1 - 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-84",
+     "prompt": "a string that begins with 2 capital const0 . then 2 to 4 capital letters . followed by 2 capital const0 . then either const1 or const2 . it ends with 2 const0 , which is optional .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-102",
+     "prompt": "a string of 3 letters separated by commas .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-105",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 start with 4 letters or numbers and end with 2 to 4 lowercase letters . the last can be any length and uses only capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-106",
+     "prompt": "a list of 3 full stop separated strings . all 3 strings start with 2 to 4 letters in either capital or lowercase followed by the letter const0 in lowercase and ends with a letter in lowercase .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-12",
+     "prompt": "a list of 8 strings . 1 , 4 , 7 strings consist the 3 or more lowercase that is optional strings . 2 , 5 , 8 string characters are consist the 3 digit numeric value . 3 and 6 string characters consist are dot symbol .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-121",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 use capital letters and are 5 characters long . the third can be any length . it starts with a lowercase letter , and lowercase letters , numbers , and const0 are allowed .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-143",
+     "prompt": "a list of 3 fullstop separated strings . the first and second strings optionally contains 2 or more digits , followed by 3 to 4 const0 and optionally 2 to 4 digits . the third string contains 3 letters and ends with const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-5",
+     "prompt": "there is a list of an indeterminate number of dot separated strings of numbers . each string can be no longer than 3 characters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-75",
+     "prompt": "each substring is separated by a const0 . the first 2 substrings have an optional 4 lowercase letters followed by 1 to 3 letters of any case . the final string has 2 to 5 characters that are lowercase letters or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-96",
+     "prompt": "three parts separated by commas . the first part is either const0 or const1 . the second and third are the same as the first , except either const2 or const3 const1 in front of const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-98",
+     "prompt": "this string starts with const1 , followed by 2 to 4 lowercase letters , then const0 . this is followed by const1 , then 2 to 4 lowercase letters , then const0 . this is followed by const1 , then 2 to 4 lowercase letters , then 3 to 4 const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-105",
+     "prompt": "a list of strings containing special characters , lowercase , capital and can include const0 . the overall length is 6 - 10 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-107",
+     "prompt": "this allows special characters , capital letters , and const0 . it must be at least 6 characters long . it must contain const1 followed by a capital letter , and every special character must be followed by a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-30",
+     "prompt": "the string of letters is at least 5 characters long . it must start with const0 and end with const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-65",
+     "prompt": "a string in which all characters but const0 and the sequence const1 are allowed . the overall string length must be less than 9 and it can not start with a digit .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-66",
+     "prompt": "a string must be at least 4 characters long . any letter must be before a lowercase letter , so using letters is not possible .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-81",
+     "prompt": "the string is 6 - 9 characters . must not start with const0 or a digit . must end with 3 special characters or 3 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-98",
+     "prompt": "this string allows digits , special characters , capital letters , and lowercase letters . it must contain const0 and be a maximum length of 9 characters . it can not have 3 lowercase letters . it can not start with a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-101",
+     "prompt": "a string should start with 1 or more letters or numbers . it should be followed by a capital const0 or const1 . then it is followed by 3 additional letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-119",
+     "prompt": "a string starts with const0 followed by 1 to 4 letters . then there are 3 or more numbers followed by 1 to 4 letters . finally , there are 3 or more numbers optionally followed by a character that is not a number .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-123",
+     "prompt": "the string must consist of the capital letters const0 or const1 . however the beginning of the string can have but not necessary 2 or more capital letters as well .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-129",
+     "prompt": "a string starts with 2 numbers . next are 1 to 3 lowercase letters . optionally , it can end with 2 to 4 const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-13",
+     "prompt": "a string consists of 3 or 4 capital letters followed by an const1 . optionally , it can start with 2 or more letters , a const0 , and 2 or more letters or numbers .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-146",
+     "prompt": "the string starts with 1 or 2 const0 followed by const1 or const2 . a const3 follows , then 1 to 4 letters and optionally 3 to 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-28",
+     "prompt": "a string starting with an optional 1 - 4 const0 then an optional 2 letters followed by 1 - 4 const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-47",
+     "prompt": "this string is composed by 1 or more capital letters that ends with an additional const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-63",
+     "prompt": "the string starts with either more than 3 numbers or 3 letters which are optional . the last part of the string consists of 3 letter const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-67",
+     "prompt": "a string starts with 2 to 4 capital letters . optionally , 4 const0 come next . then there are 1 to 3 characters that are not numbers . it ends with 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-7",
+     "prompt": "a string containing 4 fixed character sequences . the first sequence in lowercase is either const0 or const1 . that is followed by an uppercase const2 or a lowercase const3 as well as 1 to 4 lowercase const4 . the string is concluded with the number const5 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-75",
+     "prompt": "a good string starts with 3 or more digits followed by 1 to 4 letters . it ends with 3 or more digits followed by 1 to 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-76",
+     "prompt": "a list of 4 strings . the first string consist of const0 or const1 and second string consist of 2 - 4 const2 or its first 2 strings have given by optional and third string consist of 1 + const3 and fifth string consist of const4 or const5 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-82",
+     "prompt": "the string optionally starts with 3 or more const0 . it is followed by 2 to 4 letters , then 3 or more const0 , and ends with 2 to 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-86",
+     "prompt": "a string starts with 4 letters followed by an const0 . then there are 2 or more const1 followed by const2 or const3 . finally , a const4 is followed by 4 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-93",
+     "prompt": "there are 2 strings . the first string must have at least 3 const0 . the second string is 3 or more lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-102",
+     "prompt": "there are 3 dot separated strings . the first can use letters and numbers , and it is at least 2 characters long . the second string is 2 to 4 capital letters . the third string is a single const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-114",
+     "prompt": "there is a list of 3 comma separated strings . the first is a const0 followed by 4 numbers . the second and third start with 3 lowercase letters . optionally , those strings can end with 1 to 4 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-134",
+     "prompt": "the string starts with any number of digits not ending in const1 . after a const0 there are 4 digits and/or letters and another const0 . the last section has 1 or more lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-136",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 end with 3 or more capital letters . they can optionally start with 3 or more numbers . the third string must be at least 2 characters long , and it may use const0 , const1 , and const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-16",
+     "prompt": "the string has 3 substrings separated by const0 . each substring has 1 or more letters . the second and third substrings must start with const1 and end with const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-19",
+     "prompt": "a list of 3 period separated strings . the first string allows capital and lowercase letters . the second string allows letters . the third string allows 3 - 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-34",
+     "prompt": "the string starts with 3 + digits , followed by dash and 3 + digits , then another dash and 3 const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-40",
+     "prompt": "there is a list of an indeterminate number of semicolon separated strings . each string begins with const0 or const1 . optionally , that can be followed by 3 or 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-59",
+     "prompt": "a list of 3 comma separated strings . the first string starts with 3 or more letters . the second string contains 2 letters in lowercase . the third string contains the letter const0 or the letter const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-61",
+     "prompt": "the string has 3 dot - separated substrings . the first substring has 2 to 4 lowercase letters . the second substring has 4 capital letters . the final substring has 3 to 5 digits and/or letters of any case .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-63",
+     "prompt": "a list of 3 comma separated strings . all 3 strings start with const0 or const1 followed by an optional capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-91",
+     "prompt": "a list of 3 fullstop separated strings . the first string consists of 2 or more lowercase letters . the second strings consists of 2 or more letters , or 2 or more digits . the third string is const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-98",
+     "prompt": "a string in 3 parts , separated by 2 semicolons . it begins with 3 letters while the following 2 segments can each be 3 or more const0 . optionally , 2 capital letters can be added to the beginning .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-99",
+     "prompt": "a string beginning with the numbers const1 or const2 then a const0 followed by 4 letters then a const3 or const4 and 3 optional letters then another const0 followed by 4 letters then a const3 or const4 and ending with 3 optional letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-126",
+     "prompt": "the string must not start with a digit and must not contain the digits const1 . the string may contain digits and the letter const0 . the overall length of the string is 4 to 10 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-32",
+     "prompt": "a sequence that must allow letter and digit .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-55",
+     "prompt": "a string must have const0 any capital letter must appear after a number . special characters can not be followed by 2 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-69",
+     "prompt": "the start of the string can not be a letter . the string can not have more than 3 special characters . the string must have 2 const0 or 2 const1 characters . the string must contain const2 or const3 . the end of the string must end on a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-74",
+     "prompt": "the string allows the use of only special characters and capital letters . the const0 sign is not allowed . also 2 capital letters must be used .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-78",
+     "prompt": "the string has a lowercase letter followed by less than or equal to 8 characters that does not have a capitla letter . the last part of the string contains a digit that is not 2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-88",
+     "prompt": "a string can be any length , and it may use lowercase letters and special characters . it has to contain a const0 , and it may not contain a const1 . it must not end with 3 special characters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    }
+   ]
+  },
+  {
+   "name": "blocked_resend_sonnet",
+   "model": "anthropic/claude-sonnet-5",
+   "resends": 10,
+   "prompts": [
+    {
+     "id": "b-1_t-cat_id-18",
+     "prompt": "a list of 2 strings . first string consist of 1 or more digit numeric . last string consist of const0 or const1 that is optional\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-19",
+     "prompt": "there are list of 4 strings . first string consist 1 + lowercase . second string consist digit or letter . third string consist 3 + letter . and last string consist 2 const0 numeric value .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-35",
+     "prompt": "there are 2 strings first is optional with 2 to 3 letters and the second 1 follows with 3 + +\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-65",
+     "prompt": "there are list of 4 strings first 1 contains three+ capital letters next string need 3 + digits third 1 contains const0 or const1 and the final string contains 2 - 4 letters\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-68",
+     "prompt": "a list of 5 strings . a first 1 consist 2 to 4 capital and the next string consists 3 to 4 const0 . the third string consists should be an optional . the fourth string consists 2 to 4 capital the last string contains 3 to 4 letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-71",
+     "prompt": "the string begins and ends with 1 to 4 lowercase letters . these parts are separated by any 2 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-85",
+     "prompt": "there are list of 4 strings . first string contains const0 or const1 . followed by a i are optional . next string contains const0 or const1 . last string contains 3 + digit that is optional .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-87",
+     "prompt": "this string starts with 4 characters that are not lowercase letters , followed by 1 - 3 digits . then there are 3 or 4 lowercase letters , followed by 3 more letters ( upper or lowercase ) .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-cat_id-91",
+     "prompt": "a list of 3 strings . first string consist of const0 or const1 second string consist of 3 to 4 const2 that is optional . last string consist by 1 to 2 not capital latters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-3",
+     "prompt": "there are 5 strings . first and third strings consist by const0 or const1 . second and fourth string consist by semicolon symbols . last strings consist by allowed capital and lowercase , const2\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-41",
+     "prompt": "a string consists of 3 groups separated by dashed . the first group may only contain digits . each of the remaining groups is either the sequence const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-50",
+     "prompt": "a list of 3 dash separated strings . the first is only const0 . in the second , letters and numbers are allowed . and in the third only letters are allowed .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-78",
+     "prompt": "the list consists of 3 dot separated strings . the first string is a single lowercase const0 . the second begins with a number that is followed by 2 or more capital const1 . the third string consists of 2 to 4 numbers .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-sep_id-97",
+     "prompt": "two strings separated by a comma with . allow : lowercase and the final string also consist of . allow : lowercase after a comma .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-18",
+     "prompt": "string must have const1 , must not end with a special character and must not contain lowercase + const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-2",
+     "prompt": "the string can contain any characters and can be any length , but it must not start with const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-22",
+     "prompt": "the first and last string consist of contain captial letter , if have special character must be before digit , no lowercase\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-25",
+     "prompt": "the string can not contain const1 and must start and end with a lowercase letter . in the end there can not be const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-29",
+     "prompt": "a string longer than 6 characters starting with a capital letter , followed by any combination of capital letters or special characters as long as the total number of capital letters is not 3 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-3",
+     "prompt": "the string must be 6 to 8 characters long . it can not contain the sequence const0 , and it must end with a lowercase letter followed by a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-34",
+     "prompt": "the string does not have special characters . the string ends with a letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-56",
+     "prompt": "this single string can be any length , but it has to start with a capital const0 or a lowercase const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-83",
+     "prompt": "the string can be any length and contain any characters . it has to end with a capital letter , but it can not end with const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-1_t-uns_id-91",
+     "prompt": "the string can be any length , and it can use any characters , but it must start with either const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-124",
+     "prompt": "the sequence begins with 2 to 4 capital letters followed by 2 more letters . it then followed by 2 to 4 capital letters and 2 more letters . it ends const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-128",
+     "prompt": "the string consists of 2 to 3 letters optionally followed by 4 digits .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-132",
+     "prompt": "the string must begin with 1 or 2 letters followed by any of the following characters const0 or const1 then followed by 1 or 2 letters and ends with any of the following characters const0 or const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-141",
+     "prompt": "a list of 4 strings . first and third strings consist of 3 - 4 capital letters or lowercase . second string consist of 1 - 4 letters . final string consist of 3 const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-147",
+     "prompt": "this pattern starts with const0 , and is followed by 2 to 4 const1 , then 1 to 2 letters , const0 again , and it must end with either const2 or const3 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-149",
+     "prompt": "the sequence is 4 strings , not separated . the first and third is const0 or const1 . the second is 3 lowercase letters . the last is 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-15",
+     "prompt": "one to 3 of the letter const0 start the string , followed by 2 to 4 digits . then there are 3 or more capital letters and either const1 or const2\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-4",
+     "prompt": "the string is : 3 const0 , 3 - 4 lowercase letters or digits , 1 - 4 letters and 3 - 4 const1 . the end is 3 or more letters or 3 or more digits .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-46",
+     "prompt": "this string must start with at least 2 letters , followed by 2 characters that are not capital letters , followed by const0 . then there must be 1 to 3 digits , and it must end with 3 to 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-49",
+     "prompt": "this string starts with const3 , followed by const0 or const1 , then 3 - 4 capital letters , 1 to 2 const2 , and finished with 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-58",
+     "prompt": "the string starts with 6 letters . optionally , the 6 letters can be divided into groups of 3 by 2 to 4 additional lowercase letters . next there are 2 const0 . optionally , it can end with 3 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-78",
+     "prompt": "the string is 2 or more const0 , followed by a const1 . after that , a digit and ends with 1 - 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-cat_id-84",
+     "prompt": "a string that begins with 2 capital const0 . then 2 to 4 capital letters . followed by 2 capital const0 . then either const1 or const2 . it ends with 2 const0 , which is optional .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-102",
+     "prompt": "a string of 3 letters separated by commas .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-105",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 start with 4 letters or numbers and end with 2 to 4 lowercase letters . the last can be any length and uses only capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-106",
+     "prompt": "a list of 3 full stop separated strings . all 3 strings start with 2 to 4 letters in either capital or lowercase followed by the letter const0 in lowercase and ends with a letter in lowercase .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-12",
+     "prompt": "a list of 8 strings . 1 , 4 , 7 strings consist the 3 or more lowercase that is optional strings . 2 , 5 , 8 string characters are consist the 3 digit numeric value . 3 and 6 string characters consist are dot symbol .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-121",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 use capital letters and are 5 characters long . the third can be any length . it starts with a lowercase letter , and lowercase letters , numbers , and const0 are allowed .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-143",
+     "prompt": "a list of 3 fullstop separated strings . the first and second strings optionally contains 2 or more digits , followed by 3 to 4 const0 and optionally 2 to 4 digits . the third string contains 3 letters and ends with const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-5",
+     "prompt": "there is a list of an indeterminate number of dot separated strings of numbers . each string can be no longer than 3 characters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-75",
+     "prompt": "each substring is separated by a const0 . the first 2 substrings have an optional 4 lowercase letters followed by 1 to 3 letters of any case . the final string has 2 to 5 characters that are lowercase letters or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-96",
+     "prompt": "three parts separated by commas . the first part is either const0 or const1 . the second and third are the same as the first , except either const2 or const3 const1 in front of const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-sep_id-98",
+     "prompt": "this string starts with const1 , followed by 2 to 4 lowercase letters , then const0 . this is followed by const1 , then 2 to 4 lowercase letters , then const0 . this is followed by const1 , then 2 to 4 lowercase letters , then 3 to 4 const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-105",
+     "prompt": "a list of strings containing special characters , lowercase , capital and can include const0 . the overall length is 6 - 10 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-107",
+     "prompt": "this allows special characters , capital letters , and const0 . it must be at least 6 characters long . it must contain const1 followed by a capital letter , and every special character must be followed by a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-30",
+     "prompt": "the string of letters is at least 5 characters long . it must start with const0 and end with const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-65",
+     "prompt": "a string in which all characters but const0 and the sequence const1 are allowed . the overall string length must be less than 9 and it can not start with a digit .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-66",
+     "prompt": "a string must be at least 4 characters long . any letter must be before a lowercase letter , so using letters is not possible .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-81",
+     "prompt": "the string is 6 - 9 characters . must not start with const0 or a digit . must end with 3 special characters or 3 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-2_t-uns_id-98",
+     "prompt": "this string allows digits , special characters , capital letters , and lowercase letters . it must contain const0 and be a maximum length of 9 characters . it can not have 3 lowercase letters . it can not start with a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-101",
+     "prompt": "a string should start with 1 or more letters or numbers . it should be followed by a capital const0 or const1 . then it is followed by 3 additional letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-119",
+     "prompt": "a string starts with const0 followed by 1 to 4 letters . then there are 3 or more numbers followed by 1 to 4 letters . finally , there are 3 or more numbers optionally followed by a character that is not a number .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-123",
+     "prompt": "the string must consist of the capital letters const0 or const1 . however the beginning of the string can have but not necessary 2 or more capital letters as well .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-129",
+     "prompt": "a string starts with 2 numbers . next are 1 to 3 lowercase letters . optionally , it can end with 2 to 4 const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-13",
+     "prompt": "a string consists of 3 or 4 capital letters followed by an const1 . optionally , it can start with 2 or more letters , a const0 , and 2 or more letters or numbers .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-146",
+     "prompt": "the string starts with 1 or 2 const0 followed by const1 or const2 . a const3 follows , then 1 to 4 letters and optionally 3 to 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-28",
+     "prompt": "a string starting with an optional 1 - 4 const0 then an optional 2 letters followed by 1 - 4 const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-47",
+     "prompt": "this string is composed by 1 or more capital letters that ends with an additional const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-63",
+     "prompt": "the string starts with either more than 3 numbers or 3 letters which are optional . the last part of the string consists of 3 letter const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-67",
+     "prompt": "a string starts with 2 to 4 capital letters . optionally , 4 const0 come next . then there are 1 to 3 characters that are not numbers . it ends with 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-7",
+     "prompt": "a string containing 4 fixed character sequences . the first sequence in lowercase is either const0 or const1 . that is followed by an uppercase const2 or a lowercase const3 as well as 1 to 4 lowercase const4 . the string is concluded with the number const5 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-75",
+     "prompt": "a good string starts with 3 or more digits followed by 1 to 4 letters . it ends with 3 or more digits followed by 1 to 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-76",
+     "prompt": "a list of 4 strings . the first string consist of const0 or const1 and second string consist of 2 - 4 const2 or its first 2 strings have given by optional and third string consist of 1 + const3 and fifth string consist of const4 or const5 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-82",
+     "prompt": "the string optionally starts with 3 or more const0 . it is followed by 2 to 4 letters , then 3 or more const0 , and ends with 2 to 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-86",
+     "prompt": "a string starts with 4 letters followed by an const0 . then there are 2 or more const1 followed by const2 or const3 . finally , a const4 is followed by 4 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-cat_id-93",
+     "prompt": "there are 2 strings . the first string must have at least 3 const0 . the second string is 3 or more lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-102",
+     "prompt": "there are 3 dot separated strings . the first can use letters and numbers , and it is at least 2 characters long . the second string is 2 to 4 capital letters . the third string is a single const0 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-114",
+     "prompt": "there is a list of 3 comma separated strings . the first is a const0 followed by 4 numbers . the second and third start with 3 lowercase letters . optionally , those strings can end with 1 to 4 capital letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-134",
+     "prompt": "the string starts with any number of digits not ending in const1 . after a const0 there are 4 digits and/or letters and another const0 . the last section has 1 or more lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-136",
+     "prompt": "there is a list of 3 semicolon separated strings . the first 2 end with 3 or more capital letters . they can optionally start with 3 or more numbers . the third string must be at least 2 characters long , and it may use const0 , const1 , and const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-16",
+     "prompt": "the string has 3 substrings separated by const0 . each substring has 1 or more letters . the second and third substrings must start with const1 and end with const2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-19",
+     "prompt": "a list of 3 period separated strings . the first string allows capital and lowercase letters . the second string allows letters . the third string allows 3 - 4 letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-34",
+     "prompt": "the string starts with 3 + digits , followed by dash and 3 + digits , then another dash and 3 const0\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-40",
+     "prompt": "there is a list of an indeterminate number of semicolon separated strings . each string begins with const0 or const1 . optionally , that can be followed by 3 or 4 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-59",
+     "prompt": "a list of 3 comma separated strings . the first string starts with 3 or more letters . the second string contains 2 letters in lowercase . the third string contains the letter const0 or the letter const1\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-61",
+     "prompt": "the string has 3 dot - separated substrings . the first substring has 2 to 4 lowercase letters . the second substring has 4 capital letters . the final substring has 3 to 5 digits and/or letters of any case .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-63",
+     "prompt": "a list of 3 comma separated strings . all 3 strings start with const0 or const1 followed by an optional capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-91",
+     "prompt": "a list of 3 fullstop separated strings . the first string consists of 2 or more lowercase letters . the second strings consists of 2 or more letters , or 2 or more digits . the third string is const0 or const1 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-98",
+     "prompt": "a string in 3 parts , separated by 2 semicolons . it begins with 3 letters while the following 2 segments can each be 3 or more const0 . optionally , 2 capital letters can be added to the beginning .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-sep_id-99",
+     "prompt": "a string beginning with the numbers const1 or const2 then a const0 followed by 4 letters then a const3 or const4 and 3 optional letters then another const0 followed by 4 letters then a const3 or const4 and ending with 3 optional letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-126",
+     "prompt": "the string must not start with a digit and must not contain the digits const1 . the string may contain digits and the letter const0 . the overall length of the string is 4 to 10 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-32",
+     "prompt": "a sequence that must allow letter and digit .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-55",
+     "prompt": "a string must have const0 any capital letter must appear after a number . special characters can not be followed by 2 lowercase letters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-69",
+     "prompt": "the start of the string can not be a letter . the string can not have more than 3 special characters . the string must have 2 const0 or 2 const1 characters . the string must contain const2 or const3 . the end of the string must end on a capital letter .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-74",
+     "prompt": "the string allows the use of only special characters and capital letters . the const0 sign is not allowed . also 2 capital letters must be used .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-78",
+     "prompt": "the string has a lowercase letter followed by less than or equal to 8 characters that does not have a capitla letter . the last part of the string contains a digit that is not 2 .\n\nReply with only the regular expression pattern in a single fenced code block."
+    },
+    {
+     "id": "b-3_t-uns_id-88",
+     "prompt": "a string can be any length , and it may use lowercase letters and special characters . it has to contain a const0 , and it may not contain a const1 . it must not end with 3 special characters .\n\nReply with only the regular expression pattern in a single fenced code block."
+    }
+   ]
+  }
+ ]
+}

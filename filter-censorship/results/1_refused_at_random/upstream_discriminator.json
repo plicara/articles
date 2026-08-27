@@ -1,0 +1,78 @@
+{
+ "generated": "2026-08-26",
+ "source": "data/raw/upstream_*.jsonl (raw gitignored)",
+ "arms": {
+  "upstream_amazon_bedrock": {
+   "calls": 45,
+   "providers_seen": [
+    "Amazon Bedrock"
+   ],
+   "blankings": 1,
+   "blank_rate": 0.0222,
+   "native_finish_reason_on_blanks": [
+    "refusal"
+   ],
+   "finish_reasons": {
+    "length": 44,
+    "content_filter": 1
+   }
+  },
+  "upstream_anthropic": {
+   "calls": 45,
+   "providers_seen": [
+    "Anthropic"
+   ],
+   "blankings": 0,
+   "blank_rate": 0.0,
+   "native_finish_reason_on_blanks": [],
+   "finish_reasons": {
+    "length": 45
+   }
+  },
+  "upstream_azure": {
+   "calls": 45,
+   "providers_seen": [
+    "Azure"
+   ],
+   "blankings": 3,
+   "blank_rate": 0.0667,
+   "native_finish_reason_on_blanks": [
+    "refusal"
+   ],
+   "finish_reasons": {
+    "content_filter": 3,
+    "length": 42
+   }
+  },
+  "upstream_claude_platform_on_aws": {
+   "calls": 45,
+   "providers_seen": [
+    "Claude Platform on AWS"
+   ],
+   "blankings": 2,
+   "blank_rate": 0.0444,
+   "native_finish_reason_on_blanks": [
+    "refusal"
+   ],
+   "finish_reasons": {
+    "length": 43,
+    "content_filter": 2
+   }
+  },
+  "upstream_google": {
+   "calls": 45,
+   "providers_seen": [
+    "Google"
+   ],
+   "blankings": 1,
+   "blank_rate": 0.0222,
+   "native_finish_reason_on_blanks": [
+    "refusal"
+   ],
+   "finish_reasons": {
+    "length": 44,
+    "content_filter": 1
+   }
+  }
+ }
+}

@@ -1,0 +1,345 @@
+{
+ "bias_blocked_n": 84,
+ "bias_jk_se": 1.2,
+ "bias_kept_n": 513,
+ "bias_mean": -7.13,
+ "bias_mean_abs": 7.13,
+ "bias_models": [
+  {
+   "diff": -1.33,
+   "model": "claude-sonnet-5",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 64.29,
+   "pass_on_kept": 65.61
+  },
+  {
+   "diff": -4.05,
+   "model": "deepseek-v4-flash-0731",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 47.62,
+   "pass_on_kept": 51.67
+  },
+  {
+   "diff": -8.47,
+   "model": "gemini-3.1-flash-lite",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 51.19,
+   "pass_on_kept": 59.67
+  },
+  {
+   "diff": -11.53,
+   "model": "glm-5.2",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 44.05,
+   "pass_on_kept": 55.58
+  },
+  {
+   "diff": -6.36,
+   "model": "gpt-5.6-luna",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 52.38,
+   "pass_on_kept": 58.74
+  },
+  {
+   "diff": -4.97,
+   "model": "gpt-5.6-sol",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 59.52,
+   "pass_on_kept": 64.5
+  },
+  {
+   "diff": -4.57,
+   "model": "gpt-5.6-terra",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 57.14,
+   "pass_on_kept": 61.71
+  },
+  {
+   "diff": -5.72,
+   "model": "kimi-k3",
+   "n_blocked": 83,
+   "n_kept": 538,
+   "pass_on_blocked": 53.01,
+   "pass_on_kept": 58.74
+  },
+  {
+   "diff": -12.6,
+   "model": "qwen3.6-max-preview",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 47.62,
+   "pass_on_kept": 60.22
+  },
+  {
+   "diff": -11.71,
+   "model": "qwen3.6-plus",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 44.05,
+   "pass_on_kept": 55.76
+  }
+ ],
+ "bias_p": 0.001953,
+ "bias_sd": 3.79,
+ "board": [
+  {
+   "model": "claude-sonnet-5",
+   "score": 65.4
+  },
+  {
+   "model": "gpt-5.6-sol",
+   "score": 63.8
+  },
+  {
+   "model": "gpt-5.6-terra",
+   "score": 61.1
+  },
+  {
+   "model": "gemini-3.1-flash-lite",
+   "score": 58.5
+  },
+  {
+   "model": "qwen3.6-max-preview",
+   "score": 58.5
+  },
+  {
+   "model": "kimi-k3",
+   "score": 58.0
+  },
+  {
+   "model": "gpt-5.6-luna",
+   "score": 57.9
+  },
+  {
+   "model": "qwen3.6-plus",
+   "score": 54.2
+  },
+  {
+   "model": "glm-5.2",
+   "score": 54.0
+  },
+  {
+   "model": "deepseek-v4-flash-0731",
+   "score": 51.1
+  }
+ ],
+ "br_descriptions_total": 91,
+ "br_full_silenced": 1,
+ "br_fully_silenced_id": "b-2_t-sep_id-75",
+ "br_hist_initial_pct": 29.3,
+ "br_opus_blanks": 16,
+ "br_opus_calls": 910,
+ "br_opus_per_description": 10,
+ "br_opus_per_description_word": "ten",
+ "br_opus_rate": 1.8,
+ "br_per_description": {
+  "b-1_t-sep_id-3": [
+   10,
+   2
+  ],
+  "b-1_t-uns_id-83": [
+   10,
+   3
+  ],
+  "b-2_t-sep_id-75": [
+   10,
+   10
+  ],
+  "b-3_t-uns_id-74": [
+   10,
+   1
+  ]
+ },
+ "br_sonnet_attempted": 910,
+ "br_sonnet_blanks": 0,
+ "br_sonnet_note": "512 attempts returned HTTP 403 after the account budget exhausted mid-arm",
+ "br_sonnet_ok": 398,
+ "br_sonnet_transport_fail": 512,
+ "br_touched": 4,
+ "br_touched_word": "four",
+ "collapse_factor_sr": 16,
+ "collapse_factor_sweep": 50,
+ "detect_k10_k": 10,
+ "detect_k10_today": 16.6,
+ "detect_k1_study": 64.4,
+ "detect_k1_today": 1.8,
+ "detect_k3_study": 95.5,
+ "detect_k3_today": 5.3,
+ "detection": {
+  "k": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "study": [
+   64.4,
+   87.3,
+   95.5,
+   98.4,
+   99.4,
+   99.8,
+   99.9,
+   100.0,
+   100.0,
+   100.0
+  ],
+  "study_rate_pct": 64.4,
+  "today": [
+   1.8,
+   3.6,
+   5.3,
+   7.0,
+   8.7,
+   10.3,
+   11.9,
+   13.5,
+   15.1,
+   16.6
+  ],
+  "today_rate_pct": 1.8
+ },
+ "f1_opus_blanks": 2,
+ "f1_opus_calls": 150,
+ "f1_opus_finish": {
+  "content_filter": 2,
+  "length": 148
+ },
+ "f1_opus_per_prompt": 10,
+ "f1_opus_per_prompt_word": "ten",
+ "f1_opus_rate": 1.3,
+ "f1_opus_touched": 2,
+ "f1_opus_truncated": 148,
+ "f1_prompts": 15,
+ "f1_prompts_word": "fifteen",
+ "f1_sonnet_blanks": 0,
+ "f1_sonnet_calls": 150,
+ "f1_sonnet_finish": {
+  "length": 149,
+  "stop": 1
+ },
+ "field_size": 11,
+ "hist_calls_on_touched": 45,
+ "hist_rate_on_touched": 64.4,
+ "hist_refused_on_touched": 29,
+ "hist_samples_per_task": 3,
+ "hist_sweep_calls": 1353,
+ "hist_sweep_fail_by_kind": {
+  "content filter": 29,
+  "http_error": 11,
+  "no_provider": 4
+ },
+ "hist_sweep_fail_by_model": {
+  "claude-opus-5": 29,
+  "gpt-5.6-sol": 1,
+  "kimi-k3": 14
+ },
+ "hist_sweep_fail_other": 15,
+ "hist_sweep_fail_total": 44,
+ "hist_sweep_models_blanked": 1,
+ "hist_sweep_partial": 10,
+ "hist_sweep_partial_word": "ten",
+ "hist_sweep_refusals": 29,
+ "hist_sweep_silenced": 5,
+ "hist_sweep_silenced_word": "five",
+ "hist_touched_tasks": 15,
+ "hist_touched_tasks_word": "fifteen",
+ "platforms": [
+  {
+   "blanks": 0,
+   "calls": 45,
+   "label": "Anthropic",
+   "name": "anthropic",
+   "native": []
+  },
+  {
+   "blanks": 2,
+   "calls": 45,
+   "label": "Claude Platform on AWS",
+   "name": "claude_platform_on_aws",
+   "native": [
+    "refusal"
+   ]
+  },
+  {
+   "blanks": 3,
+   "calls": 45,
+   "label": "Azure",
+   "name": "azure",
+   "native": [
+    "refusal"
+   ]
+  },
+  {
+   "blanks": 1,
+   "calls": 45,
+   "label": "Google Vertex",
+   "name": "google",
+   "native": [
+    "refusal"
+   ]
+  },
+  {
+   "blanks": 1,
+   "calls": 45,
+   "label": "Amazon Bedrock",
+   "name": "amazon_bedrock",
+   "native": [
+    "refusal"
+   ]
+  }
+ ],
+ "rank_corrected": 4,
+ "rank_countwrong": 10,
+ "rank_drop": 3,
+ "rank_spread": 7,
+ "score_corrected": 60.6,
+ "score_countwrong": 52.9,
+ "score_denominator": 597,
+ "score_drop": 61.6,
+ "score_spread": 8.7,
+ "sonnet_sr_blanks": 0,
+ "sonnet_sr_clean": 622,
+ "sonnet_sr_instances": 622,
+ "sr_controls": 3,
+ "sr_descriptions": 332,
+ "sr_filter_blanks": 84,
+ "sr_full_silence": 20,
+ "sr_full_silence_multisample": 14,
+ "sr_initial_pct": 29.3,
+ "sr_initial_refusals": 182,
+ "sr_initial_source": "regexeval-2026 ARTICLE.md (pre-retry, not in predictions)",
+ "sr_instances": 622,
+ "sr_other_unscored": 25,
+ "sr_partial_desc": 50,
+ "sr_recovered_by_retry": 98,
+ "sr_scored": 513,
+ "sr_touched_desc": 70,
+ "sr_unscored_total": 109,
+ "upstream_blanks_total": 7,
+ "upstream_calls": 225,
+ "upstream_calls_per_platform": 45,
+ "upstream_clean_arms": [
+  "Anthropic"
+ ],
+ "upstream_clean_expected": 1.8,
+ "upstream_clean_p_zero_pct": 17,
+ "upstream_other_rate_pct": 3.9,
+ "upstream_platforms": 5,
+ "upstream_platforms_with_blanks": 4,
+ "upstream_platforms_with_blanks_word": "four",
+ "upstream_platforms_word": "five"
+}
