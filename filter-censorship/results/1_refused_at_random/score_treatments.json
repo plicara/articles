@@ -1,0 +1,104 @@
+{
+ "generated": "2026-08-26",
+ "source": "regexeval-2026 predictions/structuredregex (committed)",
+ "subject": "claude-opus-5",
+ "denominator": 597,
+ "kept": 513,
+ "blanked": 84,
+ "bias_delta_points": -7.13,
+ "scores": {
+  "drop": 61.6,
+  "count_wrong": 52.9,
+  "corrected": 60.6
+ },
+ "ranks": {
+  "drop": 3,
+  "count_wrong": 10,
+  "corrected": 4
+ },
+ "field_size": 11,
+ "spread_points": 8.7,
+ "rank_spread": 7,
+ "board": [
+  {
+   "model": "claude-sonnet-5",
+   "score": 65.4
+  },
+  {
+   "model": "gpt-5.6-sol",
+   "score": 63.8
+  },
+  {
+   "model": "gpt-5.6-terra",
+   "score": 61.1
+  },
+  {
+   "model": "gemini-3.1-flash-lite",
+   "score": 58.5
+  },
+  {
+   "model": "qwen3.6-max-preview",
+   "score": 58.5
+  },
+  {
+   "model": "kimi-k3",
+   "score": 58.0
+  },
+  {
+   "model": "gpt-5.6-luna",
+   "score": 57.9
+  },
+  {
+   "model": "qwen3.6-plus",
+   "score": 54.2
+  },
+  {
+   "model": "glm-5.2",
+   "score": 54.0
+  },
+  {
+   "model": "deepseek-v4-flash-0731",
+   "score": 51.1
+  }
+ ],
+ "detection": {
+  "k": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "study_rate_pct": 64.4,
+  "today_rate_pct": 1.8,
+  "study": [
+   64.4,
+   87.3,
+   95.5,
+   98.4,
+   99.4,
+   99.8,
+   99.9,
+   100.0,
+   100.0,
+   100.0
+  ],
+  "today": [
+   1.8,
+   3.6,
+   5.3,
+   7.0,
+   8.7,
+   10.3,
+   11.9,
+   13.5,
+   15.1,
+   16.6
+  ]
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "generated": "2026-08-26",
+ "source": "regexeval-2026 predictions/structuredregex (committed)",
+ "opus_blocked_tasks": 84,
+ "opus_other_unscored": 25,
+ "opus_answered_tasks": 513,
+ "blocked_selector": "upstream finish_reason='content_filter'",
+ "mean_diff_points": -7.13,
+ "sd_points": 3.79,
+ "p_value": 0.001953,
+ "test": "exact sign-flip (2^10=1024)",
+ "jackknife_se_points": 1.2,
+ "per_model": [
+  {
+   "model": "claude-sonnet-5",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 64.29,
+   "pass_on_kept": 65.61,
+   "diff": -1.33
+  },
+  {
+   "model": "deepseek-v4-flash-0731",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 47.62,
+   "pass_on_kept": 51.67,
+   "diff": -4.05
+  },
+  {
+   "model": "gemini-3.1-flash-lite",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 51.19,
+   "pass_on_kept": 59.67,
+   "diff": -8.47
+  },
+  {
+   "model": "glm-5.2",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 44.05,
+   "pass_on_kept": 55.58,
+   "diff": -11.53
+  },
+  {
+   "model": "gpt-5.6-luna",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 52.38,
+   "pass_on_kept": 58.74,
+   "diff": -6.36
+  },
+  {
+   "model": "gpt-5.6-sol",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 59.52,
+   "pass_on_kept": 64.5,
+   "diff": -4.97
+  },
+  {
+   "model": "gpt-5.6-terra",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 57.14,
+   "pass_on_kept": 61.71,
+   "diff": -4.57
+  },
+  {
+   "model": "kimi-k3",
+   "n_blocked": 83,
+   "n_kept": 538,
+   "pass_on_blocked": 53.01,
+   "pass_on_kept": 58.74,
+   "diff": -5.72
+  },
+  {
+   "model": "qwen3.6-max-preview",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 47.62,
+   "pass_on_kept": 60.22,
+   "diff": -12.6
+  },
+  {
+   "model": "qwen3.6-plus",
+   "n_blocked": 84,
+   "n_kept": 538,
+   "pass_on_blocked": 44.05,
+   "pass_on_kept": 55.76,
+   "diff": -11.71
+  }
+ ]
+}
