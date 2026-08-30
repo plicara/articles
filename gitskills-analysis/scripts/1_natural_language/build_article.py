@@ -1,9 +1,10 @@
 """Build the article from one prose source and one number source.
 
 article.md.tmpl holds the prose, once, with {{placeholders}} where numbers
-go. This fills them from results/figures.json and writes two outputs:
+go. This fills them from results/figures.json and writes three outputs:
 
-    01-natural-language/article.md      ships verbatim to the site
+    01-natural-language/article.md      the readable draft
+    01-natural-language/article.site.md the copy that ships to the site
     01-natural-language/preview.html    designed page, charts inline
 
 Both come from the same template, so they cannot disagree. Before this,

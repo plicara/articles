@@ -316,6 +316,21 @@ if _xc.exists():
     fig["crosscheck"] = json.loads(_xc.read_text())
 
 OUT.parent.mkdir(exist_ok=True)
+# Guard: this file holds the numbers article 01 published. Running the
+# export against the sample writes 13,000-row figures over 3.8M-row ones and
+# says nothing, which has happened. Refuse to shrink the export unless asked.
+if OUT.exists() and "--force" not in sys.argv:
+    try:
+        prev = json.loads(OUT.read_text())["corpus"]["classified"]
+    except (KeyError, ValueError):
+        prev = 0
+    if fig["corpus"]["classified"] < prev:
+        raise SystemExit(
+            f"refusing to overwrite {OUT.name}: it holds {prev:,} classified "
+            f"skills and this run has {fig['corpus']['classified']:,}. "
+            f"Point GITSKILLS_DB or GITSKILLS_PARQUET at the full corpus, or "
+            f"pass --force if shrinking it is what you meant.")
+
 OUT.write_text(json.dumps(fig, indent=2, default=str))
 print(f"wrote {OUT}")
 print(f"  {fig['corpus']['classified']} classified, "

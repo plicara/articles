@@ -90,16 +90,42 @@ def source(table: str) -> str:
 
 
 def scale() -> str:
-    """Which corpus is in play, for scripts that print their provenance."""
-    return "full corpus (parquet)" if "read_parquet" in source("artifacts") \
-        else "13k sample (sqlite)"
+    """Which corpus is in play, for scripts that print their provenance.
+
+    Counted, not inferred from the storage format. That inference was safe
+    only while Parquet implied the full release; the sample converts to
+    Parquet too (scripts/sample_to_parquet.py), so format no longer implies
+    size, and a guess here would misreport provenance in the one place a
+    script prints it.
+    """
+    import duckdb
+
+    n = connect(duckdb.connect).execute(
+        f"SELECT count(*) FROM {source('artifacts')}").fetchone()[0]
+    fmt = "parquet" if "read_parquet" in source("artifacts") else "sqlite"
+    return f"{n:,} artifact rows ({fmt})"
 
 
 def connect(con_factory):
-    """Open DuckDB with the sqlite extension loaded."""
+    """Open DuckDB, loading the sqlite extension only if the source needs it.
+
+    That extension is downloaded from DuckDB's extension repository on first
+    use, so loading it unconditionally makes every script fail on a machine
+    whose egress policy blocks that repository, including runs that read
+    Parquet and never touch SQLite at all. Parquet needs no extension.
+    """
     con = con_factory()
-    con.execute("INSTALL sqlite")
-    con.execute("LOAD sqlite")
+    if "sqlite_scan" in source("artifacts"):
+        con.execute("INSTALL sqlite")
+        con.execute("LOAD sqlite")
+    # At full corpus a join over 3.8M artifacts and 40M+ bundled-file rows
+    # does not fit in memory and DuckDB spills. Without a temp directory on
+    # the volume holding the data it spills to wherever the process started,
+    # which on a small root filesystem kills the run halfway through.
+    tmp = _data_dir()
+    if tmp:
+        con.execute(f"SET temp_directory = '{tmp / 'duckdb-tmp'}'")
+        con.execute("SET preserve_insertion_order = false")
     return con
 
 

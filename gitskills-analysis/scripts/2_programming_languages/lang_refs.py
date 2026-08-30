@@ -14,9 +14,11 @@ Deliberate measurement choices:
 """
 
 import os
+import sys
 from pathlib import Path
 
-from common import source
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from common import connect, source
 
 import duckdb
 
@@ -41,9 +43,7 @@ PATTERNS = {
     "Haskell":    r"\bhaskell\b",
 }
 
-con = duckdb.connect()
-con.execute("INSTALL sqlite")
-con.execute("LOAD sqlite")
+con = connect(duckdb.connect)
 con.execute(f"""
     CREATE OR REPLACE TEMP TABLE docs AS
     SELECT lower(content) AS text
