@@ -7,14 +7,12 @@ vocabulary; every distinct content counts exactly once.
 import os
 from pathlib import Path
 
-from common import source
+from common import connect, source
 
 import duckdb
 
 
-con = duckdb.connect()
-con.execute("INSTALL sqlite")
-con.execute("LOAD sqlite")
+con = connect(duckdb.connect)
 
 # Minimal function-word stoplist: articles, prepositions, pronouns,
 # auxiliaries only. Domain words (file, test, git, code...) are kept --

@@ -1,0 +1,272 @@
+<title>What agent skills are actually made of</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>/* Light is the base. Warm-neutral paper, biased toward the ochre the figures
+   carry, so the ground reads as chosen rather than inherited grey. */
+:root {
+  --paper:#f7f5f2; --surface:#fffefc; --ink:#171a1f; --muted:#5f6672;
+  --rule:#e2ded8; --hair:#ece8e2;
+  --pl-bg:var(--surface); --pl-text:var(--ink); --pl-text-muted:var(--muted);
+  --pl-rule:#d6d1c9;
+  --c-compare:#2d4ea2; --c-subject:#c8761a;
+  --pl-font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:'Newsreader',Georgia,'Times New Roman',serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#0e1013; --surface:#15181d; --ink:#e9eaec; --muted:#98a0ac;
+    --rule:#272c33; --hair:#1e2228; --pl-rule:#2f353d;
+    --c-compare:#7c9be8; --c-subject:#e0a155;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#0e1013; --surface:#15181d; --ink:#e9eaec; --muted:#98a0ac;
+  --rule:#272c33; --hair:#1e2228; --pl-rule:#2f353d;
+  --c-compare:#7c9be8; --c-subject:#e0a155;
+}
+
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+header, main, footer { max-width:70rem; margin:0 auto; padding:0 2rem; }
+header { padding-top:4.5rem; padding-bottom:3rem; }
+.eyebrow {
+  font-family:var(--pl-font-mono); font-size:.7rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted); margin:0 0 1.4rem;
+}
+h1 {
+  font-family:var(--serif); font-weight:300; font-size:clamp(2.1rem,4.4vw,3.3rem);
+  line-height:1.12; letter-spacing:-.015em; margin:0 0 1.4rem;
+  text-wrap:balance; max-width:22ch;
+}
+.lede { color:var(--ink); opacity:.82; max-width:64ch; margin:0;
+        font-size:1.08rem; line-height:1.66; }
+
+main { display:flex; flex-direction:column; gap:0; }
+.fig {
+  display:grid; grid-template-columns:4.5rem 1fr; gap:0 1.5rem;
+  padding:3.2rem 0; border-top:1px solid var(--hair);
+}
+.rail { position:relative; }
+.num {
+  font-family:var(--pl-font-mono); font-size:.82rem; font-weight:500;
+  color:var(--muted); letter-spacing:.08em;
+  position:sticky; top:1.5rem; display:block;
+}
+.body { min-width:0; }
+h2 {
+  font-family:var(--serif); font-weight:400; font-size:clamp(1.4rem,2.5vw,1.95rem);
+  line-height:1.24; letter-spacing:-.01em; margin:0 0 .75rem; text-wrap:balance;
+  max-width:30ch;
+}
+.explain {
+  color:var(--ink); opacity:.86; margin:0 0 2.1rem; max-width:64ch;
+  font-size:1.06rem; line-height:1.68;
+}
+.explain b { font-weight:600; opacity:1; }
+.explain code {
+  font-family:var(--pl-font-mono); font-size:.86em; background:var(--hair);
+  padding:.08em .34em; border-radius:3px; white-space:nowrap;
+}
+
+.plot {
+  background:var(--surface); border:1px solid var(--rule); border-radius:4px;
+  padding:1.5rem 1.4rem; margin-bottom:1.5rem;
+}
+.plot svg { width:100%; height:auto; display:block; overflow:visible; }
+
+/* figure internals, matching the site's figure classes */
+.lbl  { font-size:17px; fill:var(--ink); font-family:var(--serif); }
+.val  { font-size:15px; fill:var(--ink); font-weight:600;
+        font-variant-numeric:tabular-nums; font-family:var(--pl-font-mono); }
+.axis { font-size:13.5px; fill:var(--muted); font-family:var(--pl-font-mono);
+        font-variant-numeric:tabular-nums; }
+.plot text.sub { font-size:11.5px; fill:var(--muted); font-family:var(--pl-font-mono); }
+.ann  { font-size:13.5px; fill:var(--muted); font-family:var(--pl-font-mono); }
+.onbar{ font-size:14px; fill:var(--surface); font-weight:600;
+        font-family:var(--pl-font-mono); }
+.onbar.sm { font-size:12px; font-weight:400; opacity:.9; }
+.onbar.off { fill:var(--muted); }
+.huge { font-size:62px; fill:var(--ink); font-weight:600;
+        font-family:var(--pl-font-mono); font-variant-numeric:tabular-nums; }
+.grid { stroke:var(--pl-rule); stroke-width:1; }
+.annrule  { stroke:var(--pl-rule); stroke-width:1; stroke-dasharray:3 3; }
+.refline  { stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; }
+.connector{ stroke:var(--pl-rule); stroke-width:3; }
+.whisker  { stroke:var(--c-compare); stroke-width:3; opacity:.55; }
+.ci { fill:var(--c-compare); opacity:.18; }
+.trendline{ fill:none; stroke:var(--c-subject); stroke-width:2.6; stroke-linejoin:round; }
+.control  { fill:none; stroke:var(--pl-rule); stroke-width:2.2; stroke-linejoin:round; }
+.dot { fill:var(--c-subject); }
+.dot.partial { fill:var(--surface); stroke:var(--c-subject); stroke-width:2; }
+.censored { fill:var(--pl-rule); opacity:.35; }
+
+.tw { overflow-x:auto; }
+table {
+  border-collapse:collapse; width:100%; max-width:46rem;
+  font-family:var(--pl-font-mono); font-size:.78rem;
+  font-variant-numeric:tabular-nums;
+}
+/* the label column absorbs the slack so the figures stay beside their rows
+   instead of drifting to the far edge of a full-width table */
+th:first-child, td:first-child { width:100%; }
+th:not(:first-child), td:not(:first-child) { text-align:right; padding-right:0;
+  padding-left:1.6rem; }
+th {
+  text-align:left; font-weight:500; color:var(--muted); padding:.45rem .9rem .45rem 0;
+  border-bottom:1px solid var(--rule); white-space:nowrap;
+  font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+}
+td {
+  padding:.42rem .9rem .42rem 0; border-bottom:1px solid var(--hair);
+  color:var(--muted); white-space:nowrap;
+}
+td:first-child { color:var(--ink); }
+td b { color:var(--ink); font-weight:600; }
+tbody tr:last-child td { border-bottom:none; }
+
+footer {
+  padding:3rem 2rem 5rem; border-top:1px solid var(--hair); margin-top:1rem;
+}
+footer h3 {
+  font-family:var(--pl-font-mono); font-size:.7rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--muted); font-weight:500;
+  margin:0 0 1.2rem;
+}
+ul.src {
+  list-style:none; padding:0; margin:0 0 2.2rem; display:flex;
+  flex-direction:column; gap:.8rem; max-width:66ch;
+}
+ul.src li { color:var(--muted); font-size:.94rem; line-height:1.6; }
+a { color:var(--ink); text-decoration:underline;
+    text-decoration-color:var(--c-subject); text-underline-offset:.18em;
+    text-decoration-thickness:1.5px; }
+a:hover { text-decoration-thickness:2.5px; }
+a:focus-visible { outline:2px solid var(--c-subject); outline-offset:3px;
+                  border-radius:2px; }
+footer p {
+  font-family:var(--pl-font-mono); font-size:.75rem; line-height:1.7;
+  color:var(--muted); margin:0; max-width:66ch;
+}
+
+@media (max-width:640px) {
+  .fig { grid-template-columns:1fr; gap:0; }
+  .rail { margin-bottom:.6rem; }
+  .num { position:static; }
+  header { padding-top:3rem; }
+}
+
+/* The footer carries three sections now, not one, so the headings need room
+   above them and the paragraphs need room between them. With margin:0 on
+   footer p and no top margin on footer h3, "CREDIT" sat flush against the
+   last line of the limits and read as part of it. */
+footer h3 + p { margin-top:0; }
+footer p + h3, footer blockquote + h3, footer ul + h3 { margin-top:2.4rem; }
+footer p + p { margin-top:.9rem; }
+footer blockquote {
+  margin:1.2rem 0; padding-left:1.1rem; border-left:2px solid var(--pl-rule);
+  font-family:var(--serif); font-size:.95rem; line-height:1.6; color:var(--ink);
+  max-width:60ch;
+}
+footer blockquote em { font-style:italic; color:var(--muted); }
+/* Same register as the rest of the footer: this is the colophon, not the
+   article, and the serif list read as a second document. */
+ul.src li { font-family:var(--pl-font-mono); font-size:.75rem; line-height:1.7; }
+</style>
+<header>
+  <p class="eyebrow">Plicara Research &middot; article 02 &middot; the GitSkills series</p>
+  <h1>What agent skills are actually made of</h1>
+  <p class="lede">An agent skill is a folder holding instructions for an AI coding assistant, written in ordinary prose. <a href="https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills" target="_blank" rel="noopener">Anthropic introduced the format</a> in October 2025 and it is now <a href="https://agentskills.io/specification" target="_blank" rel="noopener">an open specification</a> that around forty products read. These eight figures ask one question of the <a href="https://arxiv.org/abs/2608.10906" target="_blank" rel="noopener">1.9 million of them</a> on GitHub: when a skill does come with code attached, what language is that code in?</p>
+</header>
+<main><article class="fig">
+  <div class="rail"><span class="num">01</span></div>
+  <div class="body">
+    <h2>Most skills are just writing</h2>
+    <p class="explain">A skill is a folder: a SKILL.md file of instructions, plus whatever its author puts beside it. <b>Coming with code means that folder holds a file the agent can run</b>, so <code>pdf-tools/SKILL.md</code> sitting next to <code>pdf-tools/scripts/extract.py</code> counts, and a skill that only describes what to do does not. It is the skill's own folder that matters, not the repository around it, which is usually a software project full of code either way. Each square here is one skill in a hundred: 12 come with code, the other 88 are instructions and nothing else. The bar underneath breaks down the 5.9 million files that do sit beside a SKILL.md, and 50% of those are more writing rather than code. An independent study of <a href="https://arxiv.org/abs/2601.10338" target="_blank" rel="noopener">31,132 skills from two marketplaces</a> found almost the same rate, 11.5% against our 11.78%.</p>
+    <div class="plot"><svg viewBox="0 0 900 487" role="img" aria-label="Twelve skills in a hundred ship code; half of all bundled files are documentation"><rect x="0" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="37" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="74" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="111" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="148" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="185" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="222" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="259" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="296" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="333" y="0" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="0" y="37" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="37" y="37" width="30" height="30" rx="3" fill="var(--c-subject)"/><rect x="74" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="37" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="74" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="111" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="148" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="185" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="222" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="259" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="296" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="0" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="37" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="74" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="111" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="148" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="185" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="222" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="259" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="296" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><rect x="333" y="333" width="30" height="30" rx="3" fill="var(--pl-rule)" opacity=".55"/><text x="429" y="52" class="huge">12</text><text x="429" y="92" class="lbl">in every 100 skills</text><text x="429" y="118" class="lbl">ship any code at all</text><text x="429" y="168" class="axis">The other 88 are prose:</text><text x="429" y="192" class="axis">instructions for a model,</text><text x="429" y="216" class="axis">with nothing to execute.</text><text x="0" y="407" class="axis">and of the 5,855,080 files they do bundle</text><rect x="0.0" y="425" width="447.0" height="46" rx="2" fill="var(--c-subject)"/><rect x="449.0" y="425" width="252.2" height="46" rx="2" fill="var(--c-subject)" opacity=".72"/><rect x="703.2" y="425" width="98.8" height="46" rx="2" fill="var(--pl-rule)" opacity=".5"/><rect x="804.0" y="425" width="56.1" height="46" rx="2" fill="var(--pl-rule)" opacity=".5"/><rect x="862.1" y="425" width="35.9" height="46" rx="2" fill="var(--pl-rule)" opacity=".5"/><text x="14.0" y="454" class="onbar">docs  49.9%</text><text x="463.0" y="454" class="onbar">code  28.2%</text><text x="717.2" y="454" class="onbar off">data/config  11.2%</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th></th><th>skills</th><th>share</th></tr></thead><tbody><tr><td>bundle nothing at all</td><td>1,195,708</td><td>63.67%</td></tr><tr><td>ship code</td><td>218,120</td><td><b>11.78%</b></td></tr><tr><td>ship code, counting root-level skills</td><td>236,368</td><td>12.59%</td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">02</span></div>
+  <div class="body">
+    <h2>A Rust project's skill is usually written in Python</h2>
+    <p class="explain">Each row is a group of repositories, sorted by the language GitHub says the project is mainly written in. The orange dot shows how often those projects' skills contain code in that same language; the blue dot shows how often they contain Python instead. Reading down the list the two dots trade places: a Shell project writes its skills in Shell 81% of the time, but a Rust project writes them in Rust only 11% of the time and reaches for Python 42%. Nothing here reads a word of the skill text, so it is an independent check on the same idea. It matches what <a href="https://arxiv.org/abs/2503.17181" target="_blank" rel="noopener">a study of how language models pick languages</a> found from the other direction: asked to start high-performance projects, models chose Python 58% of the time and Rust not once.</p>
+    <div class="plot"><svg viewBox="0 0 900 604" role="img" aria-label="Share of a repository's code-shipping skills written in the repository's own language, against Python"><circle cx="178" cy="16" r="6" fill="var(--c-subject)"/><text x="192" y="21" class="axis">ships its own language</text><circle cx="428" cy="16" r="6" fill="var(--c-compare)"/><text x="442" y="21" class="axis">ships Python</text><line x1="178.0" y1="66" x2="178.0" y2="590" class="grid"/><text x="178.0" y="58" class="axis" text-anchor="middle">0%</text><line x1="314.0" y1="66" x2="314.0" y2="590" class="grid"/><text x="314.0" y="58" class="axis" text-anchor="middle">20%</text><line x1="450.0" y1="66" x2="450.0" y2="590" class="grid"/><text x="450.0" y="58" class="axis" text-anchor="middle">40%</text><line x1="586.0" y1="66" x2="586.0" y2="590" class="grid"/><text x="586.0" y="58" class="axis" text-anchor="middle">60%</text><line x1="722.0" y1="66" x2="722.0" y2="590" class="grid"/><text x="722.0" y="58" class="axis" text-anchor="middle">80%</text><line x1="298.4" y1="91.0" x2="730.2" y2="91.0" class="connector"/><circle cx="298.4" cy="91.0" r="6" fill="var(--c-compare)"/><circle cx="730.2" cy="91.0" r="6" fill="var(--c-subject)"/><text x="162" y="97.0" class="lbl" text-anchor="end">Shell/Bash</text><text x="744.2" y="96.0" class="val">81%</text><line x1="726.1" y1="121.0" x2="726.1" y2="121.0" class="connector"/><circle cx="726.1" cy="121.0" r="6" fill="var(--c-compare)"/><circle cx="726.1" cy="121.0" r="6" fill="var(--c-subject)"/><text x="162" y="127.0" class="lbl" text-anchor="end">Python</text><text x="740.1" y="126.0" class="val">81%</text><line x1="328.3" y1="151.0" x2="684.6" y2="151.0" class="connector"/><circle cx="328.3" cy="151.0" r="6" fill="var(--c-compare)"/><circle cx="684.6" cy="151.0" r="6" fill="var(--c-subject)"/><text x="162" y="157.0" class="lbl" text-anchor="end">PowerShell</text><line x1="350.0" y1="181.0" x2="580.6" y2="181.0" class="connector"/><circle cx="350.0" cy="181.0" r="6" fill="var(--c-compare)"/><circle cx="580.6" cy="181.0" r="6" fill="var(--c-subject)"/><text x="162" y="187.0" class="lbl" text-anchor="end">JavaScript</text><line x1="317.4" y1="211.0" x2="575.8" y2="211.0" class="connector"/><circle cx="317.4" cy="211.0" r="6" fill="var(--c-compare)"/><circle cx="575.8" cy="211.0" r="6" fill="var(--c-subject)"/><text x="162" y="217.0" class="lbl" text-anchor="end">Ruby</text><line x1="443.9" y1="241.0" x2="492.8" y2="241.0" class="connector"/><circle cx="492.8" cy="241.0" r="6" fill="var(--c-compare)"/><circle cx="443.9" cy="241.0" r="6" fill="var(--c-subject)"/><text x="162" y="247.0" class="lbl" text-anchor="end">HTML/CSS</text><line x1="322.8" y1="271.0" x2="412.6" y2="271.0" class="connector"/><circle cx="322.8" cy="271.0" r="6" fill="var(--c-compare)"/><circle cx="412.6" cy="271.0" r="6" fill="var(--c-subject)"/><text x="162" y="277.0" class="lbl" text-anchor="end">PHP</text><line x1="395.6" y1="301.0" x2="405.1" y2="301.0" class="connector"/><circle cx="395.6" cy="301.0" r="6" fill="var(--c-compare)"/><circle cx="405.1" cy="301.0" r="6" fill="var(--c-subject)"/><text x="162" y="307.0" class="lbl" text-anchor="end">Dart</text><line x1="393.6" y1="331.0" x2="399.0" y2="331.0" class="connector"/><circle cx="393.6" cy="331.0" r="6" fill="var(--c-compare)"/><circle cx="399.0" cy="331.0" r="6" fill="var(--c-subject)"/><text x="162" y="337.0" class="lbl" text-anchor="end">TypeScript</text><line x1="369.8" y1="361.0" x2="391.5" y2="361.0" class="connector"/><circle cx="391.5" cy="361.0" r="6" fill="var(--c-compare)"/><circle cx="369.8" cy="361.0" r="6" fill="var(--c-subject)"/><text x="162" y="367.0" class="lbl" text-anchor="end">Go</text><line x1="356.2" y1="391.0" x2="409.9" y2="391.0" class="connector"/><circle cx="409.9" cy="391.0" r="6" fill="var(--c-compare)"/><circle cx="356.2" cy="391.0" r="6" fill="var(--c-subject)"/><text x="162" y="397.0" class="lbl" text-anchor="end">Swift</text><line x1="348.0" y1="421.0" x2="388.8" y2="421.0" class="connector"/><circle cx="388.8" cy="421.0" r="6" fill="var(--c-compare)"/><circle cx="348.0" cy="421.0" r="6" fill="var(--c-subject)"/><text x="162" y="427.0" class="lbl" text-anchor="end">C#</text><line x1="339.2" y1="451.0" x2="477.9" y2="451.0" class="connector"/><circle cx="477.9" cy="451.0" r="6" fill="var(--c-compare)"/><circle cx="339.2" cy="451.0" r="6" fill="var(--c-subject)"/><text x="162" y="457.0" class="lbl" text-anchor="end">Java</text><line x1="326.9" y1="481.0" x2="393.6" y2="481.0" class="connector"/><circle cx="393.6" cy="481.0" r="6" fill="var(--c-compare)"/><circle cx="326.9" cy="481.0" r="6" fill="var(--c-subject)"/><text x="162" y="487.0" class="lbl" text-anchor="end">Lua</text><line x1="282.7" y1="511.0" x2="429.6" y2="511.0" class="connector"/><circle cx="429.6" cy="511.0" r="6" fill="var(--c-compare)"/><circle cx="282.7" cy="511.0" r="6" fill="var(--c-subject)"/><text x="162" y="517.0" class="lbl" text-anchor="end">Kotlin</text><line x1="259.6" y1="541.0" x2="569.0" y2="541.0" class="connector"/><circle cx="569.0" cy="541.0" r="6" fill="var(--c-compare)"/><circle cx="259.6" cy="541.0" r="6" fill="var(--c-subject)"/><text x="162" y="547.0" class="lbl" text-anchor="end">C/C++</text><text x="273.6" y="546.0" class="val">12%</text><line x1="252.1" y1="571.0" x2="467.0" y2="571.0" class="connector"/><circle cx="467.0" cy="571.0" r="6" fill="var(--c-compare)"/><circle cx="252.1" cy="571.0" r="6" fill="var(--c-subject)"/><text x="162" y="577.0" class="lbl" text-anchor="end">Rust</text><text x="266.1" y="576.0" class="val">11%</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>repository is mostly</th><th>skills</th><th>own language</th><th>Python</th></tr></thead><tbody><tr><td>Shell/Bash</td><td>13,577</td><td><b>81.2%</b></td><td>17.7%</td></tr><tr><td>Python</td><td>129,656</td><td><b>80.6%</b></td><td>80.6%</td></tr><tr><td>JavaScript</td><td>14,920</td><td><b>59.2%</b></td><td>25.3%</td></tr><tr><td>TypeScript</td><td>29,213</td><td><b>32.5%</b></td><td>31.7%</td></tr><tr><td>Java</td><td>1,075</td><td><b>23.7%</b></td><td>44.1%</td></tr><tr><td>C/C++</td><td>1,307</td><td><b>12.0%</b></td><td>57.5%</td></tr><tr><td>Rust</td><td>2,928</td><td><b>10.9%</b></td><td>42.5%</td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">03</span></div>
+  <div class="body">
+    <h2>TypeScript is growing everywhere except here</h2>
+    <p class="explain">The line is the share of newly written skills carrying at least one TypeScript file, quarter by quarter, and the shaded band around it is the margin of error. It falls the whole way, from 1.84% to 0.56%. The note along the top is GitHub's own count of the opposite: <a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/" target="_blank" rel="noopener">Octoverse 2025</a> reports TypeScript passing Python in August 2025 to become the most used language on the site, on 66% growth in a year. The two count different things, contributors there and files here, so this is one measure falling while another rises rather than a contradiction. The final quarter is greyed out because collection stopped partway through it, so it is shown but never compared.</p>
+    <div class="plot"><svg viewBox="0 0 900 320" role="img" aria-label="TypeScript's share of newly created skills, by quarter"><line x1="52" y1="34" x2="870" y2="34" class="annrule"/><text x="52" y="18" class="ann">Meanwhile on GitHub, TypeScript grew 66% in a year to become the most used language</text><text x="52" y="52" class="ann">Octoverse 2025</text><line x1="52" y1="280.0" x2="870" y2="280.0" class="grid"/><text x="42" y="285.0" class="axis" text-anchor="end">0%</text><line x1="52" y1="211.3" x2="870" y2="211.3" class="grid"/><text x="42" y="216.3" class="axis" text-anchor="end">0.8%</text><line x1="52" y1="142.7" x2="870" y2="142.7" class="grid"/><text x="42" y="147.7" class="axis" text-anchor="end">1.6%</text><line x1="52" y1="74.0" x2="870" y2="74.0" class="grid"/><text x="42" y="79.0" class="axis" text-anchor="end">2.4%</text><rect x="854.0" y="74" width="16.0" height="206" class="censored"/><polygon points="52.0,99.7 324.7,196.7 597.3,218.2 870.0,225.1 870.0,237.9 597.3,223.3 324.7,205.3 52.0,141.8" class="ci"/><polyline points="52.0,122.1 324.7,201.0 597.3,220.8 870.0,231.9" class="trendline"/><circle cx="52.0" cy="122.1" r="4.5" class="dot"/><circle cx="324.7" cy="201.0" r="4.5" class="dot"/><circle cx="597.3" cy="220.8" r="4.5" class="dot"/><circle cx="870.0" cy="231.9" r="3" class="dot partial"/><text x="52.0" y="306" class="axis" text-anchor="start">2025-Q4</text><text x="324.7" y="306" class="axis" text-anchor="middle">2026-Q1</text><text x="597.3" y="306" class="axis" text-anchor="middle">2026-Q2</text><text x="870.0" y="306" class="axis" text-anchor="end">2026-Q3</text><text x="62.0" y="110.1" class="val">1.84%</text><text x="597.3" y="206.8" class="val" text-anchor="middle">0.69%</text><text x="870.0" y="290" class="axis" text-anchor="end">censored</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>quarter</th><th>new skills</th><th>mention it</th><th>ship it</th></tr></thead><tbody><tr><td>2025-Q4</td><td>11,439</td><td>28.43%</td><td><b>1.84%</b></td></tr><tr><td>2026-Q1</td><td>147,837</td><td>18.34%</td><td><b>0.92%</b></td></tr><tr><td>2026-Q2</td><td>254,656</td><td>16.63%</td><td><b>0.69%</b></td></tr><tr><td>2026-Q3</td><td>41,490</td><td>18.07%</td><td><b>0.56%</b></td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">04</span></div>
+  <div class="body">
+    <h2>The distance between talking and writing keeps growing</h2>
+    <p class="explain">Both halves of this count skills. Take the skills written in one quarter, count how many name a language anywhere in their text, then count how many actually hold a file in it, and divide. In the last quarter 18% of new skills mentioned TypeScript while 0.56% contained a <code>.ts</code> file, and 18 divided by 0.56 is the 32.3 at the right-hand end. A value of 1 would mean people write what they talk about. TypeScript climbs from 15.5 to 32.3, so the gap widens every quarter, while Python is the faint line along the bottom holding near 2.2.</p>
+    <div class="plot"><svg viewBox="0 0 900 280" role="img" aria-label="Mention-to-ship ratio by quarter, TypeScript against Python"><line x1="52" y1="240.0" x2="820" y2="240.0" class="grid"/><text x="42" y="245.0" class="axis" text-anchor="end">0x</text><line x1="52" y1="171.3" x2="820" y2="171.3" class="grid"/><text x="42" y="176.3" class="axis" text-anchor="end">12x</text><line x1="52" y1="102.7" x2="820" y2="102.7" class="grid"/><text x="42" y="107.7" class="axis" text-anchor="end">24x</text><line x1="52" y1="34.0" x2="820" y2="34.0" class="grid"/><text x="42" y="39.0" class="axis" text-anchor="end">36x</text><polyline points="52.0,224.6 308.0,220.0 564.0,224.0 820.0,227.4" class="control"/><polyline points="52.0,151.3 308.0,126.1 564.0,102.1 820.0,55.2" class="trendline"/><circle cx="52.0" cy="151.3" r="4.5" class="dot"/><circle cx="308.0" cy="126.1" r="4.5" class="dot"/><circle cx="564.0" cy="102.1" r="4.5" class="dot"/><circle cx="820.0" cy="55.2" r="4.5" class="dot"/><text x="52.0" y="266" class="axis" text-anchor="start">2025-Q4</text><text x="308.0" y="266" class="axis" text-anchor="middle">2026-Q1</text><text x="564.0" y="266" class="axis" text-anchor="middle">2026-Q2</text><text x="820.0" y="266" class="axis" text-anchor="middle">2026-Q3</text><text x="64.0" y="139.3" class="val">15.5x</text><text x="834.0" y="56.2" class="val">32.3x</text><text x="834.0" y="74.2" class="axis">TypeScript</text><text x="834.0" y="228.4" class="val">2.2x</text><text x="834.0" y="246.4" class="axis">Python</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>quarter</th><th>TypeScript</th><th>Python</th></tr></thead><tbody><tr><td>2025-Q4</td><td><b>15.5x</b></td><td>2.7x</td></tr><tr><td>2026-Q1</td><td><b>19.9x</b></td><td>3.5x</td></tr><tr><td>2026-Q2</td><td><b>24.1x</b></td><td>2.8x</td></tr><tr><td>2026-Q3</td><td><b>32.3x</b></td><td>2.2x</td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">05</span></div>
+  <div class="body">
+    <h2>Some languages are only ever discussed</h2>
+    <p class="explain">The same ratio as the previous figure, one row per language, over the whole corpus rather than by quarter. <b>Both numbers count skills, not repositories</b>: how many skills name the language, divided by how many skills hold a file in it. Kotlin sits at the top, named in 15,140 skills and present as a file in 175, which is 86 times more talk than code. Python sits at the bottom at 2.7x, near enough to 1 that the people who mention it mostly go on to write it. The scale stretches as it moves right, so each gridline is about three times the one before.</p>
+    <div class="plot"><svg viewBox="0 0 900 444" role="img" aria-label="How many times more often each language is mentioned than shipped"><line x1="150.0" y1="28" x2="150.0" y2="430" class="grid"/><text x="150.0" y="20" class="axis" text-anchor="middle">1x</text><line x1="314.6" y1="28" x2="314.6" y2="430" class="grid"/><text x="314.6" y="20" class="axis" text-anchor="middle">3x</text><line x1="495.0" y1="28" x2="495.0" y2="430" class="grid"/><text x="495.0" y="20" class="axis" text-anchor="middle">10x</text><line x1="659.6" y1="28" x2="659.6" y2="430" class="grid"/><text x="659.6" y="20" class="axis" text-anchor="middle">30x</text><line x1="840.0" y1="28" x2="840.0" y2="430" class="grid"/><text x="840.0" y="20" class="axis" text-anchor="middle">100x</text><line x1="150.0" y1="53.0" x2="818.3" y2="53.0" class="connector"/><circle cx="818.3" cy="53.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="58.0" class="lbl" text-anchor="end">Kotlin</text><text x="830.3" y="58.0" class="val">86.5x</text><line x1="150.0" y1="79.0" x2="812.6" y2="79.0" class="connector"/><circle cx="812.6" cy="79.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="84.0" class="lbl" text-anchor="end">Java</text><line x1="150.0" y1="105.0" x2="794.9" y2="105.0" class="connector"/><circle cx="794.9" cy="105.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="110.0" class="lbl" text-anchor="end">SQL</text><line x1="150.0" y1="131.0" x2="783.8" y2="131.0" class="connector"/><circle cx="783.8" cy="131.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="136.0" class="lbl" text-anchor="end">C#</text><line x1="150.0" y1="157.0" x2="770.1" y2="157.0" class="connector"/><circle cx="770.1" cy="157.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="162.0" class="lbl" text-anchor="end">PHP</text><line x1="150.0" y1="183.0" x2="725.6" y2="183.0" class="connector"/><circle cx="725.6" cy="183.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="188.0" class="lbl" text-anchor="end">Ruby</text><line x1="150.0" y1="209.0" x2="720.0" y2="209.0" class="connector"/><circle cx="720.0" cy="209.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="214.0" class="lbl" text-anchor="end">Rust</text><line x1="150.0" y1="235.0" x2="688.6" y2="235.0" class="connector"/><circle cx="688.6" cy="235.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="240.0" class="lbl" text-anchor="end">C/C++</text><line x1="150.0" y1="261.0" x2="681.4" y2="261.0" class="connector"/><circle cx="681.4" cy="261.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="266.0" class="lbl" text-anchor="end">Swift</text><line x1="150.0" y1="287.0" x2="604.7" y2="287.0" class="connector"/><circle cx="604.7" cy="287.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="292.0" class="lbl" text-anchor="end">Go</text><line x1="150.0" y1="313.0" x2="600.3" y2="313.0" class="connector"/><circle cx="600.3" cy="313.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="318.0" class="lbl" text-anchor="end">Lua</text><line x1="150.0" y1="339.0" x2="576.3" y2="339.0" class="connector"/><circle cx="576.3" cy="339.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="344.0" class="lbl" text-anchor="end">TypeScript</text><text x="588.3" y="344.0" class="val">17.2x</text><line x1="150.0" y1="365.0" x2="567.3" y2="365.0" class="connector"/><circle cx="567.3" cy="365.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="370.0" class="lbl" text-anchor="end">HTML/CSS</text><line x1="150.0" y1="391.0" x2="536.6" y2="391.0" class="connector"/><circle cx="536.6" cy="391.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="396.0" class="lbl" text-anchor="end">Shell/Bash</text><line x1="150.0" y1="417.0" x2="298.8" y2="417.0" class="connector"/><circle cx="298.8" cy="417.0" r="5.5" fill="var(--c-subject)"/><text x="136" y="422.0" class="lbl" text-anchor="end">Python</text><text x="310.8" y="422.0" class="val">2.7x</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>language</th><th>mention it</th><th>ship it</th><th>times more talk</th></tr></thead><tbody><tr><td>Kotlin</td><td>15,140</td><td>175</td><td><b>86.5x</b></td></tr><tr><td>Java</td><td>45,086</td><td>541</td><td><b>83.3x</b></td></tr><tr><td>SQL</td><td>105,483</td><td>1,426</td><td><b>74.0x</b></td></tr><tr><td>C#</td><td>51,330</td><td>747</td><td><b>68.7x</b></td></tr><tr><td>PHP</td><td>27,213</td><td>434</td><td><b>62.7x</b></td></tr><tr><td>Ruby</td><td>18,252</td><td>392</td><td><b>46.6x</b></td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">06</span></div>
+  <div class="body">
+    <h2>Chinese-language skills carry code twice as often</h2>
+    <p class="explain">Each row groups skills by the human language they are written in, then asks what share of the people publishing them ever include code. The dot is that share, the bar through it is the margin of error, and the dotted line marks the English rate so the comparison is visible rather than arithmetic. Chinese sits well to the right at 39% against English at 29%. Every other group sits to the left of the line, so this is not a general non-English effect: it is specific to Chinese authors. The language column is the one <a href="https://plicara.ai/research/agent-skill-languages/" target="_blank" rel="noopener">the previous article in this series</a> built.</p>
+    <div class="plot"><svg viewBox="0 0 900 354" role="img" aria-label="Share of repository owners who ship code in a skill, by the language the skill is written in"><line x1="210.0" y1="32" x2="210.0" y2="320" class="grid"/><text x="210.0" y="24" class="axis" text-anchor="middle">0%</text><line x1="334.0" y1="32" x2="334.0" y2="320" class="grid"/><text x="334.0" y="24" class="axis" text-anchor="middle">10%</text><line x1="458.0" y1="32" x2="458.0" y2="320" class="grid"/><text x="458.0" y="24" class="axis" text-anchor="middle">20%</text><line x1="582.0" y1="32" x2="582.0" y2="320" class="grid"/><text x="582.0" y="24" class="axis" text-anchor="middle">30%</text><line x1="706.0" y1="32" x2="706.0" y2="320" class="grid"/><text x="706.0" y="24" class="axis" text-anchor="middle">40%</text><line x1="830.0" y1="32" x2="830.0" y2="320" class="grid"/><text x="830.0" y="24" class="axis" text-anchor="middle">50%</text><line x1="571.7" y1="32" x2="571.7" y2="320" class="refline"/><line x1="684.4" y1="67.0" x2="703.8" y2="67.0" class="whisker"/><circle cx="694.1" cy="67.0" r="6" fill="var(--c-subject)"/><text x="194" y="72.0" class="lbl" text-anchor="end">Chinese</text><text x="717.8" y="72.0" class="val">39%</text><text x="194" y="86.0" class="sub" text-anchor="end">14,911 owners</text><line x1="568.7" y1="113.0" x2="574.7" y2="113.0" class="whisker"/><circle cx="571.7" cy="113.0" r="6" fill="var(--c-subject)"/><text x="194" y="118.0" class="lbl" text-anchor="end">English</text><text x="588.7" y="118.0" class="val">29%</text><text x="194" y="132.0" class="sub" text-anchor="end">139,559 owners</text><line x1="497.9" y1="159.0" x2="528.8" y2="159.0" class="whisker"/><circle cx="513.2" cy="159.0" r="6" fill="var(--c-subject)"/><text x="194" y="164.0" class="lbl" text-anchor="end">Japanese</text><text x="542.8" y="164.0" class="val">24%</text><text x="194" y="178.0" class="sub" text-anchor="end">4,561 owners</text><line x1="489.4" y1="205.0" x2="526.2" y2="205.0" class="whisker"/><circle cx="507.4" cy="205.0" r="6" fill="var(--c-subject)"/><text x="194" y="210.0" class="lbl" text-anchor="end">Korean</text><text x="540.2" y="210.0" class="val">24%</text><text x="194" y="224.0" class="sub" text-anchor="end">3,165 owners</text><line x1="439.0" y1="251.0" x2="460.0" y2="251.0" class="whisker"/><circle cx="449.3" cy="251.0" r="6" fill="var(--c-subject)"/><text x="194" y="256.0" class="lbl" text-anchor="end">European</text><text x="474.0" y="256.0" class="val">19%</text><text x="194" y="270.0" class="sub" text-anchor="end">8,424 owners</text><line x1="402.1" y1="297.0" x2="436.1" y2="297.0" class="whisker"/><circle cx="418.6" cy="297.0" r="6" fill="var(--c-subject)"/><text x="194" y="302.0" class="lbl" text-anchor="end">other non-English</text><text x="450.1" y="302.0" class="val">17%</text><text x="194" y="316.0" class="sub" text-anchor="end">2,872 owners</text><text x="571.7" y="342.0" class="axis" text-anchor="middle">English rate</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>written in</th><th>owners</th><th>ever ship code</th><th>margin of error</th></tr></thead><tbody><tr><td>Chinese</td><td>14,911</td><td><b>39.04%</b></td><td>38.26 to 39.82%</td></tr><tr><td>English</td><td>139,559</td><td><b>29.17%</b></td><td>28.93 to 29.41%</td></tr><tr><td>Japanese</td><td>4,561</td><td><b>24.45%</b></td><td>23.22 to 25.71%</td></tr><tr><td>Korean</td><td>3,165</td><td><b>23.98%</b></td><td>22.53 to 25.5%</td></tr><tr><td>European</td><td>8,424</td><td><b>19.3%</b></td><td>18.47 to 20.16%</td></tr><tr><td>other non-English</td><td>2,872</td><td><b>16.82%</b></td><td>15.49 to 18.23%</td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">07</span></div>
+  <div class="body">
+    <h2>The most-copied skills are the ones with code in them</h2>
+    <p class="explain">Skills are grouped by how many separate people hold a copy of the identical file, from never copied on the left to six or more owners on the right. Orange is the share whose folder holds a runnable file, in the sense set out in the first figure; blue is the share holding any extra file at all, code or not. Both rise as you move right, from 11% to 19% on code, but the jump is at the far end rather than a steady climb. Whether the code is what makes them worth copying, or popular skills simply attract more work, is not a question a file listing can settle.</p>
+    <div class="plot"><svg viewBox="0 0 900 300" role="img" aria-label="Share of skills that ship code, by how many owners hold a copy"><rect x="52" y="10" width="12" height="12" rx="2" fill="var(--c-subject)"/><text x="72" y="21" class="axis">ships code</text><rect x="182" y="10" width="12" height="12" rx="2" fill="var(--c-compare)" opacity=".85"/><text x="202" y="21" class="axis">bundles anything</text><line x1="52" y1="244.0" x2="860" y2="244.0" class="grid"/><text x="42" y="249.0" class="axis" text-anchor="end">0%</text><line x1="52" y1="194.5" x2="860" y2="194.5" class="grid"/><text x="42" y="199.5" class="axis" text-anchor="end">14%</text><line x1="52" y1="145.0" x2="860" y2="145.0" class="grid"/><text x="42" y="150.0" class="axis" text-anchor="end">28%</text><line x1="52" y1="95.5" x2="860" y2="95.5" class="grid"/><text x="42" y="100.5" class="axis" text-anchor="end">42%</text><line x1="52" y1="46.0" x2="860" y2="46.0" class="grid"/><text x="42" y="51.0" class="axis" text-anchor="end">56%</text><rect x="95.0" y="203.5" width="54" height="40.5" rx="4" fill="var(--c-subject)" opacity="1"/><text x="122.0" y="194.5" class="val" text-anchor="middle">11%</text><rect x="157.0" y="121.4" width="54" height="122.6" rx="4" fill="var(--c-compare)" opacity=".85"/><text x="184.0" y="112.4" class="val" text-anchor="middle">35%</text><text x="153.0" y="270" class="axis" text-anchor="middle">1</text><rect x="297.0" y="201.6" width="54" height="42.4" rx="4" fill="var(--c-subject)" opacity="1"/><text x="324.0" y="192.6" class="val" text-anchor="middle">12%</text><rect x="359.0" y="115.1" width="54" height="128.9" rx="4" fill="var(--c-compare)" opacity=".85"/><text x="386.0" y="106.1" class="val" text-anchor="middle">36%</text><text x="355.0" y="270" class="axis" text-anchor="middle">2</text><rect x="499.0" y="193.6" width="54" height="50.4" rx="4" fill="var(--c-subject)" opacity="1"/><text x="526.0" y="184.6" class="val" text-anchor="middle">14%</text><rect x="561.0" y="90.1" width="54" height="153.9" rx="4" fill="var(--c-compare)" opacity=".85"/><text x="588.0" y="81.1" class="val" text-anchor="middle">44%</text><text x="557.0" y="270" class="axis" text-anchor="middle">3-5</text><rect x="701.0" y="175.2" width="54" height="68.8" rx="4" fill="var(--c-subject)" opacity="1"/><text x="728.0" y="166.2" class="val" text-anchor="middle">19%</text><rect x="763.0" y="69.2" width="54" height="174.8" rx="4" fill="var(--c-compare)" opacity=".85"/><text x="790.0" y="60.2" class="val" text-anchor="middle">49%</text><text x="759.0" y="270" class="axis" text-anchor="middle">6+</text><text x="456.0" y="292" class="axis" text-anchor="middle">distinct repository owners holding a copy</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>people holding a copy</th><th>skills</th><th>ship code</th><th>bundle anything</th></tr></thead><tbody><tr><td>1</td><td>1,622,275</td><td><b>11.45%</b></td><td>34.68%</td></tr><tr><td>2</td><td>118,683</td><td><b>12.0%</b></td><td>36.46%</td></tr><tr><td>3-5</td><td>67,409</td><td><b>14.25%</b></td><td>43.52%</td></tr><tr><td>6+</td><td>43,721</td><td><b>19.47%</b></td><td>49.44%</td></tr></tbody></table></div>
+  </div>
+</article>
+<article class="fig">
+  <div class="rail"><span class="num">08</span></div>
+  <div class="body">
+    <h2>The official folder layout is a minority habit</h2>
+    <p class="explain">The <a href="https://agentskills.io/specification" target="_blank" rel="noopener">specification</a> sets out three folders for a skill's extra files: scripts/, references/ and assets/. This bar shows where those 5.9 million files actually sit, and the highlighted stretch on the left is those three folders put together. They account for 39% of everything. The rest sits in folders people invented themselves, or loose beside the skill file with no folder at all.</p>
+    <div class="plot"><svg viewBox="0 0 900 122" role="img" aria-label="Where bundled files sit, against the layout the specification defines"><line x1="0" y1="36" x2="350.8" y2="36" class="annrule"/><text x="0" y="26" class="ann">the three directories the specification names: 39% of files</text><rect x="0.0" y="52" width="220.3" height="54" rx="2" fill="var(--c-subject)"/><rect x="222.3" y="52" width="95.0" height="54" rx="2" fill="var(--c-subject)"/><rect x="319.3" y="52" width="31.1" height="54" rx="2" fill="var(--c-subject)"/><rect x="352.4" y="52" width="419.6" height="54" rx="2" fill="var(--pl-rule)" opacity=".55"/><rect x="774.0" y="52" width="124.0" height="54" rx="2" fill="var(--pl-rule)" opacity=".55"/><text x="12.0" y="75" class="onbar">references/</text><text x="12.0" y="94" class="onbar sm">24.7%</text><text x="234.3" y="75" class="onbar">scripts/</text><text x="234.3" y="94" class="onbar sm">10.8%</text><text x="364.4" y="75" class="onbar off">other subdirectory</text><text x="364.4" y="94" class="onbar sm off">46.8%</text>
+</svg></div>
+    <div class="tw"><table><thead><tr><th>where the file sits</th><th>files</th><th>share</th></tr></thead><tbody><tr><td>other subdirectory</td><td>2,742,463</td><td><b>46.8%</b></td></tr><tr><td>references/</td><td>1,446,376</td><td><b>24.7%</b></td></tr><tr><td>loose beside SKILL.md</td><td>819,824</td><td><b>14.0%</b></td></tr><tr><td>scripts/</td><td>630,900</td><td><b>10.8%</b></td></tr><tr><td>assets/</td><td>215,517</td><td><b>3.7%</b></td></tr></tbody></table></div>
+  </div>
+</article></main>
+<footer>
+  <h3>what this does not show</h3>
+  <p>Every "ships code" figure is a floor and a ceiling at once. A floor because the crawler truncated the folder listing for 13.43% of skills, so some code went uncounted. A ceiling because a SKILL.md at the root of a repository has the whole project sitting beside it, and those skills, 25,893 of them, report code at 70% when the corpus as a whole reports 11.78%. They are excluded from every figure here, which is why the headline is 11.78% rather than 12.59%.</p><p>The two figures that move through time rest on the minority of skills carrying commit history, and on the first commit that touched that copy rather than the first appearance of the content anywhere. A crawl also sees only survivors, so a skill created and deleted before July 2026 is invisible here.</p><p>Naming a language and shipping a file in it are both crude. The mention patterns are deliberately loose, so the mention counts are ceilings, and a file extension says what a file is rather than whether it runs or matters.</p>
+  <h3>Credit</h3>
+  <p>None of this exists without the dataset, which was built and released by someone else, and all credit for collecting, deduplicating and documenting 3.8 million skill files belongs to its authors:</p><blockquote>Giuseppe Destefanis, Daniel Graziotin, Matteo Vaccargiu, and Marco Ortu. 2027. <a href="https://arxiv.org/abs/2608.10906" target="_blank" rel="noopener">GitSkills: A Dataset of Agent Skills on GitHub</a>. In <em>Proceedings of the 24th International Conference on Mining Software Repositories (MSR '27)</em>.</blockquote><p>Preprint <a href="https://arxiv.org/abs/2608.10906" target="_blank" rel="noopener">arXiv:2608.10906</a>, archive <a href="https://doi.org/10.5281/zenodo.21875637" target="_blank" rel="noopener">10.5281/zenodo.21875637</a>, Parquet mirror <a href="https://huggingface.co/datasets/mvaccargiu/gitskills" target="_blank" rel="noopener">`mvaccargiu/gitskills`</a>, licence <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. We are not affiliated with its authors, with MSR, or with the Mining Challenge, so nothing here should be read as endorsed by them: the dataset is theirs, and the analysis and any error in it is ours. This article answers one question the authors pose and leave open, how often skills bundle executable files and how widely those skills are copied.</p><p>Analysis code lives at <a href="https://github.com/plicara/articles" target="_blank" rel="noopener">github.com/plicara/articles</a> under <code>gitskills-analysis/</code>, where every figure and every number in the sentences above is generated from a single machine-readable export and never typed by hand, so the whole thing can be regenerated and checked.</p><p>Found something wrong? We would genuinely like to know.</p>
+  <h3>Sources</h3>
+  <ul class="src"><li><a href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/" target="_blank" rel="noopener">GitHub Octoverse 2025</a>. TypeScript reaching number one on GitHub by monthly contributors in August 2025, up 66% year over year, which GitHub attributes partly to agent-assisted coding. Cited in the third figure.</li><li><a href="https://arxiv.org/abs/2503.17181" target="_blank" rel="noopener">Twist et al., A Study of LLMs' Preferences for Libraries and Programming Languages</a>. Language models choosing Python for 90 to 97% of benchmark tasks, and not choosing Rust once on high-performance ones. Cited in the second figure.</li><li><a href="https://arxiv.org/abs/2601.10338" target="_blank" rel="noopener">Liu et al., Agent Skills in the Wild</a>. The 31,132-skill marketplace study whose script-bundling rate the first figure replicates.</li><li><a href="https://agentskills.io/specification" target="_blank" rel="noopener">The Agent Skills specification</a>. The required front matter and the three optional folders the last figure measures against.</li><li><a href="https://plicara.ai/research/agent-skill-languages/" target="_blank" rel="noopener">What language are agent skills written in?</a>. The previous article in this series, whose language column the sixth figure reuses.</li></ul>
+</footer>
