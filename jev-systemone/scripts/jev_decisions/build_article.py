@@ -217,6 +217,8 @@ def numbers() -> dict[str, str]:
     return {
         "jev_score": f"{jev['score']:.3f}",
         "jev_total": str(jev["total"]),
+        "jev_cases": str(jev["total"] // jev["repetitions"]),
+        "jev_reps": str(jev["repetitions"]),
         "jev_cost": fmt_usd(jev["cost"]),
         "jev_latency": fmt_ms(jev["latency_ms"]),
         "jev_threshold": str(jev["threshold"]),
