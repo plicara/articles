@@ -1,0 +1,494 @@
+{
+ "chat_models": [
+  {
+   "slug": "z-ai-glm-5-2",
+   "name": "z-ai/glm-5.2",
+   "score": 0.905737704918,
+   "passed": 663,
+   "total": 732,
+   "cost": 0.1194433305,
+   "run_id": "20260901-plicara-v1-full-z-ai-glm-5-2",
+   "latency_ms": 935.5,
+   "ci": [
+    0.87,
+    0.939
+   ]
+  },
+  {
+   "slug": "qwen-qwen3-5-9b",
+   "name": "qwen/qwen3.5-9b",
+   "score": 0.82650273224,
+   "passed": 605,
+   "total": 732,
+   "cost": 0.0392304,
+   "run_id": "20260901-plicara-v1-full-qwen-qwen3-5-9b",
+   "latency_ms": 2184.2,
+   "ci": [
+    0.777,
+    0.873
+   ]
+  },
+  {
+   "slug": "mistralai-ministral-3b-2512",
+   "name": "mistralai/ministral-3b-2512",
+   "score": 0.842896174863,
+   "passed": 617,
+   "total": 732,
+   "cost": 0.0140089,
+   "run_id": "20260901-plicara-v1-full-mistralai-ministral-3b-2512",
+   "latency_ms": 644.7,
+   "ci": [
+    0.798,
+    0.885
+   ]
+  },
+  {
+   "slug": "ibm-granite-granite-4-0-h-micro",
+   "name": "ibm-granite/granite-4.0-h-micro",
+   "score": 0.733606557377,
+   "passed": 537,
+   "total": 732,
+   "cost": 0.008375085,
+   "run_id": "20260901-plicara-v1-full-ibm-granite-granite-4-0-h-micro",
+   "latency_ms": 1321.7,
+   "ci": [
+    0.676,
+    0.787
+   ]
+  },
+  {
+   "slug": "ibm-granite-granite-4-1-8b",
+   "name": "ibm-granite/granite-4.1-8b",
+   "score": 0.758196721311,
+   "passed": 555,
+   "total": 732,
+   "cost": 0.0195273,
+   "run_id": "20260901-plicara-v1-full-ibm-granite-granite-4-1-8b",
+   "latency_ms": 522.7,
+   "ci": [
+    0.701,
+    0.811
+   ]
+  },
+  {
+   "slug": "mistralai-ministral-8b-2512",
+   "name": "mistralai/ministral-8b-2512",
+   "score": 0.844262295082,
+   "passed": 618,
+   "total": 732,
+   "cost": 0.02185995,
+   "run_id": "20260901-plicara-v1-full-mistralai-ministral-8b-2512",
+   "latency_ms": 699.7,
+   "ci": [
+    0.798,
+    0.888
+   ]
+  },
+  {
+   "slug": "google-gemma-3-4b-it",
+   "name": "google/gemma-3-4b-it",
+   "score": 0.725409836066,
+   "passed": 531,
+   "total": 732,
+   "cost": 0.0195055,
+   "run_id": "20260903-plicara-v1-r2-full-google-gemma-3-4b-it",
+   "latency_ms": 827.6,
+   "ci": [
+    0.668,
+    0.779
+   ]
+  },
+  {
+   "slug": "ibm-granite-granite-4-2-8b-20260831",
+   "name": "ibm-granite/granite-4.2-8b",
+   "score": 0.795081967213,
+   "passed": 582,
+   "total": 732,
+   "cost": 0.02345655,
+   "run_id": "20260903-plicara-v1-r2-full-ibm-granite-granite-4-2-8b-20260831",
+   "latency_ms": 419.9,
+   "ci": [
+    0.742,
+    0.844
+   ]
+  },
+  {
+   "slug": "meta-llama-llama-3-2-3b-instruct",
+   "name": "meta-llama/llama-3.2-3b-instruct",
+   "score": 0.688524590164,
+   "passed": 504,
+   "total": 732,
+   "cost": 0.02266395,
+   "run_id": "20260903-plicara-v1-r2-full-meta-llama-llama-3-2-3b-instruct",
+   "latency_ms": 624.0,
+   "ci": [
+    0.627,
+    0.746
+   ]
+  },
+  {
+   "slug": "mistralai-ministral-14b-2512",
+   "name": "mistralai/ministral-14b-2512",
+   "score": 0.864754098361,
+   "passed": 633,
+   "total": 732,
+   "cost": 0.04288268,
+   "run_id": "20260903-plicara-v1-r2-full-mistralai-ministral-14b-2512",
+   "latency_ms": 787.5,
+   "ci": [
+    0.821,
+    0.906
+   ]
+  },
+  {
+   "slug": "nvidia-nemotron-3-5-lightning",
+   "name": "nvidia/nemotron-3.5-lightning",
+   "score": 0.844262295082,
+   "passed": 618,
+   "total": 732,
+   "cost": 0.03309252,
+   "run_id": "20260903-plicara-v1-r2-full-nvidia-nemotron-3-5-lightning",
+   "latency_ms": 428.6,
+   "ci": [
+    0.796,
+    0.888
+   ]
+  },
+  {
+   "slug": "meta-llama-llama-3-1-8b-instruct",
+   "name": "meta-llama/llama-3.1-8b-instruct",
+   "score": 0.736338797814,
+   "passed": 539,
+   "total": 732,
+   "cost": 0.01984351,
+   "run_id": "20260903-plicara-v1-r3-full-meta-llama-llama-3-1-8b-instruct",
+   "latency_ms": 282.0,
+   "ci": [
+    0.68,
+    0.79
+   ]
+  }
+ ],
+ "jev": {
+  "slug": "jev-latest",
+  "resolved": "jev-1.13.0",
+  "score": 0.92349726776,
+  "passed": 676,
+  "total": 732,
+  "cost": 0.028023786,
+  "latency_ms": 303.2,
+  "threshold": 0.9,
+  "mapping_threshold": 0.75,
+  "repetitions": 3,
+  "ci": [
+   0.889,
+   0.954
+  ],
+  "by_tag": {
+   "abbreviation": {
+    "passed": 9,
+    "score": 0.3,
+    "total": 30
+   },
+   "absent-object": {
+    "passed": 30,
+    "score": 1.0,
+    "total": 30
+   },
+   "adverb": {
+    "passed": 21,
+    "score": 1.0,
+    "total": 21
+   },
+   "ambiguity": {
+    "passed": 30,
+    "score": 1.0,
+    "total": 30
+   },
+   "classic-command": {
+    "passed": 48,
+    "score": 1.0,
+    "total": 48
+   },
+   "compound": {
+    "passed": 24,
+    "score": 0.888888888889,
+    "total": 27
+   },
+   "direction-as-place": {
+    "passed": 33,
+    "score": 0.733333333333,
+    "total": 45
+   },
+   "exact-verb": {
+    "passed": 36,
+    "score": 1.0,
+    "total": 36
+   },
+   "flavor-noun": {
+    "passed": 34,
+    "score": 0.809523809524,
+    "total": 42
+   },
+   "frustration": {
+    "passed": 12,
+    "score": 1.0,
+    "total": 12
+   },
+   "full-sentence": {
+    "passed": 24,
+    "score": 1.0,
+    "total": 24
+   },
+   "go-to-place": {
+    "passed": 9,
+    "score": 0.75,
+    "total": 12
+   },
+   "greeting": {
+    "passed": 9,
+    "score": 1.0,
+    "total": 9
+   },
+   "guess-the-noun": {
+    "passed": 12,
+    "score": 1.0,
+    "total": 12
+   },
+   "help-seeking": {
+    "passed": 14,
+    "score": 0.933333333333,
+    "total": 15
+   },
+   "meta": {
+    "passed": 30,
+    "score": 1.0,
+    "total": 30
+   },
+   "missing-preposition": {
+    "passed": 21,
+    "score": 0.777777777778,
+    "total": 27
+   },
+   "multi-object": {
+    "passed": 15,
+    "score": 1.0,
+    "total": 15
+   },
+   "nonsense": {
+    "passed": 12,
+    "score": 1.0,
+    "total": 12
+   },
+   "out-of-vocab": {
+    "passed": 126,
+    "score": 1.0,
+    "total": 126
+   },
+   "paraphrase": {
+    "passed": 48,
+    "score": 0.941176470588,
+    "total": 51
+   },
+   "politeness": {
+    "passed": 18,
+    "score": 1.0,
+    "total": 18
+   },
+   "pronoun": {
+    "passed": 27,
+    "score": 1.0,
+    "total": 27
+   },
+   "question": {
+    "passed": 44,
+    "score": 0.977777777778,
+    "total": 45
+   },
+   "relative-direction": {
+    "passed": 12,
+    "score": 1.0,
+    "total": 12
+   },
+   "story-mode": {
+    "passed": 9,
+    "score": 1.0,
+    "total": 9
+   },
+   "synonym": {
+    "passed": 62,
+    "score": 0.984126984127,
+    "total": 63
+   },
+   "typo": {
+    "passed": 35,
+    "score": 0.972222222222,
+    "total": 36
+   },
+   "verb-alias": {
+    "passed": 12,
+    "score": 0.8,
+    "total": 15
+   }
+  }
+ },
+ "ci_lo": 0.889,
+ "ci_hi": 0.954,
+ "unclear_precision": 0.862,
+ "unclear_recall": 0.98,
+ "eval_fails": 56,
+ "eval_refusal_fails": 47,
+ "alias_agree": 721,
+ "alias_total": 732,
+ "pinned_score": 0.924863387978,
+ "pinned_passed": 677,
+ "pinned_total": 732,
+ "ministral8b_score": 0.844262295082,
+ "jev_by_tag": {
+  "abbreviation": {
+   "passed": 9,
+   "score": 0.3,
+   "total": 30
+  },
+  "absent-object": {
+   "passed": 30,
+   "score": 1.0,
+   "total": 30
+  },
+  "adverb": {
+   "passed": 21,
+   "score": 1.0,
+   "total": 21
+  },
+  "ambiguity": {
+   "passed": 30,
+   "score": 1.0,
+   "total": 30
+  },
+  "classic-command": {
+   "passed": 48,
+   "score": 1.0,
+   "total": 48
+  },
+  "compound": {
+   "passed": 24,
+   "score": 0.888888888889,
+   "total": 27
+  },
+  "direction-as-place": {
+   "passed": 33,
+   "score": 0.733333333333,
+   "total": 45
+  },
+  "exact-verb": {
+   "passed": 36,
+   "score": 1.0,
+   "total": 36
+  },
+  "flavor-noun": {
+   "passed": 34,
+   "score": 0.809523809524,
+   "total": 42
+  },
+  "frustration": {
+   "passed": 12,
+   "score": 1.0,
+   "total": 12
+  },
+  "full-sentence": {
+   "passed": 24,
+   "score": 1.0,
+   "total": 24
+  },
+  "go-to-place": {
+   "passed": 9,
+   "score": 0.75,
+   "total": 12
+  },
+  "greeting": {
+   "passed": 9,
+   "score": 1.0,
+   "total": 9
+  },
+  "guess-the-noun": {
+   "passed": 12,
+   "score": 1.0,
+   "total": 12
+  },
+  "help-seeking": {
+   "passed": 14,
+   "score": 0.933333333333,
+   "total": 15
+  },
+  "meta": {
+   "passed": 30,
+   "score": 1.0,
+   "total": 30
+  },
+  "missing-preposition": {
+   "passed": 21,
+   "score": 0.777777777778,
+   "total": 27
+  },
+  "multi-object": {
+   "passed": 15,
+   "score": 1.0,
+   "total": 15
+  },
+  "nonsense": {
+   "passed": 12,
+   "score": 1.0,
+   "total": 12
+  },
+  "out-of-vocab": {
+   "passed": 126,
+   "score": 1.0,
+   "total": 126
+  },
+  "paraphrase": {
+   "passed": 48,
+   "score": 0.941176470588,
+   "total": 51
+  },
+  "politeness": {
+   "passed": 18,
+   "score": 1.0,
+   "total": 18
+  },
+  "pronoun": {
+   "passed": 27,
+   "score": 1.0,
+   "total": 27
+  },
+  "question": {
+   "passed": 44,
+   "score": 0.977777777778,
+   "total": 45
+  },
+  "relative-direction": {
+   "passed": 12,
+   "score": 1.0,
+   "total": 12
+  },
+  "story-mode": {
+   "passed": 9,
+   "score": 1.0,
+   "total": 9
+  },
+  "synonym": {
+   "passed": 62,
+   "score": 0.984126984127,
+   "total": 63
+  },
+  "typo": {
+   "passed": 35,
+   "score": 0.972222222222,
+   "total": 36
+  },
+  "verb-alias": {
+   "passed": 12,
+   "score": 0.8,
+   "total": 15
+  }
+ }
+}
