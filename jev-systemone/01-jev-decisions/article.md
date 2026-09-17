@@ -2,9 +2,8 @@
 title: A model that answers in probabilities
 date: 2026-09-17
 summary: TypeSafe's Jev returns typed, calibrated judgments instead of generating text. We ran its separately audited v2 runtime on AdventureBench: incredibly accurate, fast, and revealing on terse commands.
-author: Adrian Tame
-author_url: https://github.com/AdrianTJ
-publisher: Plicara Labs
+authors: plicara research
+publisher: plicara labs
 slug: jev-decisions
 ---
 
