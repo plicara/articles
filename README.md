@@ -47,8 +47,8 @@ Each project is self-contained and managed with
 
 ```sh
 cd <project>
-uv sync
-uv run scripts/<script>.py
+uv sync --locked
+uv run --locked scripts/<script>.py
 ```
 
 Datasets are not vendored. Each project's README says where its data comes
@@ -58,3 +58,7 @@ from and how to fetch it.
 
 If a number here is wrong we would rather know. Open an issue; the analysis
 is public precisely so it can be checked.
+
+## Working in this repository
+
+Project metadata and research context live in [.plicara/README.md](.plicara/README.md); agent constraints live in [AGENTS.md](AGENTS.md). Use `make setup` and `make check` for the default local environment and verification. Expensive experiments, model downloads, and publication are separate explicit steps. Project status is authoritative in `.plicara/project.yaml`; no central board update is required.
