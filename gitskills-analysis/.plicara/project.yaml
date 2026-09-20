@@ -1,0 +1,11 @@
+schema_version: 1
+id: gitskills-analysis-release
+name: "GitSkills public evidence"
+description: "Published analysis snapshot for the GitSkills series."
+kind: publication
+status: maintained
+python:
+  - .
+related:
+  - id: gitskills-analysis
+    relationship: published-snapshot-of

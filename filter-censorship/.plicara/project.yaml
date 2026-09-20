@@ -1,0 +1,9 @@
+schema_version: 1
+id: filter-censorship-release
+name: "Filter censorship public evidence"
+description: "Published evidence for the provider filtering article."
+kind: publication
+status: maintained
+related:
+  - id: filter-censorship
+    relationship: published-snapshot-of

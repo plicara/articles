@@ -1,0 +1,11 @@
+schema_version: 1
+id: published-articles
+name: "Published article evidence"
+description: "Public snapshots of analysis code and evidence supporting published articles."
+kind: collection
+status: maintained
+repository: https://github.com/plicara/articles
+projects:
+  - gitskills-analysis
+  - filter-censorship
+  - jev-systemone
