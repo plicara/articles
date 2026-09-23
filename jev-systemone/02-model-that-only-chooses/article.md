@@ -34,7 +34,7 @@ The first one was not really an experiment, it was a fight, and the idea came st
 
 Jev only reads text, so it got each frame as ASCII luminance grids plus a motion map, and answered turn, move and fire in one parallel call every five frames. Neither side saw engine state or enemy positions. Then the fly lived 60 to 70 seconds a life and Jev lived 10 to 22.[^doomdata]
 
-`[FIG-3: what Jev sees. One frame from the arena, then the same frame through each retina: v1's fixed brightness scale turns the whole room into ':' and '-', v2 stretches the contrast per frame and adds a crop of the firing line, and v3 adds a red channel that mostly lights up the brick. Source: /jev-systemone/02-model-that-only-chooses/fig-3-what-jev-sees.png]`
+`[FIG-3: what Jev sees. One frame from the arena, then the same frame through each retina: v1's fixed brightness scale turns the whole room into ':' and '-', v2 stretches the contrast per frame and adds a crop of the firing line, and v3 adds a red channel that mostly lights up the brick. Source: /jev-systemone/02-model-that-only-chooses/fig-3-what-jev-sees.svg]`
 
 The fly side though has not demonstrated learned survival, and its v6 candidate failed the visual, conditioning and survival validation gates. The fly surviving describes what happened in the runs we recorded, and is not a claim about what a connectome simulation can do.
 
