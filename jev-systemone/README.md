@@ -1,4 +1,4 @@
-# Jev on AdventureBench
+# Jev System One
 
 Research article: TypeSafe's Jev (System One decision model) evaluated on the
 frozen AdventureBench set through a separate audited runtime.
@@ -17,3 +17,12 @@ All numbers come from audited public benchmark artifacts: the frozen chat releas
 
 Article ships from `01-jev-decisions/article.site.md` (markers already
 replaced by inline SVG) per the workbench README. Draft only until reviewed.
+
+## Article 02: jev, three use cases
+
+`02-model-that-only-chooses/` is "jev: three use cases, a ton of learnings": Jev against a fruit fly connectome in Doom, as a verifier over 370 ExtractBench documents, and as the chooser in five text adventures. The experiments themselves live in the jev-tests repository, not here; this folder holds the published prose and the ten figures, which were rendered from those runs. The Doom run data was not kept, which the article footnotes.
+
+```bash
+python3 scripts/model_that_only_chooses/build_site.py 2026-09-23   # 02-model-that-only-chooses/article.site.md
+```
+

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" role="img" aria-label="Stated confidence against actual correctness. On held-out extractors from the same benchmark the points sit on the diagonal. On a new extractor family, a stated 95% was right about 83% of the time and 90% about 63%.">
+<title>when the score says 95%, how often is it right?</title>
+<desc>Stated confidence against actual correctness. On held-out extractors from the same benchmark the points sit on the diagonal. On a new extractor family, a stated 95% was right about 83% of the time and 90% about 63%.</desc>
+<style>
+svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#8a8983;--grid:#e4e3de;--line:#cfcdc6;--box:#f3f2ee;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--dark:#2b2a27;--darkink:#ecebe6}
+@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--mut:#8f8e87;--grid:#2e2d2a;--line:#45443f;--box:#23231f;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--dark:#0e0e0d;--darkink:#ecebe6}}
+.bg{fill:var(--bg)}.box{fill:var(--box);stroke:var(--line);stroke-width:1}
+.t{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.tb{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.h{font:600 16px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.s{font:12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink2)}
+.cap{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--mut)}
+.m{font:12px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--ink)}
+.grid{stroke:var(--grid);stroke-width:1}.axis{stroke:var(--line);stroke-width:1}
+.s1{fill:var(--s1)}.s2{fill:var(--s2)}.s3{fill:var(--s3)}
+.l1{stroke:var(--s1)}.l2{stroke:var(--s2)}.l3{stroke:var(--s3)}
+.mutf{fill:var(--mut)}.mutl{stroke:var(--mut)}.linef{fill:var(--line)}
+.ring{stroke:var(--bg);stroke-width:2}
+</style>
+<rect class="bg" width="760" height="440"/>
+<text class="h" x="16" y="30">when the score says 95%, how often is it right?</text>
+<line class="grid" x1="90" y1="326.66666666666674" x2="560" y2="326.66666666666674"/><text class="s" x="80" y="330.66666666666674" text-anchor="end">60%</text>
+<line class="grid" x1="90" y1="260.00000000000006" x2="560" y2="260.00000000000006"/><text class="s" x="80" y="264.00000000000006" text-anchor="end">70%</text>
+<line class="grid" x1="90" y1="193.33333333333334" x2="560" y2="193.33333333333334"/><text class="s" x="80" y="197.33333333333334" text-anchor="end">80%</text>
+<line class="grid" x1="90" y1="126.66666666666669" x2="560" y2="126.66666666666669"/><text class="s" x="80" y="130.66666666666669" text-anchor="end">90%</text>
+<line class="grid" x1="90" y1="60.0" x2="560" y2="60.0"/><text class="s" x="80" y="64.0" text-anchor="end">100%</text>
+<text class="s" x="90.0" y="380" text-anchor="middle">80%</text>
+<text class="s" x="207.49999999999983" y="380" text-anchor="middle">85%</text>
+<text class="s" x="324.99999999999994" y="380" text-anchor="middle">90%</text>
+<text class="s" x="442.4999999999998" y="380" text-anchor="middle">95%</text>
+<text class="s" x="559.9999999999999" y="380" text-anchor="middle">100%</text>
+<text class="s" x="325.0" y="402" text-anchor="middle">what the score said</text>
+<text class="s" x="22" y="210.0" transform="rotate(-90 22 210.0)" text-anchor="middle">how often it was right</text>
+<line x1="90.0" y1="193.33333333333334" x2="559.9999999999999" y2="60.0" class="mutl" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text class="cap" x="536.4999999999998" y="56.66666666666674" text-anchor="end">perfectly calibrated</text>
+<polyline fill="none" stroke-width="2" class="l1" points="207.49999999999983,146.6666666666667 324.99999999999994,116.0 442.4999999999998,80.66666666666674"/>
+<circle cx="207.49999999999983" cy="146.6666666666667" r="5" class="s1 ring"/>
+<circle cx="324.99999999999994" cy="116.0" r="5" class="s1 ring"/>
+<circle cx="442.4999999999998" cy="80.66666666666674" r="5" class="s1 ring"/>
+<polyline fill="none" stroke-width="2" class="l2" points="324.99999999999994,306.6666666666667 442.4999999999998,170.6666666666667"/>
+<circle cx="324.99999999999994" cy="306.6666666666667" r="5" class="s2 ring"/>
+<circle cx="442.4999999999998" cy="170.6666666666667" r="5" class="s2 ring"/>
+<text class="tb" x="456.4999999999998" y="84.66666666666674" style="fill:var(--ink)">extractors it had never seen</text><text class="s" x="456.4999999999998" y="100.66666666666674">same benchmark, held out 18 times</text>
+<text class="tb" x="456.4999999999998" y="174.6666666666667">a new family of extractor</text><text class="s" x="456.4999999999998" y="190.6666666666667">different documents too</text>
+<text class="cap" x="16" y="430">The ranking held up on the new extractor (the ordering of fields was the best of any test); the probabilities did not.</text>
+</svg>

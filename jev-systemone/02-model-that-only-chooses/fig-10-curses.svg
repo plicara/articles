@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 248" role="img" aria-label="Turns survived out of 200 in Curses. With only the standard options Jev goes down the trapdoor on turn 1. With only the proposer's ideas it survives all 200 turns. With both lists merged it goes down on turn 2.">
+<title>curses: turns survived</title>
+<desc>Turns survived out of 200 in Curses. With only the standard options Jev goes down the trapdoor on turn 1. With only the proposer's ideas it survives all 200 turns. With both lists merged it goes down on turn 2.</desc>
+<style>
+svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#8a8983;--grid:#e4e3de;--line:#cfcdc6;--box:#f3f2ee;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--dark:#2b2a27;--darkink:#ecebe6}
+@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--mut:#8f8e87;--grid:#2e2d2a;--line:#45443f;--box:#23231f;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--dark:#0e0e0d;--darkink:#ecebe6}}
+.bg{fill:var(--bg)}.box{fill:var(--box);stroke:var(--line);stroke-width:1}
+.t{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.tb{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.h{font:600 16px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
+.s{font:12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink2)}
+.cap{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--mut)}
+.m{font:12px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--ink)}
+.grid{stroke:var(--grid);stroke-width:1}.axis{stroke:var(--line);stroke-width:1}
+.s1{fill:var(--s1)}.s2{fill:var(--s2)}.s3{fill:var(--s3)}
+.l1{stroke:var(--s1)}.l2{stroke:var(--s2)}.l3{stroke:var(--s3)}
+.mutf{fill:var(--mut)}.mutl{stroke:var(--mut)}.linef{fill:var(--line)}
+.ring{stroke:var(--bg);stroke-width:2}
+</style>
+<rect class="bg" width="760" height="248"/>
+<text class="h" x="16" y="30">curses: turns survived out of 200</text>
+<text class="tb" x="246" y="77" text-anchor="end">options list only</text>
+<rect x="260" y="62" width="440" height="22" rx="4" fill="var(--grid)"/>
+<rect x="260" y="62" width="4.0" height="22" rx="4" class="s1"/>
+<text class="s" x="260" y="102">went down the trapdoor on turn 1</text>
+<text class="tb" x="246" y="133" text-anchor="end">proposer's ideas only</text>
+<rect x="260" y="118" width="440" height="22" rx="4" fill="var(--grid)"/>
+<rect x="260" y="118" width="440.0" height="22" rx="4" class="s1"/>
+<text class="s" x="260" y="158">searched the attic for the map, alive at 200</text>
+<text class="tb" x="246" y="189" text-anchor="end">both lists merged</text>
+<rect x="260" y="174" width="440" height="22" rx="4" fill="var(--grid)"/>
+<rect x="260" y="174" width="4.4" height="22" rx="4" class="s1"/>
+<text class="s" x="260" y="214">picked go down on turn 2</text>
+<text class="cap" x="16" y="236">Round 5. Same chooser each time; the only change is which commands were on the menu.</text>
+</svg>
