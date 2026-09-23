@@ -1,32 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="One Jev call. The calling program sends a state, a typed question and the options. Jev returns a probability for each option and writes no text. The program acts on the answer. The probabilities shown are illustrative.">
+<svg xmlns="http://www.w3.org/2000/svg" class="jv" viewBox="0 0 760 400" role="img" aria-label="One Jev call. The calling program sends a state, a typed question and the options. Jev returns a probability for each option and writes no text. The program acts on the answer. The probabilities shown are illustrative.">
   <title>One Jev call</title>
   <desc>Schematic of a System One call using a moment from Colossal Cave Adventure. The request follows the real API shape; the probabilities are illustrative.</desc>
   <style>
-    svg { --bg:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#cfcdc6; --box:#f3f2ee; --accent:#2a78d6; --bar:#b9d2f0; }
-    @media (prefers-color-scheme: dark) {
-      svg { --bg:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#45443f; --box:#23231f; --accent:#3987e5; --bar:#2c4260; }
+    .jv { --bg:var(--pl-bg,#05192B); --ink:var(--pl-text,#FAEBD3); --muted:var(--pl-text-muted,#9CB5BC); --line:var(--pl-rule,#25364A); --box:var(--pl-surface,#132538); --accent:var(--pl-series-1,#9ABCC6); --bar:#EE8B33; --fd:var(--pl-font-display,"Fraunces",Georgia,serif); --fb:var(--pl-font-body,"Newsreader",Georgia,serif); --fm:var(--pl-font-mono,"JetBrains Mono",ui-monospace,Menlo,monospace); }
+    @media (prefers-color-scheme: light) {
+      .jv { --bg:var(--pl-bg,#FDF5E6); --ink:var(--pl-text,#05192B); --muted:var(--pl-text-muted,#436974); --line:var(--pl-rule,#E5D5BB); --box:var(--pl-surface,#FFFDF9); --accent:var(--pl-series-1,#31606D); }
     }
-    .bg { fill: var(--bg); }
-    .box { fill: var(--box); stroke: var(--line); stroke-width: 1; }
-    .jev { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
-    .h { font: 600 15px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
-    .t { font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
-    .s { font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--muted); }
-    .m { font: 12.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); }
-    .mk { font: 12.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); }
-    .j { font: 600 22px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--accent); }
-    .arrow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
-    .head { fill: var(--muted); }
-    .bar { fill: var(--bar); }
-    .top { fill: var(--accent); }
+    .jv .bg { fill: var(--bg); }
+    .jv .box { fill: var(--box); stroke: var(--line); stroke-width: 1; }
+    .jv .jev { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+    .jv .h { font: 700 11px var(--fm); letter-spacing: 0.2em; fill: var(--muted); }
+    .jv .t { font: 15px var(--fb); fill: var(--ink); }
+    .jv .s { font: italic 13px var(--fb); fill: var(--muted); }
+    .jv .m { font: 12.5px var(--fm); fill: var(--ink); }
+    .jv .mk { font: 12px var(--fm); fill: var(--muted); }
+    .jv .j { font: 500 30px var(--fd); fill: var(--accent); }
+    .jv .arrow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+    .jv .head { fill: var(--muted); }
+    .jv .bar { fill: var(--accent); opacity: .6; }
+    .jv .top { fill: var(--bar); }
   </style>
   <defs>
-    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="head"/></marker>
+    <marker id="jv1-a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="head"/></marker>
   </defs>
   <rect class="bg" width="760" height="400"/>
 
   <!-- request -->
-  <text class="s" x="16" y="26">THE PROGRAM SENDS</text>
+  <text class="h" x="16" y="26">THE PROGRAM SENDS</text>
   <rect class="box" x="16" y="38" width="290" height="250" rx="4"/>
   <text class="mk" x="32" y="66">state</text>
   <text class="t" x="32" y="88">"It is now pitch dark. If you</text>
@@ -39,15 +39,15 @@
   <text class="m" x="32" y="256">east · inventory</text>
 
   <!-- jev -->
-  <path class="arrow" d="M306 163 H350" marker-end="url(#a)"/>
+  <path class="arrow" d="M306 163 H350" marker-end="url(#jv1-a)"/>
   <rect class="jev" x="356" y="103" width="120" height="120" rx="60"/>
   <text class="j" x="416" y="170" text-anchor="middle">Jev</text>
   <text class="s" x="416" y="250" text-anchor="middle">scores each option</text>
   <text class="s" x="416" y="268" text-anchor="middle">writes no text</text>
-  <path class="arrow" d="M476 163 H520" marker-end="url(#a)"/>
+  <path class="arrow" d="M476 163 H520" marker-end="url(#jv1-a)"/>
 
   <!-- response -->
-  <text class="s" x="526" y="26">JEV RETURNS</text>
+  <text class="h" x="526" y="26">JEV RETURNS</text>
   <rect class="box" x="526" y="38" width="218" height="250" rx="4"/>
   <text class="m" x="542" y="72">down</text>
   <rect class="top" x="542" y="80" width="124" height="10" rx="2"/>
@@ -66,7 +66,7 @@
   <text class="m" x="700" y="274">0.04</text>
 
   <!-- back to code -->
-  <path class="arrow" d="M635 288 V330 H161 V296" marker-end="url(#a)"/>
+  <path class="arrow" d="M635 288 V330 H161 V296" marker-end="url(#jv1-a)"/>
   <text class="t" x="398" y="352" text-anchor="middle">the program acts on the answer, here by sending the top option, down, to the game</text>
   <text class="s" x="16" y="388">Schematic. The request follows the real API shape; the probabilities are illustrative.</text>
 </svg>

@@ -1,42 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 570" role="img" aria-label="Four-panel meme in the That Damn Smile format. Panel one: the game warns it is pitch dark and you may fall into a pit, captioned so you see, that's where the trouble began. Panel two: the unlit brass lantern. Panel three: the inventory shows the lantern, captioned that lamp. Panel four: you fell into a pit, captioned that damn lamp.">
+<svg xmlns="http://www.w3.org/2000/svg" class="jv" viewBox="0 0 760 570" role="img" aria-label="Four-panel meme in the That Damn Smile format. Panel one: the game warns it is pitch dark and you may fall into a pit, captioned so you see, that's where the trouble began. Panel two: the unlit brass lantern. Panel three: the inventory shows the lantern, captioned that lamp. Panel four: you fell into a pit, captioned that damn lamp.">
 <title>that damn lamp</title>
 <desc>Four-panel meme in the That Damn Smile format. Panel one: the game warns it is pitch dark and you may fall into a pit, captioned so you see, that's where the trouble began. Panel two: the unlit brass lantern. Panel three: the inventory shows the lantern, captioned that lamp. Panel four: you fell into a pit, captioned that damn lamp.</desc>
 <style>
-svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#8a8983;--grid:#e4e3de;--line:#cfcdc6;--box:#f3f2ee;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--dark:#2b2a27;--darkink:#ecebe6}
-@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--mut:#8f8e87;--grid:#2e2d2a;--line:#45443f;--box:#23231f;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--dark:#0e0e0d;--darkink:#ecebe6}}
-.bg{fill:var(--bg)}.box{fill:var(--box);stroke:var(--line);stroke-width:1}
-.t{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.tb{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.h{font:600 16px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.s{font:12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink2)}
-.cap{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--mut)}
-.m{font:12px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--ink)}
-.grid{stroke:var(--grid);stroke-width:1}.axis{stroke:var(--line);stroke-width:1}
-.s1{fill:var(--s1)}.s2{fill:var(--s2)}.s3{fill:var(--s3)}
-.l1{stroke:var(--s1)}.l2{stroke:var(--s2)}.l3{stroke:var(--s3)}
-.mutf{fill:var(--mut)}.mutl{stroke:var(--mut)}.linef{fill:var(--line)}
-.ring{stroke:var(--bg);stroke-width:2}
+.jv{--bg:var(--pl-bg,#05192B);--ink:var(--pl-text,#FAEBD3);--ink2:var(--pl-text-muted,#9CB5BC);--mut:var(--pl-text-muted,#9CB5BC);--grid:var(--pl-rule,#25364A);--line:var(--pl-rule,#25364A);--box:var(--pl-surface,#132538);--s1:var(--pl-series-1,#9ABCC6);--s2:var(--pl-series-2,#FFB881);--s3:#EE8B33;--dark:#020B14;--darkink:#9CB5BC;--fd:var(--pl-font-display,"Fraunces",Georgia,serif);--fb:var(--pl-font-body,"Newsreader",Georgia,serif);--fm:var(--pl-font-mono,"JetBrains Mono",ui-monospace,Menlo,monospace)}
+@media (prefers-color-scheme: light){.jv{--bg:var(--pl-bg,#FDF5E6);--ink:var(--pl-text,#05192B);--ink2:var(--pl-text-muted,#436974);--mut:var(--pl-text-muted,#436974);--grid:var(--pl-rule,#E5D5BB);--line:var(--pl-rule,#E5D5BB);--box:var(--pl-surface,#FFFDF9);--s1:var(--pl-series-1,#31606D);--s2:var(--pl-series-2,#6A2A12);--dark:#DCCBAE;--darkink:#436974}}
+.jv .bg{fill:var(--bg)}.jv .box{fill:var(--box);stroke:var(--line);stroke-width:1}
+.jv .t{font:15px var(--fb);fill:var(--ink)}
+.jv .tb{font:600 15px var(--fb);fill:var(--ink)}
+.jv .h{font:500 19px var(--fd);fill:var(--ink);letter-spacing:-0.01em}
+.jv .s{font:11px var(--fm);fill:var(--ink2)}
+.jv .cap{font:italic 13px var(--fb);fill:var(--mut)}
+.jv .m{font:12px var(--fm);fill:var(--ink)}
+.jv .grid{stroke:var(--grid);stroke-width:1}.jv .axis{stroke:var(--line);stroke-width:1}
+.jv .s1{fill:var(--s1)}.jv .s2{fill:var(--s2)}.jv .s3{fill:var(--s3)}
+.jv .l0{stroke:#829AA1;stroke-dasharray:6 5}.jv .sb{font:italic 13px var(--fb);fill:var(--ink2)}.jv .l1{stroke:var(--s1)}.jv .l2{stroke:var(--s2)}.jv .l3{stroke:var(--s3)}
+.jv .mutf{fill:var(--mut)}.jv .mutl{stroke:var(--mut)}.jv .linef{fill:var(--line)}
+.jv .ring{stroke:var(--bg);stroke-width:2}
 </style>
 <rect class="bg" width="760" height="570"/>
-<rect width="760" height="570" fill="#111"/>
-<rect x="10" y="10" width="365" height="270" fill="#1d1c1a"/>
-<rect x="385" y="10" width="365" height="270" fill="#1d1c1a"/>
-<rect x="10" y="290" width="365" height="270" fill="#1d1c1a"/>
-<rect x="385" y="290" width="365" height="270" fill="#1d1c1a"/>
-<text x="28" y="48" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">You're in cobble crawl.</text><text x="28" y="68" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">> west</text><text x="28" y="88" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">It is now pitch dark.  If you</text><text x="28" y="108" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">proceed you will likely fall</text><text x="28" y="128" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">into a pit.</text>
-<text x="192" y="262" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#fff;stroke:#000;stroke-width:4;paint-order:stroke;letter-spacing:0.5px">TROUBLE BEGAN.</text>
-<text x="192" y="236" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#fff;stroke:#000;stroke-width:4;paint-order:stroke;letter-spacing:0.5px">THAT'S WHERE THE</text>
-<ellipse cx="567" cy="170" rx="120" ry="100" fill="#3a2f14" opacity="0.35"/>
-<path d="M533 82 Q567 30 601 82" fill="none" stroke="#8a6a24" stroke-width="7"/>
-<rect x="527" y="80" width="80" height="18" rx="6" fill="#c9962f"/>
-<path d="M537 98 L529 190 L605 190 L597 98 Z" fill="#2c2a26" stroke="#c9962f" stroke-width="5"/>
-<line x1="567" y1="98" x2="567" y2="190" stroke="#c9962f" stroke-width="4"/>
-<rect x="517" y="190" width="100" height="20" rx="6" fill="#b8862b"/>
-<rect x="525" y="210" width="84" height="12" rx="4" fill="#8a6a24"/>
-<text x="567" y="252" text-anchor="middle" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#d9c9a0">Brass lantern (off)</text>
-<text x="28" y="332" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">> inventory</text><text x="28" y="352" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a"></text><text x="28" y="372" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">You are currently holding the</text><text x="28" y="392" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">following:</text><text x="28" y="412" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">Set of keys</text><text x="28" y="432" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">Brass lantern</text><text x="28" y="452" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">Wicker cage</text><text x="28" y="472" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#9fe29a">Small bottle</text>
-<text x="192" y="542" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#fff;stroke:#000;stroke-width:4;paint-order:stroke;letter-spacing:0.5px">THAT LAMP.</text>
-<text x="403" y="332" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#f0a07a">> up</text><text x="403" y="352" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#f0a07a"></text><text x="403" y="372" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#f0a07a">You fell into a pit and</text><text x="403" y="392" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#f0a07a">broke every bone in your</text><text x="403" y="412" style="font:14px ui-monospace,Menlo,Consolas,monospace;fill:#f0a07a">body!</text>
-<text x="567" y="542" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#fff;stroke:#000;stroke-width:4;paint-order:stroke;letter-spacing:0.5px">THAT DAMN LAMP.</text>
-<text x="192" y="210" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#fff;stroke:#000;stroke-width:4;paint-order:stroke;letter-spacing:0.5px">SO YOU SEE,</text>
+<rect width="760" height="570" fill="#05192B"/>
+<rect x="10" y="10" width="365" height="270" fill="#132538"/>
+<rect x="385" y="10" width="365" height="270" fill="#132538"/>
+<rect x="10" y="290" width="365" height="270" fill="#132538"/>
+<rect x="385" y="290" width="365" height="270" fill="#132538"/>
+<text x="28" y="48" style="font:14px var(--fm);fill:#9ABCC6">You're in cobble crawl.</text><text x="28" y="68" style="font:14px var(--fm);fill:#9ABCC6">> west</text><text x="28" y="88" style="font:14px var(--fm);fill:#9ABCC6">It is now pitch dark.  If you</text><text x="28" y="108" style="font:14px var(--fm);fill:#9ABCC6">proceed you will likely fall</text><text x="28" y="128" style="font:14px var(--fm);fill:#9ABCC6">into a pit.</text>
+<text x="192" y="262" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#FAEBD3;stroke:#05192B;stroke-width:5;paint-order:stroke;letter-spacing:0.5px">TROUBLE BEGAN.</text>
+<text x="192" y="236" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#FAEBD3;stroke:#05192B;stroke-width:5;paint-order:stroke;letter-spacing:0.5px">THAT'S WHERE THE</text>
+<path d="M533 82 Q567 30 601 82" fill="none" stroke="#FAEBD3" stroke-width="5"/>
+<rect x="527" y="80" width="80" height="18" rx="6" fill="#EE8B33" stroke="#FAEBD3" stroke-width="3"/>
+<path d="M537 98 L529 190 L605 190 L597 98 Z" fill="#132538" stroke="#FAEBD3" stroke-width="4"/>
+<line x1="567" y1="98" x2="567" y2="190" stroke="#FAEBD3" stroke-width="3"/>
+<rect x="517" y="190" width="100" height="20" rx="6" fill="#EE8B33" stroke="#FAEBD3" stroke-width="3"/>
+<rect x="525" y="210" width="84" height="12" rx="4" fill="#FFB881" stroke="#FAEBD3" stroke-width="2"/>
+<text x="567" y="252" text-anchor="middle" style="font:14px var(--fm);fill:#9CB5BC">Brass lantern (off)</text>
+<text x="28" y="332" style="font:14px var(--fm);fill:#9ABCC6">> inventory</text><text x="28" y="352" style="font:14px var(--fm);fill:#9ABCC6"></text><text x="28" y="372" style="font:14px var(--fm);fill:#9ABCC6">You are currently holding the</text><text x="28" y="392" style="font:14px var(--fm);fill:#9ABCC6">following:</text><text x="28" y="412" style="font:14px var(--fm);fill:#9ABCC6">Set of keys</text><text x="28" y="432" style="font:14px var(--fm);fill:#9ABCC6">Brass lantern</text><text x="28" y="452" style="font:14px var(--fm);fill:#9ABCC6">Wicker cage</text><text x="28" y="472" style="font:14px var(--fm);fill:#9ABCC6">Small bottle</text>
+<text x="192" y="542" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#FAEBD3;stroke:#05192B;stroke-width:5;paint-order:stroke;letter-spacing:0.5px">THAT LAMP.</text>
+<text x="403" y="332" style="font:14px var(--fm);fill:#FFB881">> up</text><text x="403" y="352" style="font:14px var(--fm);fill:#FFB881"></text><text x="403" y="372" style="font:14px var(--fm);fill:#FFB881">You fell into a pit and</text><text x="403" y="392" style="font:14px var(--fm);fill:#FFB881">broke every bone in your</text><text x="403" y="412" style="font:14px var(--fm);fill:#FFB881">body!</text>
+<text x="567" y="542" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#FAEBD3;stroke:#05192B;stroke-width:5;paint-order:stroke;letter-spacing:0.5px">THAT DAMN LAMP.</text>
+<text x="192" y="210" text-anchor="middle" style="font:900 24px Impact,'Arial Black','DejaVu Sans',sans-serif;fill:#FAEBD3;stroke:#05192B;stroke-width:5;paint-order:stroke;letter-spacing:0.5px">SO YOU SEE,</text>
 </svg>

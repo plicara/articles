@@ -1,67 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" role="img" aria-label="Pipeline diagram. A document becomes a text layer; Jev checks the text is readable, otherwise it goes to better OCR. An extractor runs, and a free string check asks whether each value appears in the text; values that do not go to better OCR. Then, if a second extractor is cheap, run two and diff the strings; if not, Jev asks one question per error type. Both feed a review queue ordered riskiest first.">
+<svg xmlns="http://www.w3.org/2000/svg" class="jv" viewBox="0 0 880 520" role="img" aria-label="Pipeline diagram. A document becomes a text layer; Jev checks the text is readable, otherwise it goes to better OCR. An extractor runs, and a free string check asks whether each value appears in the text; values that do not go to better OCR. Then, if a second extractor is cheap, run two and diff the strings; if not, Jev asks one question per error type. Both feed a review queue ordered riskiest first.">
 <title>where jev ended up in the extraction pipeline</title>
 <desc>Pipeline diagram. A document becomes a text layer; Jev checks the text is readable, otherwise it goes to better OCR. An extractor runs, and a free string check asks whether each value appears in the text; values that do not go to better OCR. Then, if a second extractor is cheap, run two and diff the strings; if not, Jev asks one question per error type. Both feed a review queue ordered riskiest first.</desc>
 <style>
-svg{--bg:#fcfcfb;--ink:#0b0b0b;--ink2:#52514e;--mut:#8a8983;--grid:#e4e3de;--line:#cfcdc6;--box:#f3f2ee;--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--dark:#2b2a27;--darkink:#ecebe6}
-@media (prefers-color-scheme: dark){svg{--bg:#1a1a19;--ink:#ffffff;--ink2:#c3c2b7;--mut:#8f8e87;--grid:#2e2d2a;--line:#45443f;--box:#23231f;--s1:#3987e5;--s2:#d95926;--s3:#199e70;--dark:#0e0e0d;--darkink:#ecebe6}}
-.bg{fill:var(--bg)}.box{fill:var(--box);stroke:var(--line);stroke-width:1}
-.t{font:13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.tb{font:600 13px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.h{font:600 16px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink)}
-.s{font:12px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--ink2)}
-.cap{font:11.5px system-ui,-apple-system,"Segoe UI",sans-serif;fill:var(--mut)}
-.m{font:12px ui-monospace,"SF Mono",Menlo,Consolas,monospace;fill:var(--ink)}
-.grid{stroke:var(--grid);stroke-width:1}.axis{stroke:var(--line);stroke-width:1}
-.s1{fill:var(--s1)}.s2{fill:var(--s2)}.s3{fill:var(--s3)}
-.l1{stroke:var(--s1)}.l2{stroke:var(--s2)}.l3{stroke:var(--s3)}
-.mutf{fill:var(--mut)}.mutl{stroke:var(--mut)}.linef{fill:var(--line)}
-.ring{stroke:var(--bg);stroke-width:2}
+.jv{--bg:var(--pl-bg,#05192B);--ink:var(--pl-text,#FAEBD3);--ink2:var(--pl-text-muted,#9CB5BC);--mut:var(--pl-text-muted,#9CB5BC);--grid:var(--pl-rule,#25364A);--line:var(--pl-rule,#25364A);--box:var(--pl-surface,#132538);--s1:var(--pl-series-1,#9ABCC6);--s2:var(--pl-series-2,#FFB881);--s3:#EE8B33;--dark:#020B14;--darkink:#9CB5BC;--fd:var(--pl-font-display,"Fraunces",Georgia,serif);--fb:var(--pl-font-body,"Newsreader",Georgia,serif);--fm:var(--pl-font-mono,"JetBrains Mono",ui-monospace,Menlo,monospace)}
+@media (prefers-color-scheme: light){.jv{--bg:var(--pl-bg,#FDF5E6);--ink:var(--pl-text,#05192B);--ink2:var(--pl-text-muted,#436974);--mut:var(--pl-text-muted,#436974);--grid:var(--pl-rule,#E5D5BB);--line:var(--pl-rule,#E5D5BB);--box:var(--pl-surface,#FFFDF9);--s1:var(--pl-series-1,#31606D);--s2:var(--pl-series-2,#6A2A12);--dark:#DCCBAE;--darkink:#436974}}
+.jv .bg{fill:var(--bg)}.jv .box{fill:var(--box);stroke:var(--line);stroke-width:1}
+.jv .t{font:15px var(--fb);fill:var(--ink)}
+.jv .tb{font:600 15px var(--fb);fill:var(--ink)}
+.jv .h{font:500 19px var(--fd);fill:var(--ink);letter-spacing:-0.01em}
+.jv .s{font:11px var(--fm);fill:var(--ink2)}
+.jv .cap{font:italic 13px var(--fb);fill:var(--mut)}
+.jv .m{font:12px var(--fm);fill:var(--ink)}
+.jv .grid{stroke:var(--grid);stroke-width:1}.jv .axis{stroke:var(--line);stroke-width:1}
+.jv .s1{fill:var(--s1)}.jv .s2{fill:var(--s2)}.jv .s3{fill:var(--s3)}
+.jv .l0{stroke:#829AA1;stroke-dasharray:6 5}.jv .sb{font:italic 13px var(--fb);fill:var(--ink2)}.jv .l1{stroke:var(--s1)}.jv .l2{stroke:var(--s2)}.jv .l3{stroke:var(--s3)}
+.jv .mutf{fill:var(--mut)}.jv .mutl{stroke:var(--mut)}.jv .linef{fill:var(--line)}
+.jv .ring{stroke:var(--bg);stroke-width:2}
 </style>
 <rect class="bg" width="880" height="520"/>
-<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--mut)"/></marker></defs>
+<defs><marker id="jv5-ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="var(--mut)"/></marker></defs>
 <text class="h" x="16" y="30">where jev ended up in the extraction pipeline</text>
 <rect x="16" y="70" width="110" height="56" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="71.0" y="94.0" text-anchor="middle" class="tb">Document</text>
-<text x="71.0" y="110.0" text-anchor="middle" class="s">PDF or scan</text>
+<text x="71.0" y="110.0" text-anchor="middle" class="sb">PDF or scan</text>
 <rect x="156" y="70" width="120" height="56" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="216.0" y="94.0" text-anchor="middle" class="tb">Text layer</text>
-<text x="216.0" y="110.0" text-anchor="middle" class="s">pypdf or OCR</text>
+<text x="216.0" y="110.0" text-anchor="middle" class="sb">pypdf or OCR</text>
 <rect x="306" y="70" width="150" height="56" rx="6" style="fill:var(--bg);stroke:var(--s1);stroke-width:2"/>
-<text x="452" y="64" text-anchor="end" style="font:600 11px system-ui,sans-serif;fill:var(--s1)">JEV</text>
+<text x="452" y="64" text-anchor="end" style="font:700 10px var(--fm);letter-spacing:0.2em;fill:var(--s1)">JEV</text>
 <text x="381.0" y="94.0" text-anchor="middle" class="tb">Is this text</text>
-<text x="381.0" y="110.0" text-anchor="middle" class="s">readable?</text>
+<text x="381.0" y="110.0" text-anchor="middle" class="sb">readable?</text>
 <rect x="486" y="70" width="120" height="56" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="546.0" y="94.0" text-anchor="middle" class="tb">Extractor</text>
-<text x="546.0" y="110.0" text-anchor="middle" class="s">any model</text>
+<text x="546.0" y="110.0" text-anchor="middle" class="sb">any model</text>
 <rect x="636" y="70" width="228" height="56" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="750.0" y="94.0" text-anchor="middle" class="tb">Is the value in the text?</text>
-<text x="750.0" y="110.0" text-anchor="middle" class="s">string match, free</text>
+<text x="750.0" y="110.0" text-anchor="middle" class="sb">string match, free</text>
 <rect x="456" y="196" width="190" height="50" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="551.0" y="225.0" text-anchor="middle" class="tb">Better OCR or vision</text>
-<path d="M126 98 H150" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
-<path d="M276 98 H300" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
-<path d="M456 98 H480" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M126 98 H150" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
+<path d="M276 98 H300" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
+<path d="M456 98 H480" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <text class="s" x="471" y="86" text-anchor="middle">yes</text>
-<path d="M606 98 H630" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
-<path d="M381 126 V221 H450" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M606 98 H630" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
+<path d="M381 126 V221 H450" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <text class="s" x="390" y="170" text-anchor="start">no</text>
-<path d="M750 126 V221 H652" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M750 126 V221 H652" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <text class="s" x="760" y="170" text-anchor="start">no</text>
-<path d="M551 246 V276 H216 V132" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M551 246 V276 H216 V132" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <text class="s" x="380" y="292" text-anchor="middle">retry</text>
 <path d="M800 126 V336" fill="none" stroke="var(--mut)" stroke-width="1.5"/><text class="s" x="810" y="300">yes</text>
 <text class="s" x="676" y="326" text-anchor="middle">what does a second opinion cost?</text>
 <rect x="456" y="370" width="190" height="62" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="551.0" y="397.0" text-anchor="middle" class="tb">Cheap extractor</text>
-<text x="551.0" y="413.0" text-anchor="middle" class="s">run two, diff the strings</text>
+<text x="551.0" y="413.0" text-anchor="middle" class="sb">run two, diff the strings</text>
 <rect x="676" y="370" width="190" height="62" rx="6" style="fill:var(--bg);stroke:var(--s1);stroke-width:2"/>
-<text x="862" y="364" text-anchor="end" style="font:600 11px system-ui,sans-serif;fill:var(--s1)">JEV</text>
+<text x="862" y="364" text-anchor="end" style="font:700 10px var(--fm);letter-spacing:0.2em;fill:var(--s1)">JEV</text>
 <text x="771.0" y="397.0" text-anchor="middle" class="tb">Expensive extractor</text>
-<text x="771.0" y="413.0" text-anchor="middle" class="s">one question per error type</text>
-<path d="M800 336 H551 V364" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
-<path d="M771 336 V364" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<text x="771.0" y="413.0" text-anchor="middle" class="sb">one question per error type</text>
+<path d="M800 336 H551 V364" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
+<path d="M771 336 V364" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <rect x="456" y="466" width="410" height="40" rx="6" style="fill:var(--box);stroke:var(--line);stroke-width:1"/>
 <text x="661.0" y="490.0" text-anchor="middle" class="tb">Review queue, riskiest first; accept the rest</text>
-<path d="M551 432 V460" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/><path d="M771 432 V460" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#ah)"/>
+<path d="M551 432 V460" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/><path d="M771 432 V460" fill="none" stroke="var(--mut)" stroke-width="1.5" marker-end="url(#jv5-ah)"/>
 <text class="t" x="16" y="372">Jev shows up twice: once before</text><text class="t" x="16" y="390">extraction as a gate, and once after</text><text class="t" x="16" y="408">it as a judge, where a second</text><text class="t" x="16" y="426">opinion is expensive. It also covers</text><text class="t" x="16" y="444">the case two extractors cannot:</text><text class="t" x="16" y="462">both reading the same bad text</text><text class="t" x="16" y="480">the same wrong way.</text>
 </svg>

@@ -2,7 +2,9 @@
 
 The draft marks each figure with a `[FIG-N: label. caption. Source: /path]`
 marker. The site has no idea what to do with those, so this replaces each one
-with a `pl-fig` figure that loads the file from the site's asset tree, drops
+with a `pl-fig` figure: SVG figures are inlined, so they pick up the page's
+brand fonts and light or dark scheme, and photos load from the site's asset
+tree. It also drops
 `draft: true` from the front matter, unquotes its values and sets the publication date.
 
     python3 jev-systemone/scripts/model_that_only_chooses/build_site.py 2026-09-23
@@ -17,7 +19,7 @@ ASSETS = "/assets/research/model-that-only-chooses"
 
 STYLE = """<style>
 .pl-fig { margin: 2.4rem 0; }
-.pl-fig img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.pl-fig img, .pl-fig svg { width: 100%; height: auto; display: block; border-radius: 4px; }
 .pl-fig .figlabel { font-family: var(--pl-font-mono, monospace); font-size: 0.68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--pl-text-muted, #666); display: block; margin-bottom: .9rem; }
 .pl-fig figcaption { font-size: 0.9rem; line-height: 1.5; color: var(--pl-text-muted, #666); margin-top: .8rem; }
 </style>"""
@@ -25,13 +27,24 @@ STYLE = """<style>
 MARKER = re.compile(r"^`\[FIG-(\d+): (.*?) Source: (\S+)\]`$", re.M)
 
 
+def inline_svg(path, n):
+    """One line, so markdown passes it through as a single raw HTML block, and
+    each figure's `.jv` styles renamed to `.jvN` so figures cannot restyle each other."""
+    svg = re.sub(r"<\?xml[^>]*>", "", path.read_text())
+    svg = re.sub(r"\.jv\b", f".jv{n}", svg).replace('class="jv"', f'class="jv{n}"')
+    return " ".join(line.strip() for line in svg.splitlines() if line.strip())
+
+
 def figure(m):
-    text, src = m.group(2).strip(), Path(m.group(3)).name
+    n, text, src = m.group(1), m.group(2).strip(), Path(m.group(3)).name
     label, _, caption = text.partition(". ")
     alt = html.escape(text.rstrip("."), quote=True)
-    return (f'<figure class="pl-fig" id="fig-{m.group(1)}"><span class="figlabel">{html.escape(label)}</span>'
-            f'<img src="{ASSETS}/{src}" alt="{alt}" loading="lazy" />'
-            f'<figcaption>{html.escape(caption)}</figcaption></figure>')
+    if src.endswith(".svg"):
+        body = inline_svg(HERE / src, n)
+    else:
+        body = f'<img src="{ASSETS}/{src}" alt="{alt}" loading="lazy" />'
+    return (f'<figure class="pl-fig" id="fig-{n}"><span class="figlabel">{html.escape(label)}</span>'
+            f'{body}<figcaption>{html.escape(caption)}</figcaption></figure>')
 
 
 def main(date):
