@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="One Jev call. The calling program sends a state, a typed question and the options. Jev returns a probability for each option and writes no text. The program acts on the answer. The probabilities shown are illustrative.">
+  <title>One Jev call</title>
+  <desc>Schematic of a System One call using a moment from Colossal Cave Adventure. The request follows the real API shape; the probabilities are illustrative.</desc>
+  <style>
+    svg { --bg:#fcfcfb; --ink:#0b0b0b; --muted:#52514e; --line:#cfcdc6; --box:#f3f2ee; --accent:#2a78d6; --bar:#b9d2f0; }
+    @media (prefers-color-scheme: dark) {
+      svg { --bg:#1a1a19; --ink:#ffffff; --muted:#c3c2b7; --line:#45443f; --box:#23231f; --accent:#3987e5; --bar:#2c4260; }
+    }
+    .bg { fill: var(--bg); }
+    .box { fill: var(--box); stroke: var(--line); stroke-width: 1; }
+    .jev { fill: var(--bg); stroke: var(--accent); stroke-width: 2; }
+    .h { font: 600 15px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+    .t { font: 13px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--ink); }
+    .s { font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--muted); }
+    .m { font: 12.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--ink); }
+    .mk { font: 12.5px ui-monospace, "SF Mono", Menlo, Consolas, monospace; fill: var(--muted); }
+    .j { font: 600 22px system-ui, -apple-system, "Segoe UI", sans-serif; fill: var(--accent); }
+    .arrow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+    .head { fill: var(--muted); }
+    .bar { fill: var(--bar); }
+    .top { fill: var(--accent); }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="head"/></marker>
+  </defs>
+  <rect class="bg" width="760" height="400"/>
+
+  <!-- request -->
+  <text class="s" x="16" y="26">THE PROGRAM SENDS</text>
+  <rect class="box" x="16" y="38" width="290" height="250" rx="4"/>
+  <text class="mk" x="32" y="66">state</text>
+  <text class="t" x="32" y="88">"It is now pitch dark. If you</text>
+  <text class="t" x="32" y="106">proceed you will likely fall into</text>
+  <text class="t" x="32" y="124">a pit."  carrying: lamp, keys</text>
+  <text class="mk" x="32" y="158">question</text>
+  <text class="m" x="32" y="180">action: choice</text>
+  <text class="mk" x="32" y="214">options, written by the programmer</text>
+  <text class="m" x="32" y="236">turn on lamp · down · north</text>
+  <text class="m" x="32" y="256">east · inventory</text>
+
+  <!-- jev -->
+  <path class="arrow" d="M306 163 H350" marker-end="url(#a)"/>
+  <rect class="jev" x="356" y="103" width="120" height="120" rx="60"/>
+  <text class="j" x="416" y="170" text-anchor="middle">Jev</text>
+  <text class="s" x="416" y="250" text-anchor="middle">scores each option</text>
+  <text class="s" x="416" y="268" text-anchor="middle">writes no text</text>
+  <path class="arrow" d="M476 163 H520" marker-end="url(#a)"/>
+
+  <!-- response -->
+  <text class="s" x="526" y="26">JEV RETURNS</text>
+  <rect class="box" x="526" y="38" width="218" height="250" rx="4"/>
+  <text class="m" x="542" y="72">down</text>
+  <rect class="top" x="542" y="80" width="124" height="10" rx="2"/>
+  <text class="m" x="700" y="90">0.62</text>
+  <text class="m" x="542" y="118">turn on lamp</text>
+  <rect class="bar" x="542" y="126" width="36" height="10" rx="2"/>
+  <text class="m" x="700" y="136">0.18</text>
+  <text class="m" x="542" y="164">north</text>
+  <rect class="bar" x="542" y="172" width="18" height="10" rx="2"/>
+  <text class="m" x="700" y="182">0.09</text>
+  <text class="m" x="542" y="210">east</text>
+  <rect class="bar" x="542" y="218" width="14" height="10" rx="2"/>
+  <text class="m" x="700" y="228">0.07</text>
+  <text class="m" x="542" y="256">inventory</text>
+  <rect class="bar" x="542" y="264" width="8" height="10" rx="2"/>
+  <text class="m" x="700" y="274">0.04</text>
+
+  <!-- back to code -->
+  <path class="arrow" d="M635 288 V330 H161 V296" marker-end="url(#a)"/>
+  <text class="t" x="398" y="352" text-anchor="middle">the program acts on the answer, here by sending the top option, down, to the game</text>
+  <text class="s" x="16" y="388">Schematic. The request follows the real API shape; the probabilities are illustrative.</text>
+</svg>
