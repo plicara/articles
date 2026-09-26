@@ -1,0 +1,354 @@
+{
+  "comparisons": [
+    {
+      "baseline": 20,
+      "configured": 36,
+      "delta": 16,
+      "game": "dreamhold",
+      "metric": "distinct responses, not rooms",
+      "round": "r3"
+    },
+    {
+      "baseline": 23,
+      "configured": 26,
+      "delta": 3,
+      "game": "dreamhold",
+      "metric": "distinct responses, not rooms",
+      "round": "r4"
+    },
+    {
+      "baseline": 14,
+      "configured": 25,
+      "delta": 11,
+      "game": "905",
+      "metric": "distinct responses, not rooms",
+      "round": "r3"
+    },
+    {
+      "baseline": 13,
+      "configured": 25,
+      "delta": 12,
+      "game": "905",
+      "metric": "distinct responses, not rooms",
+      "round": "r4"
+    },
+    {
+      "baseline": 11,
+      "configured": 15,
+      "delta": 4,
+      "game": "lostpig",
+      "metric": "distinct responses, not rooms",
+      "round": "r3"
+    },
+    {
+      "baseline": 13,
+      "configured": 15,
+      "delta": 2,
+      "game": "lostpig",
+      "metric": "distinct responses, not rooms",
+      "round": "r4"
+    },
+    {
+      "baseline": 3,
+      "configured": 7,
+      "delta": 4,
+      "game": "adventure",
+      "metric": "recognized rooms",
+      "round": "r3"
+    }
+  ],
+  "decisions": 13620,
+  "kind": "offline reanalysis of saved transcripts; not a new model run",
+  "look_baselines": {
+    "adventure-baseline": {
+      "death_turn": null,
+      "distinct_responses": 3,
+      "game": "adventure",
+      "game_over_turn": null,
+      "look_count": 174,
+      "look_percent": 58.0,
+      "score": [
+        32,
+        430
+      ],
+      "turns": 300,
+      "turns_underground": 0
+    },
+    "dreamhold-baseline_r4": {
+      "death_turn": null,
+      "distinct_responses": 23,
+      "game": "dreamhold",
+      "game_over_turn": null,
+      "look_count": 79,
+      "look_percent": 26.33,
+      "score": [
+        1,
+        7
+      ],
+      "turns": 300,
+      "turns_underground": 0
+    }
+  },
+  "round5": {
+    "905-gen_jev_plus_r5": {
+      "death_turn": null,
+      "distinct_responses": 88,
+      "game": "905",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "905-gen_jev_r5": {
+      "death_turn": null,
+      "distinct_responses": 131,
+      "game": "905",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "905-gen_self_r5": {
+      "death_turn": null,
+      "distinct_responses": 86,
+      "game": "905",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "905-r2_look_history_r5": {
+      "death_turn": null,
+      "distinct_responses": 25,
+      "game": "905",
+      "game_over_turn": 176,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 176,
+      "turns_underground": 0
+    },
+    "curses-gen_jev_plus_r5": {
+      "death_turn": null,
+      "distinct_responses": 2,
+      "game": "curses",
+      "game_over_turn": 2,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        0,
+        550
+      ],
+      "turns": 2,
+      "turns_underground": 0
+    },
+    "curses-gen_jev_r5": {
+      "death_turn": null,
+      "distinct_responses": 85,
+      "game": "curses",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        0,
+        550
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "curses-gen_self_r5": {
+      "death_turn": null,
+      "distinct_responses": 86,
+      "game": "curses",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        0,
+        550
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "curses-r2_look_history_r5": {
+      "death_turn": null,
+      "distinct_responses": 1,
+      "game": "curses",
+      "game_over_turn": 1,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        0,
+        550
+      ],
+      "turns": 1,
+      "turns_underground": 0
+    },
+    "dreamhold-gen_jev_plus_r5": {
+      "death_turn": null,
+      "distinct_responses": 102,
+      "game": "dreamhold",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "dreamhold-gen_jev_r5": {
+      "death_turn": null,
+      "distinct_responses": 124,
+      "game": "dreamhold",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        1,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "dreamhold-gen_self_r5": {
+      "death_turn": null,
+      "distinct_responses": 93,
+      "game": "dreamhold",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        1,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "dreamhold-r2_look_history_r5": {
+      "death_turn": null,
+      "distinct_responses": 30,
+      "game": "dreamhold",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "gen_jev_plus_r5": {
+      "death_turn": null,
+      "distinct_responses": 12,
+      "game": "adventure",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        59,
+        430
+      ],
+      "turns": 200,
+      "turns_underground": 64
+    },
+    "gen_jev_r5": {
+      "death_turn": null,
+      "distinct_responses": 5,
+      "game": "adventure",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        32,
+        430
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "gen_self_r5": {
+      "death_turn": null,
+      "distinct_responses": 1,
+      "game": "adventure",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        30,
+        430
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "lostpig-gen_jev_plus_r5": {
+      "death_turn": null,
+      "distinct_responses": 87,
+      "game": "lostpig",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        2,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "lostpig-gen_jev_r5": {
+      "death_turn": null,
+      "distinct_responses": 96,
+      "game": "lostpig",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        2,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "lostpig-gen_self_r5": {
+      "death_turn": null,
+      "distinct_responses": 79,
+      "game": "lostpig",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        2,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "lostpig-r2_look_history_r5": {
+      "death_turn": null,
+      "distinct_responses": 15,
+      "game": "lostpig",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": [
+        1,
+        7
+      ],
+      "turns": 200,
+      "turns_underground": 0
+    },
+    "r2_look_history_r5": {
+      "death_turn": 91,
+      "distinct_responses": 7,
+      "game": "adventure",
+      "game_over_turn": null,
+      "look_count": 0,
+      "look_percent": 0.0,
+      "score": null,
+      "turns": 90,
+      "turns_underground": 15
+    }
+  },
+  "transcripts": 57
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "project": "jev-systemone",
+  "repository": "https://github.com/plicara/articles-workbench",
+  "revision": "5453cb177c04dca6bc2f48c98b545ad0c188538b",
+  "files": [
+    {
+      "source": "jev-systemone/README.md",
+      "destination": "README.md",
+      "sha256": "454f29429c8cad3c15bdf6bbdfd0f6888358022486c47b62ee37648dc28f4d69"
+    },
+    {
+      "source": "jev-systemone/01-jev-decisions/article.md.tmpl",
+      "destination": "01-jev-decisions/article.md.tmpl",
+      "sha256": "01c23afc231e3a69d017680fa2252637df64752ca89de7055870c485dac29209"
+    },
+    {
+      "source": "jev-systemone/01-jev-decisions/article.md",
+      "destination": "01-jev-decisions/article.md",
+      "sha256": "5e048381bdaf8fa8c3d050cff66b684524c65a4c3ea067c468a5200f6daba4ea"
+    },
+    {
+      "source": "jev-systemone/01-jev-decisions/article.site.md",
+      "destination": "01-jev-decisions/article.site.md",
+      "sha256": "099458dfcd7e747fea3a0f3fa360c8cd93a428fdc3ec509c69dbfc25067faaee"
+    },
+    {
+      "source": "jev-systemone/01-jev-decisions/preview.html",
+      "destination": "01-jev-decisions/preview.html",
+      "sha256": "dda4d2140376da5c7599e9cc06e0c2443c884650344ddf7a713516858055fa73"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/article.md",
+      "destination": "02-model-that-only-chooses/article.md",
+      "sha256": "40cd10bf3fd4456dfe4d5f417a4265987e085e5927e7b2c6685bf3b1a13ca86a"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/article.site.md",
+      "destination": "02-model-that-only-chooses/article.site.md",
+      "sha256": "4e3c819ffd497d7a409643184c579bafabbda3907597dda9776c0101ffab62dc"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/evidence/2026-09-26/README.md",
+      "destination": "02-model-that-only-chooses/evidence/2026-09-26/README.md",
+      "sha256": "b10857cd9f6ff7c8fc2ff0a0e134aeb5871abacb0aadc4bfbafef7d56f5d70a9"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/evidence/2026-09-26/observations.jsonl",
+      "destination": "02-model-that-only-chooses/evidence/2026-09-26/observations.jsonl",
+      "sha256": "cc6c897974f9e9a25eb38cbca4b734ab0343e1c388be426fa9ad17c8b6a63cac"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/evidence/2026-09-26/provenance.json",
+      "destination": "02-model-that-only-chooses/evidence/2026-09-26/provenance.json",
+      "sha256": "dc9197dcfe48906962ab5db4e5495dd557fe500149f7309bb2f509088fb4b2ce"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/evidence/2026-09-26/replay.py",
+      "destination": "02-model-that-only-chooses/evidence/2026-09-26/replay.py",
+      "sha256": "fd4e7258a26b2f0d4b6229ae3f5a1e270158dd0f0c5d922aca437d97e67c7e17"
+    },
+    {
+      "source": "jev-systemone/02-model-that-only-chooses/evidence/2026-09-26/results.json",
+      "destination": "02-model-that-only-chooses/evidence/2026-09-26/results.json",
+      "sha256": "e89a1d8066df505b1fceae497e130a13c303adc3333a8a89b0cb959ee3d53ffe"
+    }
+  ]
+}

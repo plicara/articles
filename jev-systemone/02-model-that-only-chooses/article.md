@@ -5,8 +5,10 @@ summary: We spent a week pointing Jev at a Doom deathmatch, 370 enterprise docum
 authors: plicara research
 publisher: plicara labs
 slug: model-that-only-chooses
-draft: true
+draft: false
 ---
+
+> **Evidence update, 26 September 2026.** We reran the adventure analysis from 57 saved transcripts containing 13,620 recorded decisions. The seven paired comparisons and the captured round-five scores below reproduce. The [public evidence package](https://github.com/plicara/articles/tree/main/jev-systemone/02-model-that-only-chooses/evidence/2026-09-26) includes per-turn observations, a replay script and a claim-to-source table. This is an offline reanalysis of the original campaign, not a fresh model run. The Doom logs and extraction verdict files were unavailable for this update; those sections remain historical, unverified results rather than reproduced findings.
 
 Over about a week we pointed the [Jev model](https://docs.typesafe.ai/) at a deathmatch against a fruit fly brain, at 370 enterprise documents, at five text adventures spanning 1977 to 2007, and then tried to rebuild it on a laptop as well. We had a lot of fun doing this, and decided to share the learnings for anyone interested.
 
@@ -164,7 +166,7 @@ What really worked was deleting one option, which is quite interesting.
 
 One honest footnote on that table. Only Adventure's numbers are rooms. The other four games print no room title under our interpreter, so their counts are distinct responses, which is to say variety, and by the games' own scores the config made no difference on Lost Pig or Dreamhold. The runs stopped going around in circles everywhere, and Adventure is the only game where that turned into getting further.
 
-The baseline spent 174 of its 300 turns on `look`, which is 58% of the game re-reading text it already had in front of it. Dreamhold's baseline did the same thing at 79 turns.
+The baseline spent 174 of its 300 turns on `look`, which is 58% of the game re-reading text it already had in front of it. Dreamhold's round-four baseline did the same thing at 79 turns.
 
 `[FIG-7: Colossal Cave, one mark per turn. The naive run is a wall of look and in-out shuffling; with look removed it goes down the grate. Source: /jev-systemone/02-model-that-only-chooses/fig-7-look-strip.svg]`
 
@@ -268,6 +270,6 @@ In short, **a model that only chooses is only as good as the choices put in fron
 
 [^naming]: We love the recent naming conventions for ML models, like Anthropic's Claude, and Jev for Jevons. It's nerdy in the best way.
 
-[^doomdata]: The Doom run data was not kept, so the numbers in this section come from our write-up at the time and cannot be re-derived.
+[^doomdata]: These historical numbers come from our write-up at the time. The original run data was not available for the 26 September 2026 reanalysis, so the survival and kill counts in this section remain unverified. Later Doom experiments are documented separately and cannot stand in for this head-to-head run.
 
 [^lamp]: The round 5 result is from a single run of each arm.
