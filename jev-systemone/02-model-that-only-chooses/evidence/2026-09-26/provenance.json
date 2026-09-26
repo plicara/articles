@@ -1,0 +1,16 @@
+{
+  "kind": "offline transcript reanalysis",
+  "date": "2026-09-26",
+  "source_repository": "https://github.com/plicara/jev-tests",
+  "source_revision": "2ab0d5dc0fbfabfe278ad077d21fd97e086fd20d",
+  "source_files": {
+    "jev-adventure/export_observations.py": "6863308001c117c9f51d0cc994b8ffe3dec83810bdd1c186a5d560ef2a7b7ce9",
+    "jev-adventure/analyze.py": "911c054d9b10d8be8dbf16b0655d727ce302110dcead18c9f750c2e8ac9a4cab",
+    "jev-adventure/player.py": "30b7fae69545ee69e53adc9a7568713d5cbeda3be13e8adcee88c8c912e0c58e",
+    "jev-adventure/experiments.py": "701c383f706a18f7d71bc05208284eb417ed3fdddd9c4129f39d7fb94d1131de"
+  },
+  "observations_sha256": "cc6c897974f9e9a25eb38cbca4b734ab0343e1c388be426fa9ad17c8b6a63cac",
+  "export_command": "python3 jev-adventure/export_observations.py OUTPUT.jsonl",
+  "originals_public": false,
+  "new_inference_calls": 0
+}
