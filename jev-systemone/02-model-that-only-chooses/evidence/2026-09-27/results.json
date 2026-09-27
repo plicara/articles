@@ -1,0 +1,458 @@
+{
+  "doom": {
+    "kill_change_percent": 43.37349397590362,
+    "runs": [
+      {
+        "arm": "prose_v5",
+        "deaths": 9,
+        "kills": 30,
+        "run": "jev-20260923-142839",
+        "seconds": 90.0,
+        "seed": 41027
+      },
+      {
+        "arm": "prose_v5",
+        "deaths": 12,
+        "kills": 27,
+        "run": "jev-20260923-143123",
+        "seconds": 90.0,
+        "seed": 1337
+      },
+      {
+        "arm": "prose_v5",
+        "deaths": 12,
+        "kills": 29,
+        "run": "jev-20260923-143410",
+        "seconds": 90.0,
+        "seed": 7777
+      },
+      {
+        "arm": "prose_v5",
+        "deaths": 10,
+        "kills": 33,
+        "run": "jev-20260923-143653",
+        "seconds": 90.0,
+        "seed": 20260923
+      },
+      {
+        "arm": "grid_v3_control",
+        "deaths": 12,
+        "kills": 25,
+        "run": "jev-20260923-144325",
+        "seconds": 90.0,
+        "seed": 41027
+      },
+      {
+        "arm": "grid_v3_control",
+        "deaths": 10,
+        "kills": 21,
+        "run": "jev-20260923-144610",
+        "seconds": 90.0,
+        "seed": 1337
+      },
+      {
+        "arm": "grid_v3_control",
+        "deaths": 12,
+        "kills": 16,
+        "run": "jev-20260923-144902",
+        "seconds": 90.0,
+        "seed": 7777
+      },
+      {
+        "arm": "grid_v3_control",
+        "deaths": 11,
+        "kills": 21,
+        "run": "jev-20260923-145150",
+        "seconds": 90.0,
+        "seed": 20260923
+      }
+    ],
+    "totals": {
+      "grid_v3_control": {
+        "deaths": 45,
+        "kills": 83,
+        "seconds": 360.0
+      },
+      "prose_v5": {
+        "deaths": 43,
+        "kills": 119,
+        "seconds": 360.0
+      }
+    }
+  },
+  "extraction": {
+    "in_text_verdicts": 29635,
+    "label_transitions": {
+      "OK -> OK": 28568,
+      "WRONG -> AMBIGUOUS": 118,
+      "WRONG -> OK": 292,
+      "WRONG -> WRONG": 657
+    },
+    "labels": {
+      "label_v1": {
+        "all_boolean": {
+          "OK": {
+            "flagged": 4327,
+            "rate": 0.15146317558106973,
+            "total": 28568
+          },
+          "WRONG": {
+            "flagged": 347,
+            "rate": 0.3252108716026242,
+            "total": 1067
+          }
+        },
+        "below_005": {
+          "correct": 411,
+          "total": 438
+        },
+        "calibration": [
+          {
+            "bin": 0,
+            "correct": 1194,
+            "mean_probability": 0.05627435697583796,
+            "total": 1283
+          },
+          {
+            "bin": 1,
+            "correct": 1002,
+            "mean_probability": 0.14099284436493725,
+            "total": 1118
+          },
+          {
+            "bin": 2,
+            "correct": 806,
+            "mean_probability": 0.24637323943661968,
+            "total": 852
+          },
+          {
+            "bin": 3,
+            "correct": 761,
+            "mean_probability": 0.34225766871165686,
+            "total": 815
+          },
+          {
+            "bin": 4,
+            "correct": 564,
+            "mean_probability": 0.4458910891089107,
+            "total": 606
+          },
+          {
+            "bin": 5,
+            "correct": 682,
+            "mean_probability": 0.54954116059379,
+            "total": 741
+          },
+          {
+            "bin": 6,
+            "correct": 910,
+            "mean_probability": 0.6461820083682019,
+            "total": 956
+          },
+          {
+            "bin": 7,
+            "correct": 1388,
+            "mean_probability": 0.7476203768318223,
+            "total": 1433
+          },
+          {
+            "bin": 8,
+            "correct": 1952,
+            "mean_probability": 0.8485908877407098,
+            "total": 2129
+          },
+          {
+            "bin": 9,
+            "correct": 19309,
+            "mean_probability": 0.9739600040604185,
+            "total": 19702
+          }
+        ],
+        "comparison": {
+          "jev_boolean": {
+            "OK": {
+              "flagged": 4327,
+              "rate": 0.15146317558106973,
+              "total": 28568
+            },
+            "WRONG": {
+              "flagged": 346,
+              "rate": 0.324577861163227,
+              "total": 1066
+            }
+          },
+          "peer_majority": {
+            "OK": {
+              "flagged": 299,
+              "rate": 0.010466255950714086,
+              "total": 28568
+            },
+            "WRONG": {
+              "flagged": 689,
+              "rate": 0.6463414634146342,
+              "total": 1066
+            }
+          },
+          "uniform_peer": {
+            "OK": {
+              "flagged": 617.3268721474561,
+              "rate": 0.021609033609194066,
+              "total": 28568
+            },
+            "WRONG": {
+              "flagged": 626.041010052039,
+              "rate": 0.5872804972345582,
+              "total": 1066
+            }
+          }
+        },
+        "e2_baseline": {
+          "OK": {
+            "flagged": 4232,
+            "rate": 0.15162480742359644,
+            "total": 27911
+          },
+          "WRONG": {
+            "flagged": 340,
+            "rate": 0.32567049808429116,
+            "total": 1044
+          }
+        },
+        "e2_enriched": {
+          "OK": {
+            "flagged": 3974,
+            "rate": 0.14238114005230912,
+            "total": 27911
+          },
+          "WRONG": {
+            "flagged": 263,
+            "rate": 0.25191570881226055,
+            "total": 1044
+          }
+        },
+        "e2_focused": {
+          "OK": {
+            "flagged": 5384,
+            "rate": 0.19289885708143742,
+            "total": 27911
+          },
+          "WRONG": {
+            "flagged": 378,
+            "rate": 0.3620689655172414,
+            "total": 1044
+          }
+        },
+        "e4_boolean": {
+          "OK": {
+            "flagged": 3881,
+            "rate": 0.15321148000473728,
+            "total": 25331
+          },
+          "WRONG": {
+            "flagged": 315,
+            "rate": 0.33298097251585623,
+            "total": 946
+          }
+        },
+        "e4_fused": {
+          "OK": {
+            "flagged": 6840,
+            "rate": 0.2700248707117761,
+            "total": 25331
+          },
+          "WRONG": {
+            "flagged": 461,
+            "rate": 0.48731501057082455,
+            "total": 946
+          }
+        },
+        "exactly_zero_count": 0,
+        "jev_only_catches": 86,
+        "majority_only_catches": 429
+      },
+      "label_v2": {
+        "all_boolean": {
+          "OK": {
+            "flagged": 4381,
+            "rate": 0.1518018018018018,
+            "total": 28860
+          },
+          "WRONG": {
+            "flagged": 281,
+            "rate": 0.4277016742770167,
+            "total": 657
+          }
+        },
+        "below_005": {
+          "correct": 411,
+          "total": 438
+        },
+        "calibration": [
+          {
+            "bin": 0,
+            "correct": 1211,
+            "mean_probability": 0.0562295081967214,
+            "total": 1281
+          },
+          {
+            "bin": 1,
+            "correct": 1015,
+            "mean_probability": 0.14088208820882075,
+            "total": 1111
+          },
+          {
+            "bin": 2,
+            "correct": 812,
+            "mean_probability": 0.24633372502937717,
+            "total": 851
+          },
+          {
+            "bin": 3,
+            "correct": 773,
+            "mean_probability": 0.34226322263222675,
+            "total": 813
+          },
+          {
+            "bin": 4,
+            "correct": 570,
+            "mean_probability": 0.4458910891089107,
+            "total": 606
+          },
+          {
+            "bin": 5,
+            "correct": 683,
+            "mean_probability": 0.5495095367847391,
+            "total": 734
+          },
+          {
+            "bin": 6,
+            "correct": 915,
+            "mean_probability": 0.6461280167890882,
+            "total": 953
+          },
+          {
+            "bin": 7,
+            "correct": 1392,
+            "mean_probability": 0.7476310272536697,
+            "total": 1431
+          },
+          {
+            "bin": 8,
+            "correct": 2002,
+            "mean_probability": 0.848534971644599,
+            "total": 2116
+          },
+          {
+            "bin": 9,
+            "correct": 19487,
+            "mean_probability": 0.9740517812546925,
+            "total": 19621
+          }
+        ],
+        "comparison": {
+          "jev_boolean": {
+            "OK": {
+              "flagged": 4381,
+              "rate": 0.1518018018018018,
+              "total": 28860
+            },
+            "WRONG": {
+              "flagged": 280,
+              "rate": 0.4268292682926829,
+              "total": 656
+            }
+          },
+          "peer_majority": {
+            "OK": {
+              "flagged": 324,
+              "rate": 0.011226611226611227,
+              "total": 28860
+            },
+            "WRONG": {
+              "flagged": 557,
+              "rate": 0.8490853658536586,
+              "total": 656
+            }
+          },
+          "uniform_peer": {
+            "OK": {
+              "flagged": 645.656660986067,
+              "rate": 0.022372025675192895,
+              "total": 28860
+            },
+            "WRONG": {
+              "flagged": 513.6033780761719,
+              "rate": 0.7829319787746523,
+              "total": 656
+            }
+          }
+        },
+        "e2_baseline": {
+          "OK": {
+            "flagged": 4284,
+            "rate": 0.15192028086102344,
+            "total": 28199
+          },
+          "WRONG": {
+            "flagged": 276,
+            "rate": 0.43057722308892354,
+            "total": 641
+          }
+        },
+        "e2_enriched": {
+          "OK": {
+            "flagged": 3999,
+            "rate": 0.14181353948721587,
+            "total": 28199
+          },
+          "WRONG": {
+            "flagged": 227,
+            "rate": 0.3541341653666147,
+            "total": 641
+          }
+        },
+        "e2_focused": {
+          "OK": {
+            "flagged": 5461,
+            "rate": 0.19365934962232703,
+            "total": 28199
+          },
+          "WRONG": {
+            "flagged": 291,
+            "rate": 0.4539781591263651,
+            "total": 641
+          }
+        },
+        "e4_boolean": {
+          "OK": {
+            "flagged": 3928,
+            "rate": 0.1535334584115072,
+            "total": 25584
+          },
+          "WRONG": {
+            "flagged": 257,
+            "rate": 0.43781942078364566,
+            "total": 587
+          }
+        },
+        "e4_fused": {
+          "OK": {
+            "flagged": 6890,
+            "rate": 0.2693089430894309,
+            "total": 25584
+          },
+          "WRONG": {
+            "flagged": 391,
+            "rate": 0.666098807495741,
+            "total": 587
+          }
+        },
+        "exactly_zero_count": 0,
+        "jev_only_catches": 40,
+        "majority_only_catches": 317
+      }
+    },
+    "peer_eligible": 29634
+  },
+  "kind": "offline reanalysis of recovered records; no new inference"
+}
