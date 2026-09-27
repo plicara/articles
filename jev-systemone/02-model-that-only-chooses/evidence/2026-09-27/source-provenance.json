@@ -1,0 +1,18 @@
+{
+  "doom_exporter_sha256": "fe64c39d84f111f18cda85b7d246198c5f3c9d2cffbd13dcfb2e0d00d79dea10",
+  "doom_ledger_sha256": "42fb7b3e3dd1749a5582fa962ea905d001451fe597d2d7e68e53b97cfdba5736",
+  "kind": "offline reanalysis; no new inference",
+  "raw_record_counts": {
+    "choice_results.jsonl": 2707,
+    "e1_status.jsonl": 29635,
+    "e2_states.jsonl": 59603,
+    "e3_selector.jsonl": 29123,
+    "e4_bank.jsonl": 29802,
+    "missed_second.jsonl": 24312,
+    "verify_results.jsonl": 96680
+  },
+  "source_revisions": {
+    "jev-tests": "17da012590ab1742d4f04e26af5ab05478fa2fff",
+    "jevlike-extraction-bench": "ebcbfbc68500e358dd12d91730fbb2ccb932d507"
+  }
+}
