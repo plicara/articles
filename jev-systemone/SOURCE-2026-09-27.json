@@ -2,7 +2,7 @@
   "schema_version": 1,
   "project": "jev-systemone",
   "repository": "https://github.com/plicara/articles-workbench",
-  "revision": "7fdf8e09cf60250852fde1c6021dce70b710f438",
+  "revision": "b4c1b55fe742eb4cce874fd77657b921a04a2c29",
   "files": [
     {
       "source": "jev-systemone/README.md",
@@ -12,12 +12,12 @@
     {
       "source": "jev-systemone/02-model-that-only-chooses/article.md",
       "destination": "02-model-that-only-chooses/article.md",
-      "sha256": "8e1a0371d581390e086797fedd739ab4be081aaf9c560e180401c71a673b27e1"
+      "sha256": "828a130cadeecf4faff926e1a1fc5b6469d44f054133e49e56c2724a2c18dbe0"
     },
     {
       "source": "jev-systemone/02-model-that-only-chooses/article.site.md",
       "destination": "02-model-that-only-chooses/article.site.md",
-      "sha256": "7ae0f2a33b251a3d8f0a544cce502fc21e53a5c995a19a84ce07f4c75c7e7c0d"
+      "sha256": "23dfeb970d378abc01e2e29d8a63dce1f7b3c54e81ffe175db472f89aecdf2b5"
     },
     {
       "source": "jev-systemone/02-model-that-only-chooses/fig-4-question-bank.svg",
