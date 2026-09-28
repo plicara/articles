@@ -5,7 +5,12 @@ description: "Public snapshots of analysis code and evidence supporting publishe
 kind: collection
 status: maintained
 repository: https://github.com/plicara/articles
-projects:
+python:
   - gitskills-analysis
-  - filter-censorship
-  - jev-systemone
+related:
+  - id: gitskills-analysis
+    relationship: published-snapshot-of
+  - id: filter-censorship
+    relationship: published-snapshot-of
+  - id: jev-systemone
+    relationship: published-snapshot-of
