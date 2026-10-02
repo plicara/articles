@@ -1,0 +1,95 @@
+{
+  "about": "Audit outcomes of the v0.4.0 cross-language sweep, one entry per audit. Split by project from the prose of the package's dated note (2026-09-28-cross-language-dogfood.md); the totals reconcile with that note (28 audits: 22 complete, 4 checks_failed, 2 open_findings). The raw session logs are not published, so the per-project split is author-derived, not recomputed from logs. The order of audits inside a project is not recorded here.",
+  "note_url": "https://github.com/plicara/pi-audit-loop/blob/v0.4.0/.plicara/notes/2026-09-28-cross-language-dogfood.md",
+  "model": "opencode-go/mimo-v2.6-flash",
+  "projects": [
+    {
+      "project": "cJSON",
+      "language": "C",
+      "audits": [
+        "open_findings",
+        "complete"
+      ]
+    },
+    {
+      "project": "zlib",
+      "language": "C",
+      "audits": [
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "itoa",
+      "language": "Rust",
+      "audits": [
+        "complete",
+        "complete",
+        "open_findings",
+        "complete",
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "Ryu",
+      "language": "Rust",
+      "audits": [
+        "checks_failed",
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "GJSON",
+      "language": "Go",
+      "audits": [
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "SJSON",
+      "language": "Go",
+      "audits": [
+        "checks_failed",
+        "checks_failed",
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "Ky",
+      "language": "TypeScript",
+      "audits": [
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "p-queue",
+      "language": "TypeScript",
+      "audits": [
+        "complete",
+        "complete"
+      ]
+    },
+    {
+      "project": "sqlite-utils",
+      "language": "Python",
+      "audits": [
+        "complete",
+        "checks_failed",
+        "complete"
+      ]
+    },
+    {
+      "project": "Python project",
+      "language": "Python",
+      "audits": [
+        "complete",
+        "complete"
+      ]
+    }
+  ]
+}

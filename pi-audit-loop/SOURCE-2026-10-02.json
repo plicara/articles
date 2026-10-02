@@ -1,0 +1,31 @@
+{
+  "source_repository": "plicara/articles-workbench",
+  "source_revision": "b08037941aeb8197b2c9f80ff3151715cc798acd",
+  "source_project": "pi-audit-loop",
+  "note": "Release snapshot of the reviewed allowlist, built by scripts/build_public_bundle.py in the source project. Private notes, verification notes and raw session logs are not exported.",
+  "files": {
+    "scripts/matrix/PROTOCOL.md": "e43333be0dc7e0d1131d39b7892205376115e4aeed0631610d0e574a70b2c388",
+    "scripts/matrix/ground-truth.md": "ee3b1e53c44c283d199d994226fb010778653468dda6801b18979f483e74323f",
+    "scripts/matrix/score.py": "9282296c9d214eb5e0961ef6704de97da5e8fda2a4dbdb0ff28a79929c705d8d",
+    "scripts/matrix/run_matrix.sh": "b125d45b97870636dfe9d008c554508d82b4de0a28e6b132db893938dbe766f8",
+    "scripts/dogfood/run.sh": "2a8e49b17eb9b8d7609d53a5d67b9b223e3c2bf8a483b4c1b995a9943365494b",
+    "scripts/verify_evidence.py": "75cdd4f90ad4cd7d0b06540d3ee9fdf1e6bd40dbde5ddd90e0b65e324c6963c0",
+    "results/figures.json": "a53c93d22076da47e3dc4917cbd2795e9da3a44c6a47671887b96aeb41c3b825",
+    "scripts/matrix/fixtures/A-bug/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/matrix/fixtures/A-bug/src/pricing.py": "0e881843fc5e2e9d5f0be744e837e0103a1e7f79cef0305ca84ec2dcc0f01883",
+    "scripts/matrix/fixtures/A-bug/tests/test_pricing.py": "d8ba64895ade41fc628a75503e803908a4156872c0d1850150cba3ac51d6426f",
+    "scripts/matrix/fixtures/B-simplify/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/matrix/fixtures/B-simplify/src/report.py": "7e52d14a95c5000f724a78bc8a1a945bbf6fde6b88e3384237a341889cfb816d",
+    "scripts/matrix/fixtures/B-simplify/tests/test_report.py": "9d855e19c1537b8eda29c2dd30a8c6d343e2f2fd07eb7670290172e7fd4aa3cc",
+    "scripts/matrix/fixtures/C-clean/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/matrix/fixtures/C-clean/src/stats.py": "2c863fd5279b818e60939002ca2829f2db3178cae7d679cd19f68b7a5dd61e3b",
+    "scripts/matrix/fixtures/C-clean/tests/test_stats.py": "f3f3ecd90e54a3bac53410a88554ed80ace4cbfbdc0708787590d6b812f49bd7",
+    "scripts/matrix/fixtures/D-failing/src/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/matrix/fixtures/D-failing/src/window.py": "88521992a4c3d9dfa766854ff3485015165826a1e3999570b4ec0c2fc95dbdda",
+    "scripts/matrix/fixtures/D-failing/tests/test_window.py": "f6269e2206edd038d4ad1e420eac16e86cee977347de7eab35cf5bcad55ba3ee",
+    "results/dogfood.md": "e9de0bd561dcabf4d21d2ac5463300cbdd7df8d3d9679dfb901c7e7e154c5298",
+    "results/evidence.json": "078f431690abd3c565b8031fecc7451895f9efb9cf719a141cc2d9c48cfc228b",
+    "results/matrix.md": "d106c4322851acabeda101f094f7d5764d32e2b093dc64ba06526beef5649bf8",
+    "results/sweep-outcomes.json": "16d17cc40f4b2430a12055d7c1c92bbfb920c8f66df27b91747e6a3f51a30bba"
+  }
+}

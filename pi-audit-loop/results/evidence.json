@@ -1,0 +1,920 @@
+{
+  "aggregate": {
+    "fixture_runs": 26,
+    "real_repository_runs": 2,
+    "probes": 2,
+    "non_probe_runs": 28,
+    "clean_calls": 18,
+    "clean_with_prior_successful_test_result": 18,
+    "non_probe_rejections": 0,
+    "terminal_states": {
+      "nothing_left": 10,
+      "review_clean": 18
+    },
+    "discarded_logs": 3,
+    "initial_runs": 18,
+    "duplication_detection": {
+      "muse": [
+        1,
+        0,
+        1
+      ],
+      "deepseek": [
+        1,
+        1,
+        1
+      ],
+      "luna": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "skill_read_cohorts": [
+    {
+      "name": "initial matrix plus v2",
+      "total": 21,
+      "read_calls": 7
+    },
+    {
+      "name": "v2 only",
+      "total": 3,
+      "read_calls": 0
+    }
+  ],
+  "recorded_probes": {
+    "concurrency_calls": 200,
+    "concurrency_failures": 197,
+    "sqlite_passed": 1485,
+    "sqlite_skipped": 19
+  },
+  "source": "Per-session counts and hashes exported from the original local session logs; transcripts and file names are not published.",
+  "sessions": [
+    {
+      "name": "a-bug-muse-spark-1.3-contributor-r1",
+      "sha256": "fd3b931da3e699968c0d14596a334008d63fc414786b505483d8e3ba2d72f9d1",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "A-bug",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s01"
+    },
+    {
+      "name": "A-bug-a-bug-deepseek",
+      "sha256": "5e0bf3869ef4f01cf5011e8b0eff0e8476335d280531f0fec1ef0328c0991b6f",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "A-bug",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s02"
+    },
+    {
+      "name": "A-bug-a-bug-luna",
+      "sha256": "ea9608bca798ed235c9e32218206ecf953b7b54c8f4a1231854b66781face5f2",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "A-bug",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s03"
+    },
+    {
+      "name": "C-clean-C-clean-muse",
+      "sha256": "fef04d55e4f2d758ef819f16d0c33d0d21cdc1b5ba9f06bf29a4f7e95ab84636",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "C-clean",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s04"
+    },
+    {
+      "name": "C-clean-C-clean-deepseek",
+      "sha256": "4b4a6b1ec9481a8cde84f01de93c4f03fa80965e2da51951f7fe3cc3aa16e73b",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "C-clean",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s05"
+    },
+    {
+      "name": "C-clean-C-clean-luna",
+      "sha256": "f472b18d47ccb09ee7b1a0d3f94ace16624ad3b6c10663f38d051c430a598e17",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "C-clean",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s06"
+    },
+    {
+      "name": "B-simplify-B-simplify-muse",
+      "sha256": "052baa125337e250d439455ac0c1f2bcdb3ed6fb3b0d2f80a2bdab866a0be92e",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 3
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s07"
+    },
+    {
+      "name": "B-simplify-B-simplify-deepseek",
+      "sha256": "830d6da8666dc770a4f6266f632fc9bfa77a7f045d9f55556233fe85590d4fae",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 2
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s08"
+    },
+    {
+      "name": "B-simplify-B-simplify-luna",
+      "sha256": "695aa1ddec3fc163c3cd4d2c4f3c5df28ae30030ea3a5ccacbba18a144efd4dd",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s09"
+    },
+    {
+      "name": "B-simplify-B-simplify-muse-r2",
+      "sha256": "a28cda3f5646fcf3654507362699d6e6215e9f51b0fc7f0cdf75d03a3b087fde",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s10"
+    },
+    {
+      "name": "B-simplify-B-simplify-muse-r3",
+      "sha256": "3b6b3df6693a59e78a2bb4743c2f38998bea2fa08828022ffa4dd1a4bc35c682",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 3
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s11"
+    },
+    {
+      "name": "B-simplify-B-simplify-deepseek-r2",
+      "sha256": "1e4408f9026f48445c5613c8d1331e84157fdcf3ce900fdf6a69cff08f5bd7e1",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 2
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s12"
+    },
+    {
+      "name": "B-simplify-B-simplify-deepseek-r3",
+      "sha256": "0890e956211adeb965d88eb6e5b8e15aa5ba887caf2856f110b5d0c150b1aff2",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 3
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s13"
+    },
+    {
+      "name": "B-simplify-B-simplify-luna-r2",
+      "sha256": "f05e93845f6bd4a3200e750377a96349bff4eaa04f00894d459bf3765792637b",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s14"
+    },
+    {
+      "name": "B-simplify-B-simplify-luna-r3",
+      "sha256": "f8c8030d300173b25bef440e67ed0effe42dec018f1e3dcde3dacafc623c854b",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "B-simplify",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s15"
+    },
+    {
+      "name": "D-failing-D-failing-muse",
+      "sha256": "b777b5883f47340e85bf3555900a03ebf5fdca3a80f9e2368d6b7918bfe160db",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s16"
+    },
+    {
+      "name": "D-failing-D-failing-deepseek",
+      "sha256": "f391ec77c7cf4e3e0b6d87935c690cc0a80dcffc188ec3760424f1199aec8bcb",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 2
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s17"
+    },
+    {
+      "name": "D-failing-D-failing-luna",
+      "sha256": "975ba257fd133bd29c0c2024d7f1a049bf5750166de4c3856c7af3ba95a47da0",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 2
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s18"
+    },
+    {
+      "name": "D-failing-D-failing-muse-v2",
+      "sha256": "ffa93780abb97bade443700c7ffe2c717be45d9b446285e03f3628de1b657296",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s19"
+    },
+    {
+      "name": "D-failing-D-failing-deepseek-v2",
+      "sha256": "419d1bc686865b001097e52f51269f15419e3ae053f74efb47f328efe73839a5",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s20"
+    },
+    {
+      "name": "D-failing-D-failing-luna-v2",
+      "sha256": "96b77cc690cb181678dd206b09efb93a6386de59d908329416a03d210d753d7c",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 2
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s21"
+    },
+    {
+      "name": "D-failing-D-failing-muse-v3",
+      "sha256": "b78800fb530d54746d9220dfde9906aaba1f943d99b2d1c157c69786a9836fc4",
+      "model": "opencode-go/muse-spark-1.3-contributor",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s22"
+    },
+    {
+      "name": "D-failing-D-failing-deepseek-v3",
+      "sha256": "dd404d9d94b298caeb3acd8516906325311e2868ade3f6eeac399823f1f7a356",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 1
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 3
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s23"
+    },
+    {
+      "name": "D-failing-D-failing-luna-v3",
+      "sha256": "3fecb7d3dd2f357b78a7c893b6d3a65f890fd89dd2330210bf0021da53ddc44a",
+      "model": "opencode-go/gpt-5.6-luna",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": false,
+      "id": "s24"
+    },
+    {
+      "name": "D-failing-D-failing-gate-v1",
+      "sha256": "d691b030a95a90b70cdc20744476a39e194ef9e1210b8974559188ee145665e9",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "D-failing",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 1,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [
+        false
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 1,
+      "has_enforced_test_state": true,
+      "id": "s25"
+    },
+    {
+      "name": "C-clean-C-clean-gate",
+      "sha256": "41c0b3df2d4ef571ab0c22049ee6811f777189bbae10b69678ba9519dc0472c5",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "C-clean",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": true,
+      "id": "s26"
+    },
+    {
+      "name": "gate-probe",
+      "sha256": "bbc9dcdbfad66b091e3925335c8861f7288771830c142a8dab0ca5035456eb30",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "C-clean",
+      "probe": true,
+      "reviews": [],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": null,
+      "terminal_findings": 0,
+      "has_enforced_test_state": true,
+      "id": "s27"
+    },
+    {
+      "name": "gate-probe-2",
+      "sha256": "201f08899992d894b331dbc1dfd64eb775cec6e70b8f4642ce684d2773dbbb9d",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "C-clean",
+      "probe": true,
+      "reviews": [
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 0
+        }
+      ],
+      "simplify_changed": [],
+      "skill_read_call": false,
+      "rejections": [
+        "audit_rejected: audit_review refused: verdict=clean needs a successful run of the loop's test command since the last change. Run it first: echo TESTS Expected next tool: audit_review."
+      ],
+      "gate": null,
+      "terminal_findings": 0,
+      "has_enforced_test_state": true,
+      "id": "s28"
+    },
+    {
+      "name": "loadstar-deepseek",
+      "sha256": "5444eab363fc2b9200873389e9034b48e77387829fb866b835859a65866c3c11",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "loadstar-deepseek",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 6,
+          "successful_test_results_before_call": 0
+        },
+        {
+          "verdict": "clean",
+          "findings": 0,
+          "successful_test_results_before_call": 1
+        }
+      ],
+      "simplify_changed": [
+        true
+      ],
+      "skill_read_call": false,
+      "rejections": [],
+      "gate": "review_clean",
+      "terminal_findings": 0,
+      "has_enforced_test_state": false,
+      "id": "s29"
+    },
+    {
+      "name": "sqlite-utils-deepseek",
+      "sha256": "ac1f871116616174a0cb842d97febd0a37787ed6e54a681ba82664f0b017b220",
+      "model": "opencode-go/deepseek-v4.1-flash",
+      "fixture": "sqlite-utils-deepseek",
+      "probe": false,
+      "reviews": [
+        {
+          "verdict": "changes_requested",
+          "findings": 3,
+          "successful_test_results_before_call": 2
+        },
+        {
+          "verdict": "changes_requested",
+          "findings": 3,
+          "successful_test_results_before_call": 4
+        },
+        {
+          "verdict": "changes_requested",
+          "findings": 3,
+          "successful_test_results_before_call": 5
+        },
+        {
+          "verdict": "changes_requested",
+          "findings": 3,
+          "successful_test_results_before_call": 6
+        }
+      ],
+      "simplify_changed": [
+        true,
+        true,
+        true,
+        false
+      ],
+      "skill_read_call": true,
+      "rejections": [],
+      "gate": "nothing_left",
+      "terminal_findings": 3,
+      "has_enforced_test_state": false,
+      "id": "s30"
+    }
+  ],
+  "deterministic_checks": {
+    "baseline": [
+      {
+        "fixture": "A-bug",
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 3 tests in 0.000s\n\nOK"
+      },
+      {
+        "fixture": "B-simplify",
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK"
+      },
+      {
+        "fixture": "C-clean",
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK"
+      },
+      {
+        "fixture": "D-failing",
+        "exit_code": 1,
+        "output": "======================================================================\nFAIL: test_zero_returns_empty (test_window.TestLastN)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"<workbench>/matrix/fixtures/D-failing/tests/test_window.py\", line 11, in test_zero_returns_empty\n    self.assertEqual(last_n([1, 2, 3, 4], 0), [])\nAssertionError: Lists differ: [1, 2, 3, 4] != []\n\nFirst list contains 4 additional elements.\nFirst extra element 0:\n1\n\n- [1, 2, 3, 4]\n+ []\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nFAILED (failures=1)"
+      }
+    ],
+    "candidate_suite": {
+      "tests": 4,
+      "successful": true,
+      "output": "....\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK"
+    },
+    "slice_sweep": [
+      {
+        "n": 0,
+        "expected": [],
+        "candidate": []
+      },
+      {
+        "n": 1,
+        "expected": [
+          3
+        ],
+        "candidate": [
+          3
+        ]
+      },
+      {
+        "n": 2,
+        "expected": [
+          2,
+          3
+        ],
+        "candidate": [
+          2,
+          3
+        ]
+      },
+      {
+        "n": 3,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "n": 4,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          3
+        ]
+      },
+      {
+        "n": 5,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          2,
+          3
+        ]
+      },
+      {
+        "n": 6,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "n": 7,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "n": 8,
+        "expected": [
+          1,
+          2,
+          3
+        ],
+        "candidate": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  }
+}

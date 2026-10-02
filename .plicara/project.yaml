@@ -14,3 +14,5 @@ related:
     relationship: published-snapshot-of
   - id: jev-systemone
     relationship: published-snapshot-of
+  - id: pi-audit-loop
+    relationship: published-snapshot-of
