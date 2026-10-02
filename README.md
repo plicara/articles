@@ -34,6 +34,7 @@ duplicate them. Scripts are grouped by article inside `scripts/`.
 | [`gitskills-analysis/`](gitskills-analysis) | The GitSkills series, on 3.8M `SKILL.md` agent-skill files from GitHub. Article 01: what natural language are agent skills written in? |
 | [`filter-censorship/`](filter-censorship) | How provider-side content filters corrupt benchmark results. Article 01: a safety filter moved our benchmark by seven places. |
 | [`jev-systemone/`](jev-systemone) | TypeSafe's Jev System One model. Article 01: a model that answers in probabilities. Article 02: jev, three use cases, a ton of learnings. |
+| [`pi-audit-loop/`](pi-audit-loop) | The evidence behind the Pi Audit Loop article: fixtures, scorer, per-session counts and the v0.4.0 sweep outcomes. Raw session logs are not published. |
 
 Code arrives here only once the piece that uses it is out, so a folder may
 cover fewer articles than its series eventually runs to. Until then it lives
