@@ -2,8 +2,8 @@
 title: jev: three use cases, a ton of learnings
 date: 2026-09-23
 summary: We spent a week pointing Jev at a Doom deathmatch, 370 enterprise documents, five text adventures and a laptop reimplementation.
-author: Adrian Tame
-author_url: https://github.com/AdrianTJ
+author: Adrian Tame Jacobo
+author_url: https://adriantj.github.io/
 publisher: Plicara Labs
 slug: model-that-only-chooses
 ---
